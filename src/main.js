@@ -1,21 +1,29 @@
-import './assets/main.css'
+import './assets/scss/main.scss'
+
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-
-// Import our custom CSS
-import '../scss/styles.scss'
-
-// Import all of Bootstrap's JS
-//import * as bootstrap from 'bootstrap'
+import './assets/scss/custom.scss'
 
 import App from './App.vue'
 import router from './router'
+
+// import {VueMq} from 'vue3-mq'
+
 
 const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)
-//app.use(bootstrap)
+
+// app.use(VueMq, {
+//     breakpoints: {
+//         sm: 450,
+//             md: 1250,
+//             lg: Infinity,
+//     },
+//     defaultBreakpoint: 'sm' // customize this for SSR
+
+// })
 
 app.mount('#app')
