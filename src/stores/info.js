@@ -4,6 +4,7 @@ import {defineStore} from 'pinia'
 export const useInfoStore = defineStore('info', {
     state: () => ({
         mail:'OMGtravel@omg.com',
+        sociales:[],
         phone: '+54 11 444 5555',
         socials: [
             {
@@ -29,5 +30,8 @@ export const useInfoStore = defineStore('info', {
         ]
     }),
     actions: {
+        fetchSociales() {
+            fe
+        }
     },
 })

@@ -1,5 +1,5 @@
 <script setup>
-
+import OmgButton from '@/components/OmgButton.vue';
 import { useHelpersStore as helpers } from '@/stores/helpers'
 import { useInfoStore as info } from '@/stores/info'
 import Icon from '@/components/AIcon.vue'
@@ -14,14 +14,7 @@ const contacts = [
     <header class="header">
         <nav class="nav-bar">
             <img class="logo" :src="helpers().getImagePath('logo.png')" alt="Logo OMG Travel">
-            <div v-for="({obj,icon},i) in contacts" :key="i" class="btn-contact d-flex align-items-center text-white">
-                <div class="d-inline btn-icon-contact bg-secondary rounded-circle">
-                    <Icon :icon="icon" color="primary" ></Icon>
-                </div>
-                <span class="px-4">
-                    {{ obj }}
-                </span>
-            </div>
+            <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">{{obj}}</OmgButton>
             <div>
                 <div class="d-flex gap-5">
                     <span v-for="social in info().socials" :key="social.icon">
@@ -34,15 +27,7 @@ const contacts = [
 </template>
 
 <style lang="scss" scoped>
-.btn-icon-contact{
-    padding: 0.4rem;
-    border: 1px solid $primary;
-}
-.btn-contact{
-    box-shadow:inset 0px 0px 0px 2px $secondary;
-    //border: 2px solid $secondary;
-    border-radius: $radius;
-}
+
 .header{
     display: flex;
     justify-content: center;

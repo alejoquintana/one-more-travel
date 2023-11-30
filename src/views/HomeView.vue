@@ -1,5 +1,6 @@
 <script setup>
 import NavBar from '@/components/Nav/NavBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
 import OffersItems from '@/components/Offers/OffersItems.vue';
 import HomeSlider from '@/components/Slider/HomeSlider.vue'
 import BannerComponent from '@/components/Banners/BannerComponent.vue'
@@ -24,6 +25,9 @@ import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
             </div>
         </div>
     </main>
+    <footer class="mb-5">
+        <FooterBar/>
+    </footer>
 </template>
 
 <style lang="scss" scoped>

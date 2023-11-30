@@ -52,7 +52,9 @@ const offers = [
   <div class="row gap-3 g-0">
     <div class="scale-hover box-primary-border bg-primary p-3 def-shadow br-radius col"
       v-for="offer in offers" :key="offer.id">
-      <div v-if="offer.type!='banner'" class="row g-0 gy-2">
+      <div v-if="offer.type!='banner'" class="row relative g-0 gy-2">
+        <img class="abso-icon type-icon" :src="helpers().getImagePath(offer.type+'-icon.png')" :alt="'Imagen de ' + offer.destination"/>
+        <img class="abso-icon discount-icon" :src="helpers().getImagePath(offer.discount+'-discount.png')" :alt="'Imagen de ' + offer.destination"/>
         <div class="col-12">
           <div class="img-box br-radius">
             <img
@@ -107,6 +109,19 @@ const offers = [
 
 
 <style lang="scss" scoped>
+.abso-icon{
+    position: absolute;
+    top: -5px;
+
+}
+.discount-icon{
+    width: 70px;
+    right: -5px;
+}
+.type-icon{
+    left: -5px;
+    width: 40px;
+}
 .img--box {
     display: flex;
     justify-content: center;
