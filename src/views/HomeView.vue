@@ -16,7 +16,7 @@ import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
         <HomeSlider />
         <OffersItems />
         <BannerComponent banner="banner-mercado-pago.png" />
-        <div class="row">
+        <div class="row gap-lg-0 gap-3">
             <div class="col-md-4">
                 <ContactUs />
             </div>
@@ -40,7 +40,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 30px 0;
+    padding: 30px;
 }
 nav {
   width: 100%;

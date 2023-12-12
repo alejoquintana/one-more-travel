@@ -1,22 +1,14 @@
 <template>
-    <div class="bg-container h-100 row br-radius p-4 gx-1 g-0">
-        <span class="text-white fs-lg col-12">Contactanos</span>
-        <span class="text-white fs-xs col-12">te damos una mano</span>
-        <div class="col-12">
-            <input class="w-100 p-2" type="text" id="nombre" name="nombre" placeholder="Nombre">
+    <div class="bg-container h-100 d-flex flex-column gap-2 br-radius p-4 gx-1 g-0">
+        <p class="text-white fs-lg col-12 mb-0  ">Contactanos</p>
+        <p class="text-white fs-xs col-12 mb-2">te damos una mano</p>
+        <input class="w-100 px-2 py-1" type="text" id="nombre" name="nombre" placeholder="Nombre">
+        <div class="d-flex gap-2">
+            <input class="w-100 px-2 py-1" type="text" id="email" name="email" placeholder="Email">
+            <input class="w-100 px-2 py-1" type="text" id="telefono" name="telefono" placeholder="Telefono">
         </div>
-        <div class="col-6">
-            <input class="w-100 p-2" type="text" id="email" name="email" placeholder="Email">
-        </div>
-        <div class="col-6">
-            <input class="w-100 p-2" type="text" id="telefono" name="telefono" placeholder="Telefono">
-        </div>
-        <div class="col-12">
-            <textarea class="w-100 p-2" id="mensaje" name="mensaje" placeholder="Mensaje..."></textarea>
-        </div>
-        <div class="col-12">
-            <button class="btn btn-primary text-white px-4">ENVIAR</button>
-        </div>
+        <textarea class="w-100 px-2 py-1" id="mensaje" name="mensaje" placeholder="Mensaje..."></textarea>
+        <button class="btn btn-primary text-white px-4">ENVIAR</button>
     </div>
 </template>
 

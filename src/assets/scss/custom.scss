@@ -7,5 +7,4 @@ $theme-colors: map-merge($theme-colors, (
     "secondary":$secondary,
     "blue":$blue,
 ));
-
 @import "node_modules/bootstrap/scss/bootstrap";

@@ -13,6 +13,13 @@ import router from './router'
 
 const app = createApp(App)
 
+const MQ = window.screen.width;
+let mq = {sm:false,md:false,lg:false}
+if (MQ < 576) mq.sm = true
+//else if (MQ >= 576) mq = "md"
+else mq.lg = true
+app.config.globalProperties.$mq = mq
+
 app.use(createPinia())
 app.use(router)
 

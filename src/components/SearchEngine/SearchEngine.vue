@@ -1,10 +1,10 @@
 <template>
     <div>
-        <div class="d-flex ps-5 text-primary">
+        <div class="d-flex ps-lg-5 ps-4 text-primary">
             <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected':''" v-for="{name,icon},i in tabs" :key="i"
             @click="selectedTab= name">
                 <Icon :icon="icon" :color="selectedTab == name ? 'secondary':'primary'" size="lg"/>
-                <div class="tab-name text-center text-capitalize fs-lg fw-bold">
+                <div v-if="$mq.lg" class="tab-name text-center text-capitalize fs-lg fw-bold">
                     {{ name }}
                 </div>
             </div>
@@ -35,10 +35,15 @@ const tabs = [
 </script>
 
 <style lang="scss" scoped>
+@media (min-width: $min-width) {
+    .tab{
+        padding: 0.5rem 1.8rem !important;
+    }
+}
 .tab{
     transition: all $transitions-time;
     border-radius:  $radius $radius 0 0;
-    padding: 0.5rem 1.8rem;
+    padding: 0.5rem 1.2rem;
 }
 .tab.selected{
     background-color: $primary;

@@ -50,7 +50,7 @@ const offers = [
 
 <template>
   <div class="row gap-3 g-0">
-    <div class="scale-hover box-primary-border bg-primary p-3 def-shadow br-radius col"
+    <div class="scale-hover box-primary-border bg-primary p-3 def-shadow br-radius col-lg col-12"
       v-for="offer in offers" :key="offer.id">
       <div v-if="offer.type!='banner'" class="row relative g-0 gy-2">
         <img class="abso-icon type-icon" :src="helpers().getImagePath(offer.type+'-icon.png')" :alt="'Imagen de ' + offer.destination"/>
