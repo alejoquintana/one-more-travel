@@ -31,7 +31,6 @@ export const useInfoStore = defineStore('info', {
     }),
     actions: {
         fetchSociales() {
-            fe
         }
     },
 })
