@@ -1,0 +1,81 @@
+@import "./_variables";
+.def-shadow{
+    box-shadow: 5.51px 10.65px 7px 1px rgba(46,58,147,0.3);
+    // -webkit-box-shadow: 11px 13px 7px 1px rgba(46,58,147,0.53);
+    // -moz-box-shadow: 11px 13px 7px 1px rgba(46,58,147,0.53);
+}
+.br-radius{
+    border-radius: $radius;
+}
+.br-lg-radius{
+    border-radius: $lg-radius;
+}
+
+.fs-xl{font-size: $fs-xl;}
+.fs-lg{font-size: $fs-lg;}
+.fs-sm{font-size: $fs-sm;}
+.fs-xs{font-size: $fs-xs;}
+
+.opacity-0{opacity: 0;}
+.opacity-25{opacity: 0.25;}
+.opacity-50{opacity: 0.5;}
+.opacity-75{opacity: 0.75;}
+.opacity-100{opacity: 1;}
+
+.mix-blend-mode-multiply{mix-blend-mode: multiply;}
+
+.box-primary-border{
+    background-color: $primary;
+    color: #fff;
+    border: 3px solid #fff;
+    padding: 1rem;
+    @extend .br-radius;
+}
+
+.scale-hover,.scale-hover-05{
+    transition: all $transitions-time;
+}
+.scale-hover:hover{
+    transform: scale(1.1);
+}
+.scale-hover-05:hover{
+    transform: scale(1.05);
+}
+
+svg{
+    display: block;
+}
+
+.relative{position: relative;}
+.absolute{position: absolute;}
+
+input[type="radio"] {
+    appearance: none;
+    margin: 0;
+    font: inherit;
+    color: #fff;
+    width: 1.15rem;
+    height: 1.15rem;
+    border: 0.15rem solid #fff;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+input[type="radio"]::before{
+    content: "";
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    //background: radial-gradient(circle, $secondary 0%, rgba(0,0,0,0) 100%);
+    box-shadow: inset 1rem 1rem $secondary;
+    border: 0.15rem solid rgba(255,255,255,0.3);
+}
+input[type="radio"]:checked::before,input[type="radio"]:hover::before {
+    transform: scale(1);
+}
+input[type="radio"]:checked,input[type="radio"]:hover {
+    border: 0.15rem solid rgba(255,255,255,0.3);
+}
