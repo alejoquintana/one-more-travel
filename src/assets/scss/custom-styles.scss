@@ -48,6 +48,10 @@ svg{
 
 .relative{position: relative;}
 .absolute{position: absolute;}
+.top-0{top:0}
+.bottom-0{bottom:0}
+.left-0{left:0}
+.right-0{right:0}
 
 input[type="radio"] {
     appearance: none;
@@ -78,4 +82,38 @@ input[type="radio"]:checked::before,input[type="radio"]:hover::before {
 }
 input[type="radio"]:checked,input[type="radio"]:hover {
     border: 0.15rem solid rgba(255,255,255,0.3);
+}
+
+// .fill-img {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     overflow: hidden
+// }
+// .fill-img img {
+//     flex-shrink: 0;
+//     min-width: 100%;
+//     min-height: 100%
+// }
+
+img {
+   object-fit: cover;
+//    width: 50px;
+//    height: 100px;
+}
+
+.ucfirst{display:inline-block}
+.ucfirst:first-letter{
+    text-transform: uppercase;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.bg-primary a{
+    color: #fff !important;
+}
+.bg-secondary a{
+    color: #000 !important;
 }

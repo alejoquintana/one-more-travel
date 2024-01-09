@@ -7,30 +7,19 @@ import {
     defineConfig
 } from 'vite'
 import vue from '@vitejs/plugin-vue'
-//import { VueMq } from 'vue3-mq'
-
+import vuetify from 'vite-plugin-vuetify'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
-        // VueMq({
-        //     breakpoints: { // default breakpoints - customize this
-        //         sm: 450,
-        //         md: 1250,
-        //         lg: Infinity,
-        //     },
-        //     defaultBreakpoint: 'sm' // customize this for SSR
-        // }),
-        // VueMq({
-        //     defaultBreakpoint: 'mobile',
-        //     breakpoints: {
-        //         mobile: 0,
-        //         tabletSmall: 768,
-        //         tablet: 960,
-        //         desktop: 1025
-        //     }
-        // }),
+        vuetify({
+            //autoImport: true,
+            styles: {
+                configFile: 'src/assets/scss/main.vuetify.scss',
+                //configFile: 'src/styles/settings.scss'
+            }
+        }),
     ],
     css: {
         preprocessorOptions: {

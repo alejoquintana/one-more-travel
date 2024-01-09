@@ -13,7 +13,7 @@ const contacts = [
 <template>
     <header class="header">
         <nav class="nav-bar px-lg-0">
-            <img class="logo" :class="$mq.sm?'w-50':''" :src="helpers().getImagePath('logo.png')" alt="Logo OMG Travel">
+            <img class="logo" :class="$mq.sm?'w-50':''" :src="helpers().getImagePath('logo-white.png')" alt="Logo OMG Travel">
             <div  class="d-flex gap-4" v-if="$mq.lg">
                 <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">{{obj}}</OmgButton>
             </div>

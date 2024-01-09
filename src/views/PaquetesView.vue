@@ -1,33 +1,76 @@
-<template>
-    <div class="cont">
-        <div class="nav bg-primary px-5 py-2">
-            <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers().getImagePath('logo.png')" alt="Logo OMG Travel">
-        </div>
-        <div class="dash row">
-            <div class="col-2 h-100">
-                <SideMenu></SideMenu>
-            </div>
-            <div class="col-10 h-100 border border-left" style="">
-                
-            </div>
-        </div>
-    </div>
-</template>
-
 <script setup>
-import { useHelpersStore as helpers } from '@/stores/helpers'
-import SideMenu from '@/components/Admin/SideMenu/SideMenu.vue'
+import NavBar from '@/components/Nav/NavBar.vue'
+import FooterBar from '@/components/FooterBar.vue'
+import PaquetesHome from '@/components/Paquetes/PaquetesHome.vue'
 </script>
 
-<style lang="scss" scoped>
-.logo{
-    max-height: 100%;
-}
-.nav {
-    height: 10vh;
-}
-.dash{
+<template>
+    <NavBar/>
+    <main class="max-width">
+        <PaquetesHome />
+    </main>
+    <footer class="mb-5">
+        <FooterBar/>
+    </footer>
+</template>
 
-    height: 90vh;
+<style lang="scss" scoped>
+header {
+  line-height: 1.5;
+  max-height: 100vh;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 30px;
+}
+nav {
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+nav a.router-link-exact-active {
+  color: var(--color-text);
+}
+
+nav a.router-link-exact-active:hover {
+  background-color: transparent;
+}
+
+nav a {
+  display: inline-block;
+  padding: 0 1rem;
+  border-left: 1px solid var(--color-border);
+}
+
+nav a:first-of-type {
+  border: 0;
+}
+
+@media (min-width: 1024px) {
+  header {
+    display: flex;
+    place-items: center;
+    //padding-right: calc(var(--section-gap) / 2);
+  }
+
+  header .wrapper {
+    display: flex;
+    place-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  nav {
+    text-align: left;
+    margin-left: -1rem;
+    font-size: 1rem;
+
+    padding: 1rem 0;
+    margin-top: 1rem;
+  }
 }
 </style>

@@ -1,6 +1,6 @@
 //import {ref,computed} from 'vue'
 import {defineStore} from 'pinia'
-
+let api = import.meta.env.PROD ? '':'https://phpstack-627868-4182415.cloudwaysapps.com';
 export const useHelpersStore = defineStore('helpers', {
     state: () => ({
     }),
@@ -21,8 +21,10 @@ export const useHelpersStore = defineStore('helpers', {
 
             //return "ar$"+price
         },
-        getImagePath(image) {
-            return "/src/assets/imgs/"+image
+        getImagePath(image, folder = '') {
+            let base = api+"/imgs/"
+            if (folder) base = base+folder+'/'
+            return base + image
         },
     },
 })

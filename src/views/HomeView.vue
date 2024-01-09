@@ -12,16 +12,18 @@ import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
 <template>
     <NavBar/>
     <main>
-        <SearchEngine/>
-        <HomeSlider />
-        <OffersItems />
-        <BannerComponent banner="banner-mercado-pago.png" />
-        <div class="row gap-lg-0 gap-3">
-            <div class="col-md-4">
-                <ContactUs />
-            </div>
-            <div class="col-md-8">
-                <BigDescription />
+        <div class="main-content max-width">
+            <SearchEngine/>
+            <HomeSlider />
+            <OffersItems />
+            <BannerComponent banner="banner-mercado-pago.png" />
+            <div class="row gap-lg-0 gap-3">
+                <div class="col-md-4">
+                    <ContactUs />
+                </div>
+                <div class="col-md-8">
+                    <BigDescription />
+                </div>
             </div>
         </div>
     </main>
@@ -36,7 +38,7 @@ header {
   max-height: 100vh;
 }
 
-main {
+.main-content {
     display: flex;
     flex-direction: column;
     gap: 30px;
