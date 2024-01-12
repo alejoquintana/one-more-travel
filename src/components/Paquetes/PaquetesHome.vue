@@ -1,55 +1,106 @@
 <template>
-    <h1 class="fw-bold text-primary mb-0">Paquetes</h1>
-    <hr class="m-0">
-    <div class="row">
-        <div class="col-12 col-md-4 p-2" v-for="paquete,i in paquetes().paquetes" :key="i">
-            <div class="relative rounded p-3 bg-primary text-white" @click="goToPack(paquete.codigo)">
-                <div class="ratio ratio-16x9 fill-img">
-                    <img v-if="paquete.imagenes[0]" :src="helpers().getImagePath(paquete.imagenes[0].url,'paquetes')" alt="" :srcset=" helpers().getImagePath(paquete.imagenes[0].url,'paquetes')">
-                    <img v-else :src="helpers().getImagePath('no-photo-available.png')" alt="" srcset="">
-                </div>
-                <div class="d-flex justify-content-between align-items-center">
-                    <h3 class="mb-0">{{ paquete.nombre }}</h3>
-                    <div v-if="paquete.estrellas != 0">
-                        <i v-for="i in 5" :class="{'text-warning':i <= paquete.estrellas}" class="fa-solid fa-star" :key="i"></i>
+    <div class="filters">
+        <filters-form></filters-form>
+    </div>
+    <div>
+        <h1 class="fw-bold text-primary mb-0">Paquetes</h1>
+        <hr class="m-0">
+        <div class="row">
+            <div class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :key="i">
+                <div class="relative br-radius p-3 bg-primary text-white pointer h-100 d-flex flex-column justify-content-between"
+                    @click="goToPack(paquete.codigo)">
+                    <div>
+                        <div class="ratio br-radius overflow-hidden ratio-50 fill-img">
+                            <img class="scale-hover" v-if="paquete.imagenes[0]"
+                                :src="helpers().getImagePath(paquete.imagenes[0].url, 'paquetes')" alt=""
+                                :srcset="helpers().getImagePath(paquete.imagenes[0].url, 'paquetes')">
+                            <img v-else :src="helpers().getImagePath('no-photo-available.png')" alt="" srcset="">
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-2">
+                            <h4 class="fs-lg mb-0 ucfirst ellipsis flex-grow-1">
+                                <!-- {{ paquete.nombre }} -->
+                                Paquete a {{ paquete.destinos }}
+                            </h4>
+                        </div>
+                        <p class="mb-0 fs-md">
+                            {{ paquete.duracion }} dias, {{ paquete.noches }} noches.
+                            <span class="ucfirst">
+                                {{ paquete.regimen_incluido }}
+                            </span>
+                        </p>
+                        <div v-if="paquete.estrellas != 0">
+                            <i v-for="i in 5" :class="{ 'text-warning': i <= paquete.estrellas }" class="fa-solid fa-star"
+                                :key="i"></i>
+                        </div>
+                        <div v-if="paquete.descripcion_breve"
+                            class="col-12 mt-2 row g-0 justify-content-between align-items-center">
+                            <p class="mb-0" v-html="paquete.descripcion_breve"></p>
+                        </div>
+                        <div class="absolute m-2 p-2 top-0 left-0 text-white bg-secondary rounded-circle">
+                            <i v-if="paquete.transporte == 'aereos'" class="fa-solid fa-plane fa-xl"></i>
+                            <i v-if="paquete.transporte == 'barco'" class="fa-solid fa-ship fa-xl"></i>
+                            <i v-if="paquete.transporte == 'bus'" class="fa-solid fa-bus fa-xl"></i>
+                        </div>
+                        <div v-if="paquete.oferta != 0" class="absolute m-2 top-0 right-0">
+                            <img class="abso-icon discount-icon" style="max-width: 75px;"
+                                :src="helpers().getImagePath('10-discount.png')" :alt="'Imagen de ' + paquete.destinos" />
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <p class="mb-0 fs-lg fw-bold text-secondary">
+                            {{ helpers().formatPrice(paquete.precio_final, 'AR') }}
+                        </p>
+                        <button class="btn btn-secondary btn-link btn-sm fw-bold text-white">VER DETALLE</button>
                     </div>
                 </div>
-                <div class="absolute m-2 p-2 top-0 left-0 text-white bg-secondary rounded-circle">
-                    <i v-if="paquete.transporte == 'aereos'" class="fa-solid fa-plane fa-2x"></i>
-                    <i v-if="paquete.transporte == 'barco'" class="fa-solid fa-ship fa-2x"></i>
-                    <i v-if="paquete.transporte == 'bus'" class="fa-solid fa-bus fa-2x"></i>
-                </div>
-                <p class="mb-0">
-                    {{ paquete.destinos}}
-                </p>
-                <p class="mb-0">
-                    {{ paquete.duracion }} dias, {{ paquete.noches }} noches.
-                    <span class="ucfirst">
-                        {{ paquete.regimen_incluido }}
-                    </span>
-                </p>
-                <p class="mb-0">
-                </p>
-                <p class="mb-0 fs-xl fw-bold text-secondary">
-                    $ {{ paquete.precio_final }}
-                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import FiltersForm from './FiltersForm.vue'
+import { ref } from 'vue';
+import { useRouter, useRoute } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
 import { useHelpersStore as helpers } from '@/stores/helpers'
 import { usePaquetesStore as paquetes } from '@/stores/paquetes'
-import { useRouter } from 'vue-router'
-const router = useRouter()
 
-import Icon from '@/components/AIcon.vue'
-paquetes().fetchPaquetes()
+let params = new URLSearchParams(route.query).toString();
+paquetes().fetchPaquetesParametros(params)
+//paquetes().fetchPaquetes()
 function goToPack(codigo) {
-    router.push('paquetes/'+codigo)
+    router.push('paquetes/' + codigo)
 }
 </script>
 
 <style lang="scss" scoped>
+.ratio-50 {
+    --bs-aspect-ratio: 45%;
+}
+
+.filters {
+    // position: fixed;
+    // top: 0;
+    // //top: $nav-h-sm;
+    // left: 0;
+    // height: 100vh;
+    // z-index: 99;
+}
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.3s ease-out;
+    //transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(-100%);
+    //opacity: 0;
+}
 </style>

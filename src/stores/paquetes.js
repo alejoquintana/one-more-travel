@@ -1,11 +1,17 @@
 import {
     defineStore
 } from 'pinia'
+const URL = "https://phpstack-627868-4182415.cloudwaysapps.com";
 
 export const usePaquetesStore = defineStore('paquetes', {
     state: () => ({
         paquetes: [],
-        paquete:{},
+        paquete: {},
+        ofertas: [],
+        filters: {
+            precio_min:0,
+            precio_max:0,
+        },
     }),
     getters: {
         getPaquete(state) {
@@ -14,19 +20,48 @@ export const usePaquetesStore = defineStore('paquetes', {
     },
     actions: {
         async fetchPaquetes() {
-            fetch("https://phpstack-627868-4182415.cloudwaysapps.com/api/paquetes-home")
-                .then(response => response.json())
-                .then(json => this.paquetes = json)
-                .catch(error => console.log('Authorization failed : ' + error.message));
+            fetch(URL+"/api/paquetes-home.php")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(json => {
+                    this.paquetes = json.paquetes
+                })
+                .catch(error => console.error(error));
+        },
+        async fetchPaquetesOferta() {
+            fetch(URL+"/api/paquetes-home.php?tipo=oferta")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(json => {
+                    //console.log("json", json);
+                    this.ofertas = json.paquetes
+                })
+                .catch(error => console.error(error));
+        },
+        async fetchPaquetesParametros(params) {
+            fetch(URL+"/api/paquetes-home.php?"+params)
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(json => {
+                    console.log("json", json.query);
+                    this.paquetes = json.paquetes
+                })
+                .catch(error => console.error(error));
         },
         async fetchPaquete(codigo) {
-            fetch("https://phpstack-627868-4182415.cloudwaysapps.com/api/paquetes-home?codigo=" + codigo)
-                .then(response => response.json())
-                .then(json => {
-                    console.log("json",json);
-                    this.paquete = json[0]
+            fetch(URL+"/api/paquetes-home.php?codigo=" + codigo)
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
                 })
-                .catch(error => console.log('Authorization failed : ' + error.message));
+                .then(json => this.paquete = json.paquetes[0])
+                .catch(error => console.error(error));
         },
     },
 })

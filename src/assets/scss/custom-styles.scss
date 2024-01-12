@@ -117,3 +117,24 @@ img {
 .bg-secondary a{
     color: #000 !important;
 }
+
+.ellipsis{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width:100px; /* some width */
+}
+
+.br-white{
+    border: 3px white solid;
+}
+.bs-white{
+    box-shadow: 5px 5px 0 5px white;
+}
+
+.btn-toner-primary{
+    background: rgba($primary,0.5);
+}
+.btn-toner-secondary{
+    background: rgba($secondary,0.5);
+}

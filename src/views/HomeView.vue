@@ -27,7 +27,7 @@ import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
             </div>
         </div>
     </main>
-    <footer class="mb-5">
+    <footer class="my-5 pt-5">
         <FooterBar/>
     </footer>
 </template>

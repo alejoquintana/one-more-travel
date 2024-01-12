@@ -5,19 +5,19 @@ import PaquetePage from '@/components/Paquetes/PaquetePage.vue'
 </script>
 
 <template>
-    <NavBar/>
+    <NavBar />
     <main class="max-width">
         <PaquetePage />
     </main>
-    <footer class="mb-5">
-        <FooterBar/>
+    <footer class="mt-5 pt-5">
+        <FooterBar />
     </footer>
 </template>
 
 <style lang="scss" scoped>
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+    line-height: 1.5;
+    max-height: 100vh;
 }
 
 .main-content {
@@ -26,51 +26,52 @@ header {
     gap: 30px;
     padding: 30px;
 }
+
 nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+    color: var(--color-text);
 }
 
 nav a.router-link-exact-active:hover {
-  background-color: transparent;
+    background-color: transparent;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+    display: inline-block;
+    padding: 0 1rem;
+    border-left: 1px solid var(--color-border);
 }
 
 nav a:first-of-type {
-  border: 0;
+    border: 0;
 }
 
 @media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    //padding-right: calc(var(--section-gap) / 2);
-  }
+    header {
+        display: flex;
+        place-items: center;
+        //padding-right: calc(var(--section-gap) / 2);
+    }
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+    header .wrapper {
+        display: flex;
+        place-items: flex-start;
+        flex-wrap: wrap;
+    }
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+    nav {
+        text-align: left;
+        margin-left: -1rem;
+        font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+        padding: 1rem 0;
+        margin-top: 1rem;
+    }
 }
 </style>

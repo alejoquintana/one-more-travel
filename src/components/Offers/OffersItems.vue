@@ -1,149 +1,99 @@
 <script setup>
 import { useHelpersStore as helpers } from '@/stores/helpers'
-const offers = [
-  {
-    id: 1,
-    type: 'banner',
-    price: '',
-    currency: '',
-    destination: '',
-    discount: '',
-    image: 'cyber-monday.png',
-    bank: '',
-    url: ''
-  },
-  {
-    id: 2,
-    type: 'aereos',
-    price: '1500000',
-    currency: 'AR',
-    destination: 'sardegna, italia',
-    discount: '10',
-    image: 'offer-1.png',
-    bank: 'bbva-go',
-    url: ''
-  },
-  {
-    id: 3,
-    type: 'excursion',
-    price: '50000',
-    currency: 'AR',
-    destination: 'montserrat, españa',
-    discount: '10',
-    image: 'offer-2-bad.png',
-    bank: 'santander',
-    url: ''
-  },
-  {
-    id: 4,
-    type: 'aereos',
-    price: '10000',
-    currency: 'AR',
-    destination: 'mendoza',
-    discount: '10',
-    image: 'offer-3.png',
-    bank: 'santander',
-    url: ''
-  }
-]
+import { usePaquetesStore as paquetes } from '@/stores/paquetes'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+paquetes().fetchPaquetesOferta()
+function goToPack(codigo) {
+    router.push('paquetes/' + codigo)
+}
 </script>
 
 <template>
-  <div class="row gap-3 g-0">
-    <div class="scale-hover box-primary-border bg-primary p-3 def-shadow br-radius col-lg col-12"
-      v-for="offer in offers" :key="offer.id">
-      <div v-if="offer.type!='banner'" class="row relative g-0 gy-2">
-        <img class="abso-icon type-icon" :src="helpers().getImagePath(offer.type+'-icon.png')" :alt="'Imagen de ' + offer.destination"/>
-        <img class="abso-icon discount-icon" :src="helpers().getImagePath(offer.discount+'-discount.png')" :alt="'Imagen de ' + offer.destination"/>
+    <div class="row gy-4">
+        <div class="col-lg-3 col-12">
+            <div class="h-100 scale-hover box-primary-border bg-primary def-shadow br-radius row align-content-center relative p-3 g-0 gy-2">
+                <img class="w-100" :src="helpers().getImagePath('cyber-monday.png')" alt="Imagen de cyber-monday" />
+            </div>
+        </div>
+        <div class="col-lg-3 col-12" v-for="offer in paquetes().ofertas" :key="offer.id">
+            <div class="h-100 scale-hover box-primary-border bg-primary def-shadow br-radius row align-content-start relative p-3 g-0 gy-2 pointer"
+                @click="goToPack(offer.codigo)">
+                <div class="abso-icon type-icon p-2 text-white bg-secondary rounded-circle">
+                    <i v-if="offer.transporte == 'aereos'" class="fa-solid fa-plane fa-xl"></i>
+                    <i v-if="offer.transporte == 'barco'" class="fa-solid fa-ship fa-xl"></i>
+                    <i v-if="offer.transporte == 'bus'" class="fa-solid fa-bus fa-xl"></i>
+                </div>
+                <!-- <img class="abso-icon type-icon" :src="helpers().getImagePath(offer.transporte + '-icon.png')"
+                    :alt="'Imagen de ' + offer.destinos" /> -->
+                <img class="abso-icon discount-icon" :src="helpers().getImagePath('10-discount.png')" :alt="'Imagen de ' + offer.destinos" />
+                <div class="col-12">
+                    <div class="img-box br-radius">
+                        <img class="" v-if="offer.imagenes[0]"
+                            :src="helpers().getImagePath(offer.imagenes[0].url, 'paquetes')" alt="">
+                        <img v-else :src="helpers().getImagePath('no-photo-available.png')" alt="" srcset="">
+                    </div>
+                </div>
+                <div v-if="offer.nombre" class="col-12 mt-2 row g-0 justify-content-between align-items-center">
+                    <p class="mb-0 ucfirst" v-text="offer.nombre"></p>
+                </div>
+                <div class="col-6 lh-1 mb-0">
+                    <small class="fs-sm text-white text-uppercase">
+                        {{ offer.transporte }}
+                    </small>
+                    <br />
+                    <span class="text-white text-uppercase">
+                        {{ offer.destinos }}
+                    </span>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center">
+                    <span class="fs-lg fw-bold text-secondary">
+                        {{ helpers().formatPrice(offer.precio_final, 'AR') }}
+                    </span>
+                </div>
+                <div v-if="offer.descripcion_breve" class="col-12 mt-2 row g-0 justify-content-between align-items-center">
+                    <p class="mb-0" v-html="offer.descripcion_breve"></p>
+                </div>
+            </div>
+        </div>
         <div class="col-12">
-          <div class="img-box br-radius">
-            <img
-              class="w-100"
-              :src="helpers().getImagePath(offer.image)"
-              :alt="'Imagen de ' + offer.destination"
-            />
-          </div>
+            <router-link to="/paquetes">                
+                <div class="scale-hover-05 text-center fw-bold fs-lg box-primary-border bg-primary def-shadow br-radius p-3 gy-2">
+                    VER TODOS LOS PAQUETES
+                </div>
+            </router-link>
         </div>
-        <div class="col-10">
-          <p class="lh-1 mb-0">
-            <small class="fs-sm text-white text-uppercase">
-              {{ offer.type }}
-            </small>
-            <br />
-            <span class="text-white text-uppercase">
-              {{ offer.destination }} </span
-            ><br />
-            <span class="fs-lg fw-bold text-secondary">
-              {{ helpers().formatPrice(offer.price, offer.currency) }}
-            </span>
-          </p>
-        </div>
-        <div class="col-2">
-          <img class="w-100" :src="helpers().getImagePath(`${offer.bank}.png`)" alt="" />
-        </div>
-        <div class="col-12 mt-2 row g-0 justify-content-between align-items-center">
-            <div class="col-4">
-              <img
-                class="w-100 mix-blend-mode-multiply"
-                :src="helpers().getImagePath(`ahora-3-6-12-18.png`)"
-                alt=""
-              />
-            </div>
-            <div class="col-4">
-              <p class="mb-0 fw-bolder text-white fs-xs">CONSULTAR BASES Y CONDICIONES</p>
-            </div>
-        </div>
-      </div>
-      <div v-else class="row g-0 gy-2">
-        <div class="img-banner-box br-radius">
-            <img
-              class="w-100"
-              :src="helpers().getImagePath(offer.image)"
-              :alt="'Imagen de ' + offer.destination"
-            />
-          </div>
-      </div>
     </div>
-  </div>
 </template>
 
 
 <style lang="scss" scoped>
-.abso-icon{
+.abso-icon {
     position: absolute;
-    top: -5px;
+    top: 5px;
+}
 
-}
-.discount-icon{
+.discount-icon {
     width: 70px;
-    right: -5px;
+    right: 5px;
 }
-.type-icon{
-    left: -5px;
+
+.type-icon {
+    left: 5px;
     width: 40px;
 }
-.img--box {
+
+.img-box {
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     height: 160px;
+
     img {
-      object-fit: cover;
-      min-width: 100%;
-      min-height: 100%;
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
     }
-}
-.img-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  height: 160px;
-  img {
-    object-fit: cover;
-    min-width: 100%;
-    min-height: 100%;
-  }
 }
 </style>

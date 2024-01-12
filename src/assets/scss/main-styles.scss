@@ -3,13 +3,14 @@
 
 #app {
   margin: 0 auto;
-  /* padding: 2rem; */
+  //padding-top: 2rem;
+  padding-bottom: 4rem;
   font-weight: normal;
   background: linear-gradient(110deg, rgba(255, 255, 255, 1) 49%, rgba(1, 255, 193, 1) 49%);
 }
 .max-width {
-    max-width: $max-width;
-    margin: auto;
+  max-width: $max-width;
+  margin: auto;
 }
 
 main {
