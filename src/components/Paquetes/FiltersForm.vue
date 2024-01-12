@@ -1,125 +1,133 @@
 <template>
     <div class="d-flex flex-column gap-3 bg-primary py-4 px-3 mt-4 br-radius">
-        <div class="d-flex justify-content-between align-items-center">
+
+        <div class="d-flex justify-content-between align-items-center" @click="showFilters = !showFilters">
             <span class="fw-bold fs-2">
                 Filtros
             </span>
-            <button class="btn btn-secondary btn-block" @click="resetForm()">Limpiar filtros</button>
-            <!-- <button @click="$emit('toggleShowFilters')" class="btn btn-primary text-white">
-                <i class="fa-solid fa-xmark fa-xl"></i>
-            </button> -->
+            <i class="ms-3 fs-2 fa " :class="showFilters ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
         </div>
-        <div class="row align-items-end g-4">
-            <div class="col-md-3 col-12">
-                <input class="form-control-1" type="text" placeholder="Buscar..." v-model="form.search"
-                    @change="filter('search')" id="search" name="search">
-            </div>
-            <div class="col-md-2 col-12">
-                Fecha
-                <input class="form-control-1" type="date" name="fecha_salida" id="fecha_salida" v-model="form.fecha_salida"
-                    @change="filter('fecha_salida')">
-            </div>
-            <div class="col-md-5 col-12">
-                <div class="row">
-                    <div class="col-md-3 col-12">
-                        Dias
-                        <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
-                            @change="filter('dias')">
-                    </div>
-                    <div class="col-md-3 col-12">
-                        Adultos <input class="form-control-2" type="number" name="adultos" id="adultos" placeholder="2"
-                            v-model="form.adultos" @change="filter('adultos')">
-                    </div>
-                    <div class="col-md-3 col-12">
-                        Menores <input class="form-control-2" type="number" name="menores" id="menores" placeholder="0"
-                            v-model="form.menores" @change="filter('menores')">
-                    </div>
-                    <div class="col-md-3 col-12">
-                        Infantes <input class="form-control-2" type="number" name="infantes" id="infantes" placeholder="0"
-                            v-model="form.infantes" @change="filter('infantes')">
+        <Transition name="height">
+            <div v-if="showFilters" class="row align-items-end g-4">
+                <div class="col-md-3 col-12">
+                    <input class="form-control-1" type="text" placeholder="Buscar..." v-model="form.search"
+                        @change="filter('search')" id="search" name="search">
+                </div>
+                <div class="col-md-2 col-12">
+                    Fecha
+                    <input class="form-control-1" type="date" name="fecha_salida" id="fecha_salida"
+                        v-model="form.fecha_salida" @change="filter('fecha_salida')">
+                </div>
+                <div class="col-md-5 col-12">
+                    <div class="row">
+                        <div class="col-md-3 col-12">
+                            Dias
+                            <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
+                                @change="filter('dias')">
+                        </div>
+                        <div class="col-md-3 col-4">
+                            Adultos <input class="form-control-2" type="number" name="adultos" id="adultos" placeholder="2"
+                                v-model="form.adultos" @change="filter('adultos')">
+                        </div>
+                        <div class="col-md-3 col-4">
+                            Menores <input class="form-control-2" type="number" name="menores" id="menores" placeholder="0"
+                                v-model="form.menores" @change="filter('menores')">
+                        </div>
+                        <div class="col-md-3 col-4">
+                            Infantes <input class="form-control-2" type="number" name="infantes" id="infantes"
+                                placeholder="0" v-model="form.infantes" @change="filter('infantes')">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-2 col-12">
-                Estrellas
-                <div class="input-group">
-                    <div class="rating">
-                        <input v-model="form.estrellas" class="form-control" type="radio" id="estrella5" name="estrellas"
-                            value="5" @change="filter('estrellas')" />
-                        <label class="estrella" for="estrella5" title="Awesome" aria-hidden="true"></label>
-                        <input v-model="form.estrellas" class="form-control" type="radio" id="estrella4" name="estrellas"
-                            value="4" @change="filter('estrellas')" />
-                        <label class="estrella" for="estrella4" title="Great" aria-hidden="true"></label>
-                        <input v-model="form.estrellas" class="form-control" type="radio" id="estrella3" name="estrellas"
-                            value="3" @change="filter('estrellas')" />
-                        <label class="estrella" for="estrella3" title="Very good" aria-hidden="true"></label>
-                        <input v-model="form.estrellas" class="form-control" type="radio" id="estrella2" name="estrellas"
-                            value="2" @change="filter('estrellas')" />
-                        <label class="estrella" for="estrella2" title="Good" aria-hidden="true"></label>
-                        <input v-model="form.estrellas" class="form-control" type="radio" id="estrella1" name="estrellas"
-                            value="1" @change="filter('estrellas')" />
-                        <label class="estrella" for="estrella1" title="Bad" aria-hidden="true"></label>
+                <div class="col-md-2 col-12">
+                    Estrellas
+                    <div class="input-group">
+                        <div class="rating">
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella5"
+                                name="estrellas" value="5" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella5" title="Awesome" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella4"
+                                name="estrellas" value="4" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella4" title="Great" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella3"
+                                name="estrellas" value="3" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella3" title="Very good" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella2"
+                                name="estrellas" value="2" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella2" title="Good" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella1"
+                                name="estrellas" value="1" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella1" title="Bad" aria-hidden="true"></label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="d-flex justify-content-between">
-                            <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
                             Precio minimo
-                            <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            <div class="d-flex justify-content-between">
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            </div>
+                            <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range"
+                                type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
+                                @change="filter('precio_min')" />
                         </div>
-                        <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range" type="range"
-                            :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                            @change="filter('precio_min')" />
-                    </div>
-                    <div class="col-6">
-                        <div class="d-flex justify-content-between">
-                            <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                        <div class="col-6">
                             Precio maximo
-                            <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            <div class="d-flex justify-content-between">
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            </div>
+                            <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range"
+                                type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
+                                @change="filter('precio_max')" />
                         </div>
-                        <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range" type="range"
-                            :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                            @change="filter('precio_max')" />
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6">
-                <div class="row">
-                    <div class="col-6">
-                        Transporte
-                        <select placeholder="" class="form-select form-select-3" name="transporte" id="transporte"
-                            v-model="form.transporte" @change="filter('transporte')">
-                            <option value="aereos">Aereos</option>
-                            <option value="bus">Bus</option>
-                            <option value="barco">Barco</option>
-                        </select>
-                    </div>
+                <div class="col-12 col-md-6">
+                    <div class="row">
+                        <div class="col-6">
+                            Transporte
+                            <select placeholder="" class="form-select form-select-3" name="transporte" id="transporte"
+                                v-model="form.transporte" @change="filter('transporte')">
+                                <option value="aereos">Aereos</option>
+                                <option value="bus">Bus</option>
+                                <option value="barco">Barco</option>
+                            </select>
+                        </div>
 
-                    <div class="col-6">
-                        Regimen incluido
-                        <select placeholder="" class="form-select form-select-3" name="regimen_incluido"
-                            id="regimen_incluido" v-model="form.regimen_incluido" @change="filter('regimen_incluido')">
-                            <option value="all_inclusive">All inclusive</option>
-                            <option value="media_pension">Media pensión</option>
-                            <option value="solo_alojamiento">Sólo alojamiento</option>
-                        </select>
+                        <div class="col-6">
+                            Regimen incluido
+                            <select placeholder="" class="form-select form-select-3" name="regimen_incluido"
+                                id="regimen_incluido" v-model="form.regimen_incluido" @change="filter('regimen_incluido')">
+                                <option value="all_inclusive">All inclusive</option>
+                                <option value="media_pension">Media pensión</option>
+                                <option value="solo_alojamiento">Sólo alojamiento</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <div class="d-flex justify-content-end">
+                    <button class="me-4 btn btn-outline-secondary btn-block" @click="resetForm()">Limpiar filtros</button>
+                    <button class="btn btn-secondary text-primary px-4 bs-white-sm" @click="filtrar()">
+                        FILTRAR
+                    </button>
+                </div>
             </div>
-        </div>
+        </Transition>
     </div>
     <div class="d-flex justify-content-end mt-2">
-        <button class="btn btn-primary text-white px-4" @click="filtrar()">
-            FILTRAR
-        </button>
+
     </div>
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import DateRangePicker from 'vue2-daterange-picker'
+import 'vue2-daterange-picker/dist/vue2-daterange-picker.css'
+
+import { reactive, ref } from 'vue';
+const showFilters = ref(false)
 import { useRoute } from 'vue-router'
 const route = useRoute()
 import { usePaquetesStore as paquetes } from '@/stores/paquetes'
@@ -147,7 +155,7 @@ function filtrar(limpiar = false) {
     // let query = route.query
     let params = {}
     for (const key of Object.keys(formDef)) {
-        console.log(key,form[key], formDef[key]);
+        console.log(key, form[key], formDef[key]);
         if (form[key] != formDef[key]) {
             params[key] = form[key]
         }
@@ -157,7 +165,7 @@ function filtrar(limpiar = false) {
     console.log("params", params);
 }
 function filter(field = '') {
-    console.log(field,form[field]);
+    console.log(field, form[field]);
     // let query = route.query
     // if (field) {
     //     query[field] = form[field]

@@ -131,10 +131,27 @@ img {
 .bs-white{
     box-shadow: 5px 5px 0 5px white;
 }
+.bs-white-sm{
+    box-shadow: 3px 3px 0 0 white;
+}
 
 .btn-toner-primary{
     background: rgba($primary,0.5);
 }
 .btn-toner-secondary{
     background: rgba($secondary,0.5);
+}
+
+.text-primary-hover:hover{
+    color: $primary !important;
+}
+
+.height-enter-active,
+.height-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.height-enter-from,
+.height-leave-to {
+  opacity: 0;
 }

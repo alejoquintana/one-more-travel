@@ -17,20 +17,28 @@
                             <img v-else :src="helpers().getImagePath('no-photo-available.png')" alt="" srcset="">
                         </div>
                         <div class="d-flex justify-content-between align-items-center mt-2">
-                            <h4 class="fs-lg mb-0 ucfirst ellipsis flex-grow-1">
+                            <p class="fs-4 mb-0 ucfirst ellipsis flex-grow-1">
                                 <!-- {{ paquete.nombre }} -->
-                                Paquete a {{ paquete.destinos }}
-                            </h4>
+                                {{ paquete.nombre }}
+                            </p>
                         </div>
-                        <p class="mb-0 fs-md">
-                            {{ paquete.duracion }} dias, {{ paquete.noches }} noches.
-                            <span class="ucfirst">
-                                {{ paquete.regimen_incluido }}
-                            </span>
-                        </p>
-                        <div v-if="paquete.estrellas != 0">
+                        <div v-if="paquete.estrellas != 0" class="fs-sm">
                             <i v-for="i in 5" :class="{ 'text-warning': i <= paquete.estrellas }" class="fa-solid fa-star"
                                 :key="i"></i>
+                        </div>
+                        <div class="mb-0">
+                            <div>
+                                <i class="fa fa-calendar"></i>
+                                {{ formatDate(paquete.fecha_salida) }}
+                            </div>
+                            <div>
+                                <i class="fa fa-moon"></i>
+                                {{ paquete.noches }} noches
+                            </div>
+                            <div>
+                                <i class="fa fa-utensils"></i>
+                                {{ paquete.regimen_incluido }}
+                            </div>
                         </div>
                         <div v-if="paquete.descripcion_breve"
                             class="col-12 mt-2 row g-0 justify-content-between align-items-center">
@@ -46,11 +54,11 @@
                                 :src="helpers().getImagePath('10-discount.png')" :alt="'Imagen de ' + paquete.destinos" />
                         </div>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <p class="mb-0 fs-lg fw-bold text-secondary">
+                    <div>
+                        <p class="mb-0 fs-lg fw-bold text-secondary text-center fs-3">
                             {{ helpers().formatPrice(paquete.precio_final, 'AR') }}
                         </p>
-                        <button class="btn btn-secondary btn-link btn-sm fw-bold text-white">VER DETALLE</button>
+                        <button class="btn btn-block btn-secondary text-primary w-100 btn-link btn-sm fw-bold text-white" style="text-decoration: none;">VER DETALLE</button>
                     </div>
                 </div>
             </div>
@@ -72,6 +80,10 @@ paquetes().fetchPaquetesParametros(params)
 //paquetes().fetchPaquetes()
 function goToPack(codigo) {
     router.push('paquetes/' + codigo)
+}
+function formatDate(value) {
+    let val = value.split('-')
+    return `${val[2]}/${val[1]}/${val[0]}`
 }
 </script>
 
