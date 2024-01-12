@@ -51,6 +51,7 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .then(json => {
                     console.log("json", json.query);
                     this.paquetes = json.paquetes
+                    this.filters = json.filters
                 })
                 .catch(error => console.error(error));
         },

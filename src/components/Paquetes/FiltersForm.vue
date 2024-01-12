@@ -66,23 +66,23 @@
                 <div class="row">
                     <div class="col-6">
                         <div class="d-flex justify-content-between">
-                            <span>{{ paquetes().filters.precio_min }}</span>
+                            <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
                             Precio minimo
-                            <span>{{ paquetes().filters.precio_max }}</span>
+                            <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
                         </div>
-                        <input name="price_min" id="price_min" v-model="form.price_min" class="form-range" type="range"
+                        <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range" type="range"
                             :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                            @change="filter('price_min')" />
+                            @change="filter('precio_min')" />
                     </div>
                     <div class="col-6">
                         <div class="d-flex justify-content-between">
-                            <span>{{ paquetes().filters.precio_min }}</span>
+                            <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
                             Precio maximo
-                            <span>{{ paquetes().filters.precio_max }}</span>
+                            <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
                         </div>
-                        <input name="price_max" id="price_max" v-model="form.price_max" class="form-range" type="range"
+                        <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range" type="range"
                             :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                            @change="filter('price_max')" />
+                            @change="filter('precio_max')" />
                     </div>
                 </div>
             </div>
@@ -123,6 +123,7 @@ import { reactive } from 'vue';
 import { useRoute } from 'vue-router'
 const route = useRoute()
 import { usePaquetesStore as paquetes } from '@/stores/paquetes'
+import { useHelpersStore as helpers } from '@/stores/helpers'
 let formDef = {
     search: route.query.search ? route.query.search : '',
     adultos: route.query.adultos ? route.query.adultos : 2,
@@ -156,6 +157,7 @@ function filtrar(limpiar = false) {
     console.log("params", params);
 }
 function filter(field = '') {
+    console.log(field,form[field]);
     // let query = route.query
     // if (field) {
     //     query[field] = form[field]

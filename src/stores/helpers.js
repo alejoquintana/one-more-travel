@@ -5,8 +5,12 @@ export const useHelpersStore = defineStore('helpers', {
     state: () => ({
     }),
     actions: {
-        formatPrice(price,currency) { //, decPlaces, decSep, thouSep
-            return currency+"$ "+new Intl.NumberFormat("es-AR").format(price)
+        formatPrice(price, currency = '') {
+            let res = new Intl.NumberFormat("es-AR").format(price)
+            if (currency) {
+                res = currency+'$ '+res
+            }
+            return res
             // decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
             // decSep = typeof decSep === "undefined" ? "," : decSep;
             // thouSep = typeof thouSep === "undefined" ? "." : thouSep;
