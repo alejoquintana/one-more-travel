@@ -23,8 +23,7 @@
                             </p>
                         </div>
                         <div v-if="paquete.estrellas != 0" class="fs-sm">
-                            <i v-for="i in 5" :class="{ 'text-warning': i <= paquete.estrellas }" class="fa-solid fa-star"
-                                :key="i"></i>
+                            <i v-for="i in parseInt(paquete.estrellas)" class="fa-solid fa-star" :key="i"></i>
                         </div>
                         <div class="mb-0">
                             <div>

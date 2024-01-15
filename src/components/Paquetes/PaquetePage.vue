@@ -1,7 +1,7 @@
 <template>
     <!-- <button class="btn btn-primary btn-link mt-4" @click="goBack()">Volver atras</button> -->
     <div class="row mt-4">
-        <div class="col-6">
+        <div class="col-12 col-md-6 mt-4">
             <div class="relative">
                 <div class="absolute m-3 p-2 top-0 left-0 text-white bg-secondary rounded-circle" style="z-index:99">
                     <i v-if="paquete.transporte == 'aereos'" class="fa-solid fa-plane fa-2x"></i>
@@ -20,28 +20,38 @@
                         RESERVA REAL
                     </span>
                 </div>
-                <v-carousel class="br-radius" v-if="paquete.imagenes && paquete.imagenes.length" v-model="carousel"
-                    hide-delimiter-background cycle height="400" :show-arrows="false" hide-delimiters>
-                    <!-- <template v-slot:prev="{ props }">
-                        <i class="fa-solid fa-chevron-left text-white fa-2x pointer scale-hover" @click="props.onClick"></i>
-                    </template>
-                    <template v-slot:next="{ props }">
-                        <i class="fa-solid fa-chevron-right text-white fa-2x pointer scale-hover" @click="props.onClick"></i>
-                    </template> -->
-                    <v-carousel-item v-for="imagen, i in paquete.imagenes"
-                        :src="helpers().getImagePath(imagen.url, 'paquetes')" cover></v-carousel-item>
-                </v-carousel>
-
+                <div v-if="paquete.imagenes && paquete.imagenes.length" class="br-radius img-box img-portada-box">
+                    <img :src="helpers().getImagePath(paquete.imagenes[0].url, 'paquetes')" alt="">
+                </div>
             </div>
+            <div class="row mt-1 g-2">
+                <div class="col-3" v-for="media,i in paquete.media" :key="i">
+                    <div class="img-box h-100 pointer scale-hover-05" @click="selectMedia(media)">
+                        <img  v-if="media.tipo == 'I'" :src="helpers().getImagePath(media.url, 'paquetes')" alt="">
+                        <video  v-if="media.tipo == 'V'">
+                            <source :src="helpers().getImagePath(media.url, 'paquetes')" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <modal-container v-if="showModal" @closeModal="showModal = false">
+                <div class="img-box m-auto px-lg-5 mx-lg-5">    
+                    <img  v-if="selectedMedia.value.tipo == 'I'" :src="helpers().getImagePath(selectedMedia.value.url, 'paquetes')" alt="">
+                    <video  v-if="selectedMedia.value.tipo == 'V'" controls>
+                        <source :src="helpers().getImagePath(selectedMedia.value.url, 'paquetes')" type="video/mp4" >
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </modal-container>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-md-6 mt-4">
             <div class="row g-0 h-100">
                 <!-- <v-divider vertical></v-divider> -->
                 <div class="col-12 col-md-12 h-100">
                     <div class="p-4 bg-primary h-100 bs-white br-radius info-default">
-                        <div v-if="paquete.estrellas != 0" class="d-flex gap-2 mt-2">
-                            <i v-for="i in 4" :class="{ 'text-secondary': i <= paquete.estrellas }"
-                                class="fa-solid fa-star fa-lg" :key="i"></i>
+                        <div v-if="paquete.estrellas && paquete.estrellas != 0" class="d-flex gap-2 mt-2">
+                            <i v-for="i in parseInt(paquete.estrellas)" class="fa-solid fa-star fa-lg" :key="i"></i>
                         </div>
                         <h1 class="ucfirst mt-3">{{ paquete.nombre }}</h1>
                         <p v-if="paquete.descripcion_breve" class="fs-md text-white" v-html="paquete.descripcion_breve"></p>
@@ -58,14 +68,15 @@
                         </div>
                         <div>
                             <i class="me-2 fa fa-user"></i> {{ paquete.adultos }} adulto/s
-                            <span class="fw-bold" v-if="paquete.menores > 0">, {{ paquete.menores }} menore/s</span>
-                            <span class="fw-bold" v-if="paquete.infantes > 0">, {{ paquete.infantes }} infante/s.</span>
+                            <span v-if="paquete.menores > 0">, {{ paquete.menores }} menore/s</span>
+                            <span v-if="paquete.infantes > 0">, {{ paquete.infantes }} infante/s.</span>
                         </div>
                         <div>
-                            <i class="me-2 fa fa-hotel"></i> <span v-if="paquete.alojamiento"> {{ paquete.alojamiento }}</span>
+                            <i class="me-2 fa fa-hotel"></i> <span v-if="paquete.alojamiento"> {{ paquete.alojamiento
+                            }}</span>
                         </div>
                         <div v-if="paquete.regimen_incluido">
-                            <i class="me-2 fa fa-utensils"></i> <span >
+                            <i class="me-2 fa fa-utensils"></i> <span>
                                 <span v-if="paquete.regimen_incluido == 'all_inclusive'">All inclusive</span>
                                 <span v-if="paquete.regimen_incluido == 'media_pension'">Media pensión</span>
                                 <span v-if="paquete.regimen_incluido == 'solo_alojamiento'">Sólo alojamiento</span>
@@ -103,20 +114,6 @@
             </div>
         </v-col>
     </v-row>
-    <!-- <div class="row" v-if="paquete.videos && paquete.videos.length">
-        
-        <div class="col-4 br-radius overflow-hidden" v-for="video, i in paquete.videos" :key="i">
-            <video style="width:100%" controls>
-                <source :src="helpers().getImagePath(video.url, 'paquetes')" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-    </div>
-    <div class="row g-0">
-        <div class="col-12 col-md-12 br-radius overflow-hidden">
-        </div>
-    </div> -->
-
 
     <div class="row">
         <div class="col-md-12">
@@ -157,17 +154,26 @@
 </template>
 
 <script setup>
+import { ref, computed, reactive } from 'vue'
 import { storeToRefs } from 'pinia'
-import { ref } from 'vue'
+import ModalContainer from '@/components/ModalContainer.vue'
 import { useHelpersStore as helpers } from '@/stores/helpers'
 import { usePaquetesStore as paquetes } from '@/stores/paquetes'
+
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
-paquetes().fetchPaquete(route.params.paquete)
 let { paquete } = storeToRefs(paquetes());
-const carousel = ref(paquete.imagenes && paquete.imagenes.length == 1 ? 0 : 1)
 
+const selectedMedia = reactive({})
+
+const showModal = ref(false)
+
+paquetes().fetchPaquete(route.params.paquete)
+function selectMedia(media) {
+    selectedMedia.value = media
+    showModal.value = true
+}
 function goBack(value) {
     router.go(-1)
 }
@@ -179,7 +185,29 @@ function formatDate(value) {
     let val = value.split('-')
     return `${val[2]}/${val[1]}/${val[0]}`
 }
-
 </script>
 
-<style lang="scss" scoped>.info-default {}</style>
+<style lang="scss" scoped>
+.info-default {}
+
+.img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    img {
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
+    }
+    video {
+        object-fit: cover;
+        min-width: 100%;
+        min-height: 100%;
+    }
+}
+
+.img-portada-box {
+    height: 100%;
+}
+</style>
