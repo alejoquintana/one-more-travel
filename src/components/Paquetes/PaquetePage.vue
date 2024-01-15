@@ -101,6 +101,7 @@
         </v-col>
         <v-divider vertical></v-divider>
         <v-col cols="12" lg="4" class="px-4">
+            <h4 class="">Precio final</h4>
             <div class="d-flex justify-content-between">
                 <span>Tarifa</span>
                 <span>{{ helpers().formatPrice(paquete.tarifa, 'AR') }}</span>
@@ -109,8 +110,7 @@
                 <span>Impuestos</span>
                 <span>{{ helpers().formatPrice(paquete.impuestos, 'AR') }}</span>
             </div>
-            <div class="d-flex justify-content-between fs-xl">
-                <span class="fw-bold">Precio final</span>
+            <div class="d-flex justify-content-end fs-xl">
                 <span class="fw-bold">{{ helpers().formatPrice(paquete.precio_final, 'AR') }}</span>
             </div>
         </v-col>
