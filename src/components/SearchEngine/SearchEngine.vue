@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="search-window">
+        <div class="search-window bg-primary-gradient">
             <Aereos v-if="selectedTab == 'aereos'"/>
             <Hoteles v-if="selectedTab == 'hoteles'"/>
             <Paquetes v-if="selectedTab == 'paquetes'"/>
@@ -71,6 +71,5 @@ const tabs = [
     border-radius: $radius;
     padding: 1.2rem;
     min-height: 200px;
-    background: linear-gradient(110deg, rgba(#6668ff,1) 0%, rgba(#6696ff,1) 100%);
 }
 </style>

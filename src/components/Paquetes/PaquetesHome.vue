@@ -22,10 +22,11 @@
                                 {{ paquete.nombre }}
                             </p>
                         </div>
-                        <div v-if="paquete.estrellas != 0" class="fs-sm">
-                            <i v-for="i in parseInt(paquete.estrellas)" class="fa-solid fa-star" :key="i"></i>
-                        </div>
                         <div class="mb-0">
+                            <div v-if="paquete.estrellas != 0">
+                                <i class="fa fa-star"></i>
+                                {{ paquete.estrellas }}
+                            </div>
                             <div>
                                 <i class="fa fa-calendar"></i>
                                 {{ formatDate(paquete.fecha_salida) }}
@@ -88,7 +89,7 @@ function formatDate(value) {
 
 <style lang="scss" scoped>
 .ratio-50 {
-    --bs-aspect-ratio: 45%;
+    --bs-aspect-ratio: 60%;
 }
 
 .filters {

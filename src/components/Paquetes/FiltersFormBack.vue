@@ -1,16 +1,14 @@
 <template>
-    <div class="d-flex flex-column align-items-center relative py-2 px-3 my-4">
-        <div class="d-flex w-100 px-5">
-            <div class="filter-tab fw-bold fs-2 bg-primary br-radius px-4" @click="showFilters = !showFilters">
+    <div class="d-flex flex-column gap-3 bg-primary py-2 px-3 mt-4 br-radius mb-4">
+
+        <div class="d-flex justify-content-between align-items-center" @click="showFilters = !showFilters">
+            <span class="fw-bold fs-2">
                 Filtros
-            </div>
+            </span>
+            <i class="ms-3 fs-2 fa " :class="showFilters ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
         </div>
-        <div class="w-br-radius">
-            <div class="filter-tab bg-primary br-radius px-4 mb-3" style="min-height: 2px">
-            </div>
-        </div>
-        <Transition name="fadeHeight">
-            <div v-if="showFilters" class="row align-items-end g-3 py-2 pb-4 px-4 px-1 bg-primary-gradient text-white br-radius" style="position: relative;top: -3px">
+        <Transition name="height">
+            <div v-if="showFilters" class="row align-items-end g-4 mb-3 mx-1">
                 <!-- //! BUSCAR -->
                 <div class="col-md-4 col-12">
                     Buscador
@@ -39,10 +37,10 @@
                 <div class="col-md-5 col-12">
                     <div class="row">
                         <!-- <div class="col-md-3 col-12">
-                                Dias
-                                <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
-                                    @change="filter('dias')">
-                            </div> -->
+                            Dias
+                            <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
+                                @change="filter('dias')">
+                        </div> -->
                         <div class="col-4">
                             Adultos <input class="form-control-2" type="number" name="adultos" id="adultos" placeholder="2"
                                 v-model="form.adultos" @change="filter('adultos')">
@@ -68,27 +66,27 @@
                             :precio_max="paquetes().filters.precio_max" @hasChanged="sliderChange"></slider-range>
                     </div>
                     <!-- <div class="row">
-                            <div class="col-6">
-                                Precio minimo
-                                <div class="d-flex justify-content-between">
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
-                                </div>
-                                <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range"
+                        <div class="col-6">
+                            Precio minimo
+                            <div class="d-flex justify-content-between">
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            </div>
+                            <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range"
+                            type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
+                                @change="filter('precio_min')" />
+                        </div>
+                        <div class="col-6">
+                            Precio maximo
+                            <div class="d-flex justify-content-between">
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                            </div>
+                            <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range"
                                 type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                                    @change="filter('precio_min')" />
-                            </div>
-                            <div class="col-6">
-                                Precio maximo
-                                <div class="d-flex justify-content-between">
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
-                                </div>
-                                <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range"
-                                    type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                                    @change="filter('precio_max')" />
-                            </div>
-                        </div> -->
+                                @change="filter('precio_max')" />
+                        </div>
+                    </div> -->
                 </div>
                 <!-- //! ESTRELLAS -->
                 <div class="col-md-2 col-12">
@@ -250,16 +248,6 @@ const dateClicked = ([date, end]) => {
 </script>
 
 <style lang="scss" scoped>
-.filter-window {
-    width: 100%;
-    height: 1px;
-    border-bottom: 2px $primary solid
-}
-
-.filter-tab {
-    border-radius: $radius $radius 0 0;
-}
-
 .form-control-1 {
     display: block;
     width: 100%;

@@ -1,12 +1,12 @@
 <template>
     <div class="fixed">
-        <div class="m-container br-radius">
-            <div class="d-flex justify-content-end">
+        <div class="m-container relative br-radius overflow-hidden">
+            <div class="p-4 absolute top-0 right-0">
                 <button class="btn btn-secondary" @click="$emit('closeModal')">
                     <i class="fa fa-xmark"></i>
                 </button>
             </div>
-            <div class="mt-4">
+            <div class="overflow-hidden">
                 <slot>
                 </slot>
             </div>
@@ -35,12 +35,12 @@ body{
     background-color: #00000088;
     padding: 15px;
     .m-container{
-        padding: 20px;
         margin: auto;
         background: $primary;
         width: 100%;
         max-height: 80vh;
         max-width: 1080px;
+        border: 2px solid white;
     }
 }
 </style>

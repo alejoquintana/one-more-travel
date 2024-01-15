@@ -8,15 +8,15 @@
                     <i v-if="paquete.transporte == 'barco'" class="fa-solid fa-ship fa-2x"></i>
                     <i v-if="paquete.transporte == 'bus'" class="fa-solid fa-bus fa-2x"></i>
                 </div>
-                <div class="absolute m-3 fs-lg top-0 right-0 text-white fw-bold d-flex flex-column align-items-end gap-2"
+                <div class="absolute m-3 top-0 right-0 text-white fw-bold d-flex flex-column align-items-end gap-2"
                     style="z-index:99">
-                    <span v-if="paquete.oferta != 0" class="text-end bg-primary rounded-pill p-2 px-4">
+                    <span v-if="paquete.oferta != 0" class="text-end bg-primary rounded-pill p-2 px-3">
                         OFERTA
                     </span>
-                    <span v-if="paquete.destacado != 0" class="text-end  bg-primary rounded-pill p-2 px-4">
+                    <span v-if="paquete.destacado != 0" class="text-end  bg-primary rounded-pill p-2 px-3">
                         DESTACADO
                     </span>
-                    <span v-if="paquete.reserva_real != 0" class="text-end   bg-primary rounded-pill p-2 px-4">
+                    <span v-if="paquete.reserva_real != 0" class="text-end   bg-primary rounded-pill p-2 px-3">
                         RESERVA REAL
                     </span>
                 </div>
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <modal-container v-if="showModal" @closeModal="showModal = false">
-                <div class="img-box m-auto px-lg-5 mx-lg-5">    
+                <div class="img-box m-auto">    
                     <img  v-if="selectedMedia.value.tipo == 'I'" :src="helpers().getImagePath(selectedMedia.value.url, 'paquetes')" alt="">
                     <video  v-if="selectedMedia.value.tipo == 'V'" controls>
                         <source :src="helpers().getImagePath(selectedMedia.value.url, 'paquetes')" type="video/mp4" >
@@ -94,12 +94,13 @@
 
 
     <v-row no-gutters class="my-4 p-4 align-items-center justify-content-center bg-primary br-white br-radius">
-        <v-col v-if="paquete.descripcion" cols="12" lg="8" class="px-4">
-            Descripción
-            <div class="p-3 text-white" v-html="paquete.descripcion"></div>
+        <v-col cols="12" lg="8" class="px-4">
+            <h4>Descripción</h4>
+            <div v-if="paquete.descripcion" class="py-3 text-white" v-html="paquete.descripcion"></div>
+            <div v-else class="py-3 text-white">Sin descripción</div>
         </v-col>
-        <v-divider v-if="paquete.descripcion" vertical></v-divider>
-        <v-col cols="12" :lg="paquete.descripcion ? '4' : '8'" class="px-4">
+        <v-divider vertical></v-divider>
+        <v-col cols="12" lg="4" class="px-4">
             <div class="d-flex justify-content-between">
                 <span>Tarifa</span>
                 <span>{{ helpers().formatPrice(paquete.tarifa, 'AR') }}</span>
@@ -118,7 +119,7 @@
     <div class="row">
         <div class="col-md-12">
             <div v-if="paquete.links && paquete.links.length" class="br-radius border border-2 bg-primary my-4 p-4">
-                <h3>Enlaces a recursos adicionales</h3>
+                <h4>Enlaces a recursos adicionales</h4>
                 <hr class="mt-0">
                 <div class="d-flex justify-content-start gap-2">
                     <a :href="enlace.url" target="_blank" rel="noopener noreferrer"
@@ -145,9 +146,9 @@
     </div>
 
     <div class="my-3 p-4 bg-primary br-radius" v-for="textoLibre, i in paquete.textos" :key="i">
-        <h3 class="ucfirst">
+        <h4 class="ucfirst">
             {{ textoLibre.nombre }}
-        </h3>
+        </h4>
         <hr class="m-0">
         <p class="mt-3 text-white" v-html="textoLibre.texto"></p>
     </div>
