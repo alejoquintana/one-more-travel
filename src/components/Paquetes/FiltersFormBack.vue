@@ -426,4 +426,138 @@ const dateClicked = ([date, end]) => {
     --dp-range-between-dates-text-color: var(--dp-hover-text-color, #212121);
     --dp-range-between-border-color: var(--dp-hover-color, #f3f3f3);
 }
+/*
+<div v-if="showFilters" class="row align-items-end g-3 py-2 pb-4 px-4 px-1 bg-primary-gradient text-white br-radius" style="position: relative;top: -3px">
+                <!-- //! BUSCAR -->
+                <div class="col-md-4 col-12">
+                    Buscador
+                    <input class="form-control-1" type="text" placeholder="Buscar..." v-model="form.search"
+                        @change="filter('search')" id="search" name="search">
+                </div>
+                <!-- //! FECHA -->
+                <div class="col-md-3 col-12">
+                    Fecha
+                    <VueDatePicker v-model="date" range :format="format" @update:model-value="dateClicked">
+                        <template #calendar-header="{ index, day }">
+                            <div v-if="index === 0">Lu</div>
+                            <div v-if="index === 1">Ma</div>
+                            <div v-if="index === 2">Mi</div>
+                            <div v-if="index === 3">Ju</div>
+                            <div v-if="index === 4">Vi</div>
+                            <div v-if="index === 5">Sa</div>
+                            <div v-if="index === 6">Do</div>
+                        </template>
+                    </VueDatePicker>
+                </div>
+                <!-- //! PAXS -->
+                <div class="col-md-5 col-12">
+                    <div class="row">
+                        <!-- <div class="col-md-3 col-12">
+                                Dias
+                                <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
+                                    @change="filter('dias')">
+                            </div> -->
+                        <div class="col-4">
+                            Adultos <input class="form-control-2" type="number" name="adultos" id="adultos" placeholder="2"
+                                v-model="form.adultos" @change="filter('adultos')">
+                        </div>
+                        <div class="col-4">
+                            Menores <input class="form-control-2" type="number" name="menores" id="menores" placeholder="0"
+                                v-model="form.menores" @change="filter('menores')">
+                        </div>
+                        <div class="col-4">
+                            Infantes <input class="form-control-2" type="number" name="infantes" id="infantes"
+                                placeholder="0" v-model="form.infantes" @change="filter('infantes')">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- //! PRECIO -->
+                <div class="col-12 col-md-5" style="place-self:baseline">
+                    <div class="mt-1 mb-3">Precio</div>
+                    <div class="ms-1">
+                        <slider-range :precio_min="paquetes().filters.precio_min"
+                            :precio_max="paquetes().filters.precio_max" @hasChanged="sliderChange"></slider-range>
+                    </div>
+                    <!-- <div class="row">
+                            <div class="col-6">
+                                Precio minimo
+                                <div class="d-flex justify-content-between">
+                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                                </div>
+                                <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range"
+                                type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
+                                    @change="filter('precio_min')" />
+                            </div>
+                            <div class="col-6">
+                                Precio maximo
+                                <div class="d-flex justify-content-between">
+                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
+                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
+                                </div>
+                                <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range"
+                                    type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
+                                    @change="filter('precio_max')" />
+                            </div>
+                        </div> -->
+                </div>
+                <!-- //! ESTRELLAS -->
+                <div class="col-md-2 col-12">
+                    Estrellas
+                    <div class="input-group">
+                        <div class="rating">
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella5"
+                                name="estrellas" value="5" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella5" title="Awesome" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella4"
+                                name="estrellas" value="4" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella4" title="Great" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella3"
+                                name="estrellas" value="3" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella3" title="Very good" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella2"
+                                name="estrellas" value="2" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella2" title="Good" aria-hidden="true"></label>
+                            <input v-model="form.estrellas" class="form-control" type="radio" id="estrella1"
+                                name="estrellas" value="1" @change="filter('estrellas')" />
+                            <label class="estrella" for="estrella1" title="Bad" aria-hidden="true"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- //! TRANSPORTE y REGIMEN -->
+                <div class="col-12 col-md-5">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            Transporte
+                            <select placeholder="" class="form-select form-select-3" name="transporte" id="transporte"
+                                v-model="form.transporte" @change="filter('transporte')">
+                                <option value="aereos" selected>Aereos</option>
+                                <option value="bus">Bus</option>
+                                <option value="barco">Barco</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6 col-12">
+                            Regimen incluido
+                            <select placeholder="" class="form-select form-select-3" name="regimen_incluido"
+                                id="regimen_incluido" v-model="form.regimen_incluido" @change="filter('regimen_incluido')">
+                                <option value="all_inclusive" selected>All inclusive</option>
+                                <option value="media_pension">Media pensión</option>
+                                <option value="solo_alojamiento">Sólo alojamiento</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end">
+                    <button class="me-4 btn btn-outline-secondary btn-block" @click="resetForm()">Limpiar filtros</button>
+                    <button class="btn btn-secondary text-primary px-4 hover-info" @click="filtrar()">
+                        FILTRAR
+                    </button>
+                </div>
+            </div>*/
 </style>

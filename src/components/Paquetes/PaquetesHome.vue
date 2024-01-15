@@ -1,6 +1,6 @@
 <template>
     <div class="filters">
-        <filters-form></filters-form>
+        <filters-form-window></filters-form-window>
     </div>
     <div>
         <h1 class="fw-bold text-primary mb-0">Paquetes</h1>
@@ -70,7 +70,7 @@
 </template>
 
 <script setup>
-import FiltersForm from './FiltersForm.vue'
+import FiltersFormWindow from './FiltersFormWindow.vue'
 import { ref } from 'vue';
 import { useRouter, useRoute } from 'vue-router'
 const router = useRouter()
