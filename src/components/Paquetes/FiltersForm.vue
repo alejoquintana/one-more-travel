@@ -1,8 +1,8 @@
 <template>
     <div class="d-flex flex-column align-items-center relative py-2 px-3 my-4">
         <div class="d-flex w-100 px-5">
-            <div class="filter-tab fw-bold fs-2 bg-primary br-radius px-4" @click="showFilters = !showFilters">
-                Filtros
+            <div class="filter-tab fw-bold fs-3 bg-primary br-radius px-4" @click="showFilters = !showFilters">
+                Filtros <i class="fa-solid fa-filter fa-xs ms-2"></i>
             </div>
         </div>
         <div class="w-br-radius">
@@ -121,7 +121,7 @@
                             Transporte
                             <select placeholder="" class="form-select form-select-3" name="transporte" id="transporte"
                                 v-model="form.transporte" @change="filter('transporte')">
-                                <option value="aereos">Aereos</option>
+                                <option value="aereos" selected>Aereos</option>
                                 <option value="bus">Bus</option>
                                 <option value="barco">Barco</option>
                             </select>
@@ -131,7 +131,7 @@
                             Regimen incluido
                             <select placeholder="" class="form-select form-select-3" name="regimen_incluido"
                                 id="regimen_incluido" v-model="form.regimen_incluido" @change="filter('regimen_incluido')">
-                                <option value="all_inclusive">All inclusive</option>
+                                <option value="all_inclusive" selected>All inclusive</option>
                                 <option value="media_pension">Media pensión</option>
                                 <option value="solo_alojamiento">Sólo alojamiento</option>
                             </select>
@@ -141,7 +141,7 @@
 
                 <div class="d-flex justify-content-end">
                     <button class="me-4 btn btn-outline-secondary btn-block" @click="resetForm()">Limpiar filtros</button>
-                    <button class="btn btn-secondary text-primary px-4 bs-white-sm" @click="filtrar()">
+                    <button class="btn btn-secondary text-primary px-4 hover-info" @click="filtrar()">
                         FILTRAR
                     </button>
                 </div>
@@ -161,13 +161,13 @@ import { usePaquetesStore as paquetes } from '@/stores/paquetes'
 import SliderRange from './SliderRange.vue'
 let formDef = {
     search: route.query.search ? route.query.search : '',
-    adultos: route.query.adultos ? route.query.adultos : 2,
+    adultos: route.query.adultos ? route.query.adultos : 1,
     menores: route.query.menores ? route.query.menores : 0,
     infantes: route.query.infantes ? route.query.infantes : 0,
     precio_min: route.query.precio_min ? route.query.precio_min : 0,
     precio_max: route.query.precio_max ? route.query.precio_max : 0,
-    regimen_incluido: route.query.regimen_incluido ? route.query.regimen_incluido : '',
-    transporte: route.query.transporte ? route.query.transporte : '',
+    transporte: route.query.transporte ? route.query.transporte : 'aereos',
+    regimen_incluido: route.query.regimen_incluido ? route.query.regimen_incluido : 'all_inclusive',
     estrellas: route.query.estrellas ? route.query.estrellas : 0,
     dias: route.query.dias ? route.query.dias : 0,
     fecha_salida: route.query.fecha_salida ? route.query.fecha_salida : '',

@@ -24,20 +24,23 @@
                         </div>
                         <div class="mb-0">
                             <div v-if="paquete.estrellas != 0">
-                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star me-1"></i>
                                 {{ paquete.estrellas }}
                             </div>
                             <div>
-                                <i class="fa fa-calendar"></i>
+                                <i class="fa fa-calendar me-1"></i>
                                 {{ formatDate(paquete.fecha_salida) }}
                             </div>
                             <div>
-                                <i class="fa fa-moon"></i>
+                                <i class="fa fa-moon me-1"></i>
                                 {{ paquete.noches }} noches
                             </div>
                             <div>
-                                <i class="fa fa-utensils"></i>
-                                {{ paquete.regimen_incluido }}
+                                <i class="fa fa-utensils me-1"></i>
+                                <span v-if="paquete.regimen_incluido == 'all_inclusive'">All inclusive</span>
+                                <span v-if="paquete.regimen_incluido == 'media_pension'">Media pensión</span>
+                                <span v-if="paquete.regimen_incluido == 'solo_alojamiento'">Sólo alojamiento</span>
+                                <!-- {{ paquete.regimen_incluido }} -->
                             </div>
                         </div>
                         <div v-if="paquete.descripcion_breve"
@@ -58,7 +61,7 @@
                         <p class="mb-0 fs-lg fw-bold text-secondary text-center fs-3">
                             {{ helpers().formatPrice(paquete.precio_final, 'AR') }}
                         </p>
-                        <button class="btn btn-block btn-secondary text-primary w-100 btn-link btn-sm fw-bold text-white" style="text-decoration: none;">VER DETALLE</button>
+                        <button class="btn btn-block btn-secondary text-primary-hover w-100 btn-link btn-sm fw-bold text-white" style="text-decoration: none;">VER DETALLE</button>
                     </div>
                 </div>
             </div>

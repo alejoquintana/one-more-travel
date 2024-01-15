@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <modal-container v-if="showModal" @closeModal="showModal = false">
+            <modal-container v-if="showModal" @closeModal="closeModal">
                 <div class="img-box m-auto">    
                     <img  v-if="selectedMedia.value.tipo == 'I'" :src="helpers().getImagePath(selectedMedia.value.url, 'paquetes')" alt="">
                     <video  v-if="selectedMedia.value.tipo == 'V'" controls>
@@ -83,7 +83,7 @@
                             </span>
                         </div>
                         <div v-if="paquete.itinerario">
-                            <i class="me-2 fa-solid fa-calendar-days"></i>
+                            <i class="me-2 fa-solid fa-list"></i>
                             {{ paquete.itinerario }}
                         </div>
                     </div>
@@ -174,6 +174,11 @@ paquetes().fetchPaquete(route.params.paquete)
 function selectMedia(media) {
     selectedMedia.value = media
     showModal.value = true
+}
+function closeModal() {
+    if (showModal.value) {
+        showModal.value = false
+    }
 }
 function goBack(value) {
     router.go(-1)
