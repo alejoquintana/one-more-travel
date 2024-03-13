@@ -3,9 +3,7 @@
         <div class="d-inline btn-icon-contact bg-secondary rounded-circle">
             <Icon :icon="icon" color="primary" :size="size"></Icon>
         </div>
-        <span class="px-4">
             <slot />
-        </span>
     </div>
 </template>
 

@@ -24,13 +24,20 @@ import Aereos from "@/components/SearchEngine/SearchAereos.vue";
 import Hoteles from "@/components/SearchEngine/SearchHoteles.vue";
 import Paquetes from "@/components/SearchEngine/SearchPaquetes.vue";
 import Buques from "@/components/SearchEngine/SearchBuques.vue";
-import { ref } from "vue";
-const selectedTab = ref("aereos")
+import { onMounted, ref } from "vue";
+const props = defineProps({
+    tab: {
+        // type: Number,
+        default: 'aereos'
+    },
+})
+
+const selectedTab = ref(props.tab)
 const tabs = [
-    {name:'aereos',icon:"calendar-days"},
-    {name:'hoteles',icon:"train-subway"},
+    { name: 'aereos', icon:"plane"},
+    // {name:'hoteles',icon:"train-subway"},
     {name:'paquetes',icon:"suitcase"},
-    {name:'buques',icon:"ship"},
+    // {name:'buques',icon:"ship"},
 ]
 </script>
 

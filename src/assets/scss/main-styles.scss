@@ -4,9 +4,10 @@
 #app {
   margin: 0 auto;
   //padding-top: 2rem;
-  padding-bottom: 4rem;
+//   padding-bottom: 4rem;
   font-weight: normal;
-  background: linear-gradient(110deg, rgba(255, 255, 255, 1) 49%, rgba(1, 255, 193, 1) 49%);
+  background: #F4F4F4;
+  //background: linear-gradient(110deg, rgba(255, 255, 255, 1) 49%, rgba(1, 255, 193, 1) 49%);
 }
 .max-width {
   max-width: $max-width;
@@ -36,4 +37,14 @@ a,
 @media (min-width: 1024px) {
 }
 
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
 

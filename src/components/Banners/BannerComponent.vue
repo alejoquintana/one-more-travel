@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { useHelpersStore as helpers } from '@/stores/helpers'
+import { useHelpersStore as helpers } from '@/store/helpers'
 </script>
 
 <style lang="scss" scoped>

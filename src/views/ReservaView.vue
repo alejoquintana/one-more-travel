@@ -1,15 +1,15 @@
 <script setup>
 import NavBar from '@/components/Nav/NavBar.vue'
 import FooterBar from '@/components/FooterBar.vue'
-import PaquetesHome from '@/components/Paquetes/PaquetesHome.vue'
+import PaqueteReserva from '@/components/Paquetes/PaqueteReserva.vue'
 </script>
 
 <template>
     <NavBar />
     <main class="max-width">
-        <PaquetesHome />
+        <PaqueteReserva />
     </main>
-    <footer class="">
+    <footer class="mt-5">
         <FooterBar />
     </footer>
 </template>

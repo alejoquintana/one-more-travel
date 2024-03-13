@@ -9,7 +9,7 @@ import PaquetePage from '@/components/Paquetes/PaquetePage.vue'
     <main class="max-width">
         <PaquetePage />
     </main>
-    <footer class="mt-5 pt-5">
+    <footer class="mt-5">
         <FooterBar />
     </footer>
 </template>

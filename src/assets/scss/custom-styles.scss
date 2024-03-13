@@ -7,12 +7,16 @@
 .br-radius{
     border-radius: $radius;
 }
+.br-sm-radius{
+    border-radius: $sm-radius;
+}
 .br-lg-radius{
     border-radius: $lg-radius;
 }
 
 .fs-xl{font-size: $fs-xl;}
 .fs-lg{font-size: $fs-lg;}
+.fs-md{font-size: $fs-md;}
 .fs-sm{font-size: $fs-sm;}
 .fs-xs{font-size: $fs-xs;}
 
@@ -188,3 +192,9 @@ img {
     //font-weight: bold;
     color: rgb(8, 91, 173) !important;
 }
+.ffs-1{font-size: 0.80rem;}
+.ffs-2{font-size: 1.29rem;}
+.ffs-3{font-size: 2.09rem;}
+.ffs-4{font-size: 3.38rem;}
+.ffs-5{font-size: 5.48rem;}
+.ffs-6{font-size: 8.87rem;}

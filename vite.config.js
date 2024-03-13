@@ -8,10 +8,12 @@ import {
 } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
+// import daterangepicker from './plugins/daterangepicker.js'
 
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
+        // daterangepicker(),
         vue(),
         vuetify({
             //autoImport: true,

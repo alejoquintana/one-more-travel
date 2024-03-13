@@ -1,12 +1,15 @@
 <template>
-    <div class="filters">
-        <filters-form-window></filters-form-window>
+    <div class="filters my-4">
+        <!-- <filters-form-window></filters-form-window> -->
+        <SearchEngine :tab="'paquetes'"/>
     </div>
     <div>
-        <h1 class="fw-bold text-primary mb-0">Paquetes</h1>
-        <hr class="m-0">
+        <h1 class="fw-bold text-primary mb-0 border-bottom border-secondary border-4">Paquetes</h1>
+        <!-- <hr class="m-0"> -->
         <div class="row">
-            <div class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :key="i">
+            <PaqueteCard class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :paquete="paquete"
+                :key="i" />
+            <!-- <div class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :key="i">
                 <div class="relative br-radius p-3 bg-primary text-white pointer h-100 d-flex flex-column justify-content-between"
                     @click="goToPack(paquete.codigo)">
                     <div>
@@ -18,7 +21,6 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center mt-2">
                             <p class="fs-4 mb-0 ucfirst ellipsis flex-grow-1">
-                                <!-- {{ paquete.nombre }} -->
                                 {{ paquete.nombre }}
                             </p>
                         </div>
@@ -40,12 +42,11 @@
                                 <span v-if="paquete.regimen_incluido == 'all_inclusive'">All inclusive</span>
                                 <span v-if="paquete.regimen_incluido == 'media_pension'">Media pensión</span>
                                 <span v-if="paquete.regimen_incluido == 'solo_alojamiento'">Sólo alojamiento</span>
-                                <!-- {{ paquete.regimen_incluido }} -->
                             </div>
                         </div>
                         <div v-if="paquete.descripcion_breve"
                             class="col-12 mt-2 row g-0 justify-content-between align-items-center">
-                            <p class="mb-0" v-html="paquete.descripcion_breve"></p>
+                            <p class="mb-0 ffs-1" v-html="paquete.descripcion_breve"></p>
                         </div>
                         <div class="absolute m-2 p-2 top-0 left-0 text-white bg-secondary rounded-circle">
                             <i v-if="paquete.transporte == 'aereos'" class="fa-solid fa-plane fa-xl"></i>
@@ -64,36 +65,25 @@
                         <button class="btn btn-block btn-secondary text-primary-hover w-100 btn-link btn-sm fw-bold text-white" style="text-decoration: none;">VER DETALLE</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </template>
 
 <script setup>
 import FiltersFormWindow from './FiltersFormWindow.vue'
-import { ref } from 'vue';
-import { useRouter, useRoute } from 'vue-router'
-const router = useRouter()
+import SearchEngine from '@/components/SearchEngine/SearchEngine.vue'
+import PaqueteCard from './PaqueteCard.vue'
+import { useRoute } from 'vue-router'
 const route = useRoute()
-import { useHelpersStore as helpers } from '@/stores/helpers'
-import { usePaquetesStore as paquetes } from '@/stores/paquetes'
+import { usePaquetesStore as paquetes } from '@/store/paquetes'
 
 let params = new URLSearchParams(route.query).toString();
 paquetes().fetchPaquetesParametros(params)
-//paquetes().fetchPaquetes()
-function goToPack(codigo) {
-    router.push('paquetes/' + codigo)
-}
-function formatDate(value) {
-    let val = value.split('-')
-    return `${val[2]}/${val[1]}/${val[0]}`
-}
 </script>
 
 <style lang="scss" scoped>
-.ratio-50 {
-    --bs-aspect-ratio: 60%;
-}
+
 
 .filters {
     // position: fixed;

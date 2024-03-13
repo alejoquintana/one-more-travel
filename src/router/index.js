@@ -5,6 +5,7 @@ import {
 import HomeView from '../views/HomeView.vue'
 import PaquetesView from '../views/PaquetesView.vue'
 import PaqueteView from '../views/PaqueteView.vue'
+import ReservaView from '../views/ReservaView.vue'
 
 const router = createRouter({
     history: createWebHistory(
@@ -23,6 +24,11 @@ const router = createRouter({
             path: '/paquetes/:paquete',
             name: 'paquete',
             component: PaqueteView
+        },
+        {
+            path: '/paquetes/:paquete/reservar',
+            name: 'reservar',
+            component: ReservaView
         },
     ]
 })

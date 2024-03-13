@@ -1,24 +1,36 @@
 <script setup>
 import OmgButton from '@/components/OmgButton.vue';
-import { useHelpersStore as helpers } from '@/stores/helpers'
-import { useInfoStore as info } from '@/stores/info'
+import { useHelpersStore as helpers } from '@/store/helpers'
+import { useInfoStore as info } from '@/store/info'
 import Icon from '@/components/AIcon.vue'
 
 const contacts = [
-    { obj: info().mail, icon: 'envelope' },
-    { obj: info().phone, icon: 'phone-volume' }
+    {
+        obj: `<a href="mailto:${info().mail}" style="color:#FFF;text-decoration:none;">
+                ${info().mail}
+            </a>`,
+        icon: 'envelope'
+    },
+    {
+        obj: `<a href="tel:${info().phone}" style="color:#FFF;text-decoration:none;">
+                ${info().phone}
+            </a>`,
+        icon: 'phone-volume'
+    }
 ]
 </script>
 
 <template>
     <header class="header">
-        <nav class="nav-bar px-lg-0">
+        <nav class="nav-bar">
             <router-link to="/">
                 <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers().getImagePath('logo-white.png')"
                     alt="Logo OMG Travel">
             </router-link>
             <div class="d-flex gap-4" v-if="$mq.lg">
-                <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">{{ obj }}</OmgButton>
+                <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">
+                    <span class="px-4" v-html="obj"></span>
+                </OmgButton>
             </div>
             <div class="d-flex gap-5" v-if="$mq.lg">
                 <span v-for="social in info().socials" :key="social.icon">

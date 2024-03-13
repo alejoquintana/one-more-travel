@@ -1,11 +1,12 @@
 import {
     defineStore
 } from 'pinia'
-const URL = "https://phpstack-627868-4182415.cloudwaysapps.com";
+const URL = "https://omgtravel.aereos.app";
 
 export const usePaquetesStore = defineStore('paquetes', {
     state: () => ({
         paquetes: [],
+        paises: [],
         paquete: {},
         ofertas: [],
         filters: {
@@ -30,6 +31,17 @@ export const usePaquetesStore = defineStore('paquetes', {
                 })
                 .catch(error => console.error(error));
         },
+        async fetchPaises() {
+            fetch(URL+"/api/paises.php")
+                .then(response => {
+                    return response.json()
+                })
+                .then(json => {
+                    // console.log("response", json);
+                    this.paises = json.paises
+                })
+                .catch(error => console.error(error));
+        },
         async fetchPaquetesOferta() {
             fetch(URL+"/api/paquetes-home.php?tipo=oferta")
                 .then(response => {
@@ -49,7 +61,6 @@ export const usePaquetesStore = defineStore('paquetes', {
                     return response.json()
                 })
                 .then(json => {
-                    console.log("json", json.query);
                     this.paquetes = json.paquetes
                     this.filters = json.filters
                 })
@@ -58,7 +69,6 @@ export const usePaquetesStore = defineStore('paquetes', {
         async fetchPaquete(codigo) {
             fetch(URL+"/api/paquetes-home.php?codigo=" + codigo)
                 .then(response => {
-                    // console.log("response",response);
                     return response.json()
                 })
                 .then(json => this.paquete = json.paquetes[0])

@@ -1,5 +1,5 @@
 <script setup>
-import { useHelpersStore as helpers } from '@/stores/helpers'
+import { useHelpersStore as helpers } from '@/store/helpers'
 const offers = [
   {
     id: 1,

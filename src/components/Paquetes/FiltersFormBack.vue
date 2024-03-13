@@ -155,7 +155,7 @@ import '@vuepic/vue-datepicker/dist/main.css'
 const showFilters = ref(false)
 import { useRoute } from 'vue-router'
 const route = useRoute()
-import { usePaquetesStore as paquetes } from '@/stores/paquetes'
+import { usePaquetesStore as paquetes } from '@/store/paquetes'
 import SliderRange from './SliderRange.vue'
 let formDef = {
     search: route.query.search ? route.query.search : '',

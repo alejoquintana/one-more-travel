@@ -3,17 +3,20 @@ $min-width:576px;
 $primary: #6686FF;
 $secondary: #01FFC1;
 $blue: #0848a8;
+$bg-primary-gradient: linear-gradient(110deg, rgba(#6668ff, 1) 0%, rgba(#6696ff, 1) 100%);
 
 $max-width: 1280px;
 $nav-h-lg: 12vh;
 $nav-h-sm: 8vh;
+
+$sm-radius: 12px;
 $radius: 25px;
 $lg-radius: 50px;
 
-$fs-sm: 0.6rem;
 
 $fs-xl:1.5rem;
 $fs-lg:1.2rem;
+$fs-md:0.82rem;
 $fs-sm:0.7rem;
 $fs-xs:0.6rem;
 
