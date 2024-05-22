@@ -1,51 +1,5 @@
 <script setup>
 import { useHelpersStore as helpers } from '@/store/helpers'
-const offers = [
-  {
-    id: 1,
-    type: 'banner',
-    price: '',
-    currency: '',
-    destination: '',
-    discount: '',
-    image: 'cyber-monday.png',
-    bank: '',
-    url: ''
-  },
-  {
-    id: 2,
-    type: 'aereos',
-    price: '1500000',
-    currency: 'AR',
-    destination: 'sardegna, italia',
-    discount: '10',
-    image: 'offer-1.png',
-    bank: 'bbva-go',
-    url: ''
-  },
-  {
-    id: 3,
-    type: 'excursion',
-    price: '50000',
-    currency: 'AR',
-    destination: 'montserrat, españa',
-    discount: '10',
-    image: 'offer-2-bad.png',
-    bank: 'santander',
-    url: ''
-  },
-  {
-    id: 4,
-    type: 'aereos',
-    price: '10000',
-    currency: 'AR',
-    destination: 'mendoza',
-    discount: '10',
-    image: 'offer-3.png',
-    bank: 'santander',
-    url: ''
-  }
-]
 </script>
 
 <template>

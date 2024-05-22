@@ -47,11 +47,12 @@ function saveData() {
 
 <style scoped lang="scss">
 .bg-container {
-    background-color: rgba($blue, 0.8);
+    background-color: rgba($primary, 0.8);
 }
 
 input::placeholder,
 textarea::placeholder {
     font-size: $fs-sm;
     font-weight: bold;
-}</style>
+}
+</style>

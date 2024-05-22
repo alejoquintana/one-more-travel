@@ -9,7 +9,7 @@ const country = ref("italia")
 <template>
     <div class="rect def-shadow">
         <img class="img-slider w-100" src="/imgs/slider-1.png" alt="">
-        <div class="addons w-100 px-lg-5 ps-3 ps-lg-3" :class="{'flex-column gap-3 align-items-start': $mq.sm }">
+        <div class="addons w-100 h-100 px-lg-5 ps-3 ps-lg-3" :class="{'flex-column gap-3 align-items-start': $mq.sm }">
             <div class="name-slider bg-white px-lg-5 px-2 py-2 text-primary text-capitalize br-radius">
                 <span>{{ city }}, <strong>{{ country }}</strong></span>
             </div>

@@ -1,19 +1,19 @@
 <template>
-    <div>
+    <div class="">
         <div class="d-flex ps-lg-5 ps-4 text-primary">
-            <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected':''" v-for="{name,icon},i in tabs" :key="i"
-            @click="selectedTab= name">
-                <Icon :icon="icon" :color="selectedTab == name ? 'secondary':'primary'" size="lg"/>
+            <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected':''"
+                v-for="{name,icon},i in tabs" :key="i" @click="selectedTab= name">
+                <Icon :icon="icon" :color="selectedTab == name ? 'white':'primary'" size="lg" />
                 <div v-if="$mq.lg" class="tab-name text-center text-capitalize fs-lg fw-bold">
                     {{ name }}
                 </div>
             </div>
         </div>
-        <div class="search-window bg-primary-gradient">
-            <Aereos v-if="selectedTab == 'aereos'"/>
-            <Hoteles v-if="selectedTab == 'hoteles'"/>
-            <Paquetes v-if="selectedTab == 'paquetes'"/>
-            <Buques v-if="selectedTab == 'buques'"/>
+        <div class="search-window bg-primary  def-shadow">
+            <Aereos v-if="selectedTab == 'aereos'" />
+            <Hoteles v-if="selectedTab == 'hoteles'" />
+            <Paquetes v-if="selectedTab == 'paquetes'" />
+            <Buques v-if="selectedTab == 'buques'" />
         </div>
     </div>
 </template>
@@ -49,13 +49,17 @@ const tabs = [
 }
 .tab{
     transition: all $transitions-time;
-    border-radius:  $radius $radius 0 0;
+    border-radius: $radius $radius 0 0;
     padding: 0.5rem 1.2rem;
+    border-top: 2px solid $primary;
+    border-left: 2px solid $primary;
+    border-right: 2px solid $primary;
+    margin-right: 8px;
 }
 .tab.selected{
     background-color: $primary;
-    color: $secondary;
-    fill: $secondary;
+    color: #fff;
+    fill: #fff;
 }
 
 .tab-name{

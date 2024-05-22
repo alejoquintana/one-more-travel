@@ -1,16 +1,18 @@
 <template>
     <div class="fixed">
         <div class="bg w-100 h-100 absolute" @click="$emit('closeModal')"></div>
-            <div class="m-container relative br-radius overflow-hidden">
+        <div class="m-cont br-radius">
+            <div class="m-container relative br-radius">
                 <div class="p-4 absolute top-0 right-0">
                     <button class="btn btn-secondary" @click="$emit('closeModal')">
                         <i class="fa fa-xmark"></i>
                     </button>
                 </div>
-                <div class="overflow-hidden">
+                <div class="overflow-" style="">
                     <slot>
                     </slot>
                 </div>
+            </div>
         </div>
     </div>
 </template>
@@ -45,16 +47,24 @@ body{
     z-index: 1000000;
     display: flex;
     .bg{
-    background-color: #00000088;
+        background-color: #00000088;
     }
-    .m-container{
-        //padding: 15px;
+    .m-cont{
+        overflow: hidden;
         margin: auto;
         background: $primary;
         width: 100%;
         max-height: 80vh;
         max-width: 1080px;
-        border: 2px solid white;
+        .m-container{
+            overflow-y: scroll;
+            margin: auto;
+            background: $primary;
+            width: 100%;
+            max-height: 80vh;
+            max-width: 1080px;
+            border: 2px solid white;
+        }
     }
 }
 </style>

@@ -5,6 +5,6 @@
 $theme-colors: map-merge($theme-colors, (
     "primary":$primary,
     "secondary":$secondary,
-    "blue":$blue,
+    // "blue":$blue,
 ));
 @import "node_modules/bootstrap/scss/bootstrap";

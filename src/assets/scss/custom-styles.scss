@@ -1,6 +1,6 @@
 @import "./_variables";
 .def-shadow{
-    box-shadow: 5.51px 10.65px 7px 1px rgba(46,58,147,0.3);
+    box-shadow: 5.51px 10.65px 17px 1px rgba(46,58,147,0.3);
     // -webkit-box-shadow: 11px 13px 7px 1px rgba(46,58,147,0.53);
     // -moz-box-shadow: 11px 13px 7px 1px rgba(46,58,147,0.53);
 }
@@ -12,6 +12,10 @@
 }
 .br-lg-radius{
     border-radius: $lg-radius;
+}
+
+.cursor-pointer{
+    cursor:pointer;
 }
 
 .fs-xl{font-size: $fs-xl;}
@@ -41,9 +45,13 @@
 }
 .scale-hover:hover{
     transform: scale(1.1);
+    z-index: 90000;
+    position: relative;
 }
 .scale-hover-05:hover{
     transform: scale(1.05);
+    z-index: 90000;
+    position: relative;
 }
 
 svg{
@@ -198,3 +206,25 @@ img {
 .ffs-4{font-size: 3.38rem;}
 .ffs-5{font-size: 5.48rem;}
 .ffs-6{font-size: 8.87rem;}
+
+.skeleton{
+    min-height: 40px;
+    width: 100%;
+    border-radius: $radius;
+    animation: skeleton 2s infinite;
+    background-color: #e2e5e733; // The shine that's going to move across the skeleton:
+    background-image: linear-gradient(90deg,
+        rgba(#ffffff88, 0),
+        rgba(#ffffff88, 0.5),
+        rgba(#ffffff88, 0));
+    background-size: 300px 100%; // width of the shine
+    background-repeat: no-repeat; // No need to repeat the shine effect
+    background-position: left -300px top 0;
+}
+
+@keyframes skeleton {
+    to {
+        // Move shine from left to right, with offset on the right based on the width of the shine - see background-size
+        background-position: right -300px top 0;
+    }
+}

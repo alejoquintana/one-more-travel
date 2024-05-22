@@ -1,5 +1,39 @@
 <template>
-<div class="formAereos" data-tipoMotor="aereos" ></div>
+    <div class="formAereos" data-tipoMotor="aereos"></div>
+    <v-row class="py-4 skeletonAereos">
+        <v-col cols="10">
+            <v-row>
+                <v-col cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col cols="5">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col cols="7">
+                    <v-row>
+                        <v-col cols="4">
+                            <div class="skeleton"></div>
+                        </v-col>
+                        <v-col cols="4">
+                            <div class="skeleton"></div>
+                        </v-col>
+                        <v-col cols="4">
+                            <div class="skeleton"></div>
+                        </v-col>
+                    </v-row>
+                </v-col>
+            </v-row>
+        </v-col>
+        <v-col cols="2">
+            <div class="skeleton h-100"></div>
+        </v-col>
+    </v-row>
 
     <!-- <div class="d-flex flex-column gap-3">
         <h1 :class="$mq.lg ? 'fs-xl' : 'fs-lg'"><strong>Vuela vuela!</strong> Pero primero, busca pasajes acá!</h1>
@@ -75,29 +109,11 @@
 </template>
 
 <script setup>
-// import OmgButton from '@/components/OmgButton.vue';
-// import Icon from '@/components/AIcon.vue'
-// import VueDatePicker from '@vuepic/vue-datepicker';
-// import '@vuepic/vue-datepicker/dist/main.css'
-import { onMounted, ref, reactive } from 'vue';
-// const date = ref();
-// const form = reactive({
-//     origin: "Buenos Aires Arg, AEP",
-//     destination: "Ingresa una ciudad",
-//     range: null,
-//     start_date: null,
-//     return_date: null,
-//     passangers: "1 solo",
-//     class: "Turista",
-// })
-// function consoleLog() {
-//     console.log("form", form);
-// }
+import { onMounted } from 'vue';
+import { useImportScriptsStore as importScripts } from '@/store/importScripts'
 
 onMounted(function () {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', 'https://omgtravel.aereos.app/aereos.omg.app.min.js?v='+Date.now())
-    document.body.appendChild(recaptchaScript)
+    importScripts().fetchFlightEngine()
 })
 </script>
 
@@ -141,6 +157,7 @@ input {
         color: $secondary;
     }
 }
+
 .filter-data {
     display: flex;
     flex-direction: column;
@@ -148,6 +165,7 @@ input {
     padding: 0.4rem 0.8rem;
     border-radius: $radius;
 }
+
 .title-data {
     color: $secondary;
 }
@@ -226,7 +244,8 @@ input {
     --dp-range-between-dates-text-color: var(--dp-hover-text-color, #fff);
     --dp-range-between-border-color: var(--dp-hover-color, #fff);
 }
-input::placeholder{
+
+input::placeholder {
     color: red !important;
 }
 </style>

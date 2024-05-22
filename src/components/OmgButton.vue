@@ -1,7 +1,7 @@
 <template>
-    <div class="btn-contact d-flex align-items-center text-white">
-        <div class="d-inline btn-icon-contact bg-secondary rounded-circle">
-            <Icon :icon="icon" color="primary" :size="size"></Icon>
+    <div class="btn-contact d-flex align-items-center text-primary">
+        <div class="d-inline btn-icon-contact bg-primary rounded-circle">
+            <Icon :icon="icon" color="white" :size="size"></Icon>
         </div>
             <slot />
     </div>
@@ -16,7 +16,7 @@ defineProps([
 
 <style lang="scss" scoped>
 .btn-contact{
-    box-shadow:inset 0px 0px 0px 2px $secondary;
+    box-shadow:inset 0px 0px 0px 2px $primary;
     //border: 2px solid $secondary;
     border-radius: $radius;
 }

@@ -1,8 +1,6 @@
 <template>
-    <Slider v-model="value" :tooltipPosition="'bottom'" :min="parseInt(precio_min)" :max="parseInt(precio_max)" @end="change()" :format="{prefix: '$',suffix: '',decimals: '0',thousand: '.'}" class="slider"/>
-    <!-- {{ precio_max }}
-    {{ precio_min }} -->
-    <div v-if="test"></div>
+    <Slider v-model="value" :tooltipPosition="'bottom'" :min="parseInt(precio_min)" :max="parseInt(precio_max)"
+        @end="change()" :format="{prefix: '$',suffix: '',decimals: '0',thousand: '.'}" class="slider" />
 </template>
 
 <script>
@@ -13,8 +11,7 @@ export default {
     components: { Slider },
     data: () => ({
         value: [0, 100],
-        showStart:0,
-        showEnd:0,
+        fetched: false
     }),
     emits: ['hasChanged'],
     methods: {
@@ -22,31 +19,33 @@ export default {
             this.$emit('hasChanged', this.value)
         }
     },
-    computed: {
-        test() {
+    updated() {
+        if (!this.fetched) {            
             if (this.precio_min && this.precio_max) {
-                let min = parseInt(this.precio_min)
-                let max = parseInt(this.precio_max)
-                let prom = 0//(max-min)*0
-                this.value = [min+prom, max-prom]
+                this.value = [parseInt(this.precio_min), parseInt(this.precio_max)]
+                this.$emit('hasChanged', this.value)
+                this.fetched = true
             }
-            return 0
         }
-    }
+    },
+    mounted() {
+        if (!this.fetched) {            
+            if (this.precio_min && this.precio_max) {
+                this.value = [parseInt(this.precio_min), parseInt(this.precio_max)]
+                this.$emit('hasChanged', this.value)
+                this.fetched = true
+            }
+        }
+    },
 }
 </script>
 
 <style  scoped>
-/* 
-$primary: #6686FF;
-$secondary: #01FFC1;
-$blue: #0848a8;
-*/
 .slider {
   --slider-connect-bg: #01FFC1;
   --slider-tooltip-bg: #01FFC1;
   --slider-handle-ring-color: #01FFC1;
-  --slider-tooltip-color: #6686FF;
+  --slider-tooltip-color: #6666ff;
 
   --slider-tooltip-font-size: 0.875rem;
 --slider-tooltip-line-height: 1.25rem;

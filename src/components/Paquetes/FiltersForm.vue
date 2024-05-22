@@ -1,154 +1,66 @@
 <template>
-    <div class="row align-items-end g-3 py-2 pb-4 px-4 px-1 bg-primary-gradient text-white br-radius"
-        style="position: relative;top: -3px">
-        <!-- //! BUSCAR -->
-        <div class="col-md-4 col-12">
-            Buscador
-            <input class="form-control-1" type="text" placeholder="Buscar..." v-model="form.search"
-                @change="filter('search')" id="search" name="search">
-        </div>
-
-        <!-- //! FECHA -->
-        <div class="col-md-3 col-12">
-            Fecha
-            <VueDatePicker v-model="date" range :format="format" @update:model-value="dateClicked">
-                <template #calendar-header="{ index, day }">
-                    <div v-if="index === 0">Lu</div>
-                    <div v-if="index === 1">Ma</div>
-                    <div v-if="index === 2">Mi</div>
-                    <div v-if="index === 3">Ju</div>
-                    <div v-if="index === 4">Vi</div>
-                    <div v-if="index === 5">Sa</div>
-                    <div v-if="index === 6">Do</div>
-                </template>
-            </VueDatePicker>
-        </div>
-
-
-        <!-- //! PAXS -->
-        <div class="col-md-5 col-12">
-            <div class="row">
-                <!-- <div class="col-md-3 col-12">
-                                Dias
-                                <input class="form-control-2" type="number" name="dias" id="dias" v-model="form.dias"
-                                    @change="filter('dias')">
-                            </div> -->
-                <div class="col-4">
-                    Adultos <input class="form-control-2" type="number" name="adultos" id="adultos" placeholder="2"
-                        v-model="form.adultos" @change="filter('adultos')">
-                </div>
-                <div class="col-4">
-                    Menores <input class="form-control-2" type="number" name="menores" id="menores" placeholder="0"
-                        v-model="form.menores" @change="filter('menores')">
-                </div>
-                <div class="col-4">
-                    Infantes <input class="form-control-2" type="number" name="infantes" id="infantes" placeholder="0"
-                        v-model="form.infantes" @change="filter('infantes')">
-                </div>
-            </div>
-        </div>
-
-
-
-        <!-- //! PRECIO -->
-        <div class="col-12 col-md-5" style="place-self:baseline">
-            <div class="mt-1 mb-3">Precio</div>
-            <div class="ms-1">
-                <slider-range :precio_min="paquetes().filters.precio_min" :precio_max="paquetes().filters.precio_max"
-                    @hasChanged="sliderChange"></slider-range>
-            </div>
-            <!-- <div class="row">
-                            <div class="col-6">
-                                Precio minimo
-                                <div class="d-flex justify-content-between">
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
-                                </div>
-                                <input name="precio_min" id="precio_min" v-model="form.precio_min" class="form-range"
-                                type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                                    @change="filter('precio_min')" />
-                            </div>
-                            <div class="col-6">
-                                Precio maximo
-                                <div class="d-flex justify-content-between">
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_min) }}</span>
-                                    <span>{{ helpers().formatPrice(paquetes().filters.precio_max) }}</span>
-                                </div>
-                                <input name="precio_max" id="precio_max" v-model="form.precio_max" class="form-range"
-                                    type="range" :min="paquetes().filters.precio_min" :max="paquetes().filters.precio_max"
-                                    @change="filter('precio_max')" />
-                            </div>
-                        </div> -->
-        </div>
-        <!-- //! ESTRELLAS -->
-        <div class="col-md-2 col-12">
-            Estrellas
-            <div class="input-group">
-                <div class="rating">
-                    <input v-model="form.estrellas" class="form-control" type="radio" id="estrella5" name="estrellas"
-                        value="5" @change="filter('estrellas')" />
-                    <label class="estrella" for="estrella5" title="Awesome" aria-hidden="true"></label>
-                    <input v-model="form.estrellas" class="form-control" type="radio" id="estrella4" name="estrellas"
-                        value="4" @change="filter('estrellas')" />
-                    <label class="estrella" for="estrella4" title="Great" aria-hidden="true"></label>
-                    <input v-model="form.estrellas" class="form-control" type="radio" id="estrella3" name="estrellas"
-                        value="3" @change="filter('estrellas')" />
-                    <label class="estrella" for="estrella3" title="Very good" aria-hidden="true"></label>
-                    <input v-model="form.estrellas" class="form-control" type="radio" id="estrella2" name="estrellas"
-                        value="2" @change="filter('estrellas')" />
-                    <label class="estrella" for="estrella2" title="Good" aria-hidden="true"></label>
-                    <input v-model="form.estrellas" class="form-control" type="radio" id="estrella1" name="estrellas"
-                        value="1" @change="filter('estrellas')" />
-                    <label class="estrella" for="estrella1" title="Bad" aria-hidden="true"></label>
-                </div>
-            </div>
-        </div>
-
-        <!-- //! TRANSPORTE y REGIMEN -->
-        <div class="col-12 col-md-5">
-            <div class="row">
-                <div class="col-md-6 col-12">
-                    Transporte
-                    <select placeholder="" class="form-select form-select-3" name="transporte" id="transporte"
-                        v-model="form.transporte" @change="filter('transporte')">
-                        <option value="aereos" selected>Aereos</option>
-                        <option value="bus">Bus</option>
-                        <option value="barco">Barco</option>
-                    </select>
-                </div>
-
-                <div class="col-md-6 col-12">
-                    Regimen incluido
-                    <select placeholder="" class="form-select form-select-3" name="regimen_incluido" id="regimen_incluido"
-                        v-model="form.regimen_incluido" @change="filter('regimen_incluido')">
-                        <option value="all_inclusive" selected>All inclusive</option>
-                        <option value="media_pension">Media pensión</option>
-                        <option value="solo_alojamiento">Sólo alojamiento</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="d-flex justify-content-end">
-            <button class="me-4 btn btn-outline-secondary btn-block" @click="resetForm()">Limpiar filtros</button>
-            <button class="btn btn-secondary text-primary px-4 hover-info" @click="filtrar()">
-                FILTRAR
-            </button>
-        </div>
-    </div>
+    <div class="formPaquetesFilters"></div>
+    <v-row class="pt-4 skeletonPaquetesFilters" style="gap:10px 0">
+        <v-col class="p-2" cols="4">
+            <div class="skeleton"></div>
+        </v-col>
+        <v-col class="p-2" cols="3">
+            <div class="skeleton"></div>
+        </v-col>
+        <v-col class="p-2" cols="5">
+            <v-row>
+                <v-col class="px-2" cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col class="px-2" cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col class="px-2" cols="4">
+                    <div class="skeleton"></div>
+                </v-col>
+            </v-row>
+        </v-col>
+        <v-col class="p-2" cols="4">
+            <v-row>
+                <v-col class="px-2" cols="6">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col class="px-2" cols="6">
+                    <div class="skeleton"></div>
+                </v-col>
+            </v-row>
+        </v-col>
+        <v-col class="p-2" cols="5">
+            <div class="skeleton"></div>
+        </v-col>
+        <v-col class="p-2" cols="3">
+            <v-row>
+                <v-col class="px-2" cols="6">
+                    <div class="skeleton"></div>
+                </v-col>
+                <v-col class="px-2" cols="6">
+                    <div class="skeleton"></div>
+                </v-col>
+            </v-row>
+        </v-col>
+    </v-row>
 </template>
 
 <script setup>
 import { reactive, ref, onMounted } from 'vue';
-import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+import VueDatePicker from '@vuepic/vue-datepicker';
+import SliderRange from './SliderRange.vue'
+
 import { useRoute } from 'vue-router'
 const route = useRoute()
+
 import { usePaquetesStore as paquetes } from '@/store/paquetes'
-import SliderRange from './SliderRange.vue'
+import { useImportScriptsStore as importScripts } from '@/store/importScripts'
+
 let formDef = {
     search: route.query.search ? route.query.search : '',
-    adultos: route.query.adultos ? route.query.adultos : 1,
+    adultos: route.query.adultos ? route.query.adultos : 2,
     menores: route.query.menores ? route.query.menores : 0,
     infantes: route.query.infantes ? route.query.infantes : 0,
     precio_min: route.query.precio_min ? route.query.precio_min : 0,
@@ -158,44 +70,39 @@ let formDef = {
     estrellas: route.query.estrellas ? route.query.estrellas : 0,
     dias: route.query.dias ? route.query.dias : 0,
     fecha_salida: route.query.fecha_salida ? route.query.fecha_salida : '',
+    fecha_rango: '',
 }
 
 const date = ref();
 
-
 function sliderChange(e) {
-    console.log("e", e);
     form.precio_min = e[0];
     form.precio_max = e[1];
 }
+
 function filtrar(limpiar = false) {
-    if (limpiar) {
-        location.href = "/paquetes"
-    }
-    // let query = route.query
-    let params = {}
-    for (const key of Object.keys(formDef)) {
-        console.log(key, form[key], formDef[key]);
-        if (form[key] != formDef[key]) {
-            params[key] = form[key]
-        }
-        let serialized = new URLSearchParams(params).toString();
-        location.href = "/paquetes?" + serialized
-    }
-    console.log("params", params);
+    if (limpiar) location.href = "/paquetes"
+    let fecha_rango = form.fecha_rango || formatDate(getDate(3), '-') + '_' + formatDate(getDate(10), '-')
+    let paxs = form.adultos + '-' + form.menores + '-' + form.infantes
+    let precio_range = form.precio_min + '-' + form.precio_max
+    let hrefRoute = `/paquetes/${fecha_rango}/${paxs}/${precio_range}/${form.transporte}/${form.regimen_incluido}/${form.estrellas}?searchTerm=${form.search}`;
+    // location.href = hrefRoute
+    console.log("params", hrefRoute);
 }
+
 function filter(field = '') {
     console.log(field, form[field]);
-    // let query = route.query
-    // if (field) {
-    //     query[field] = form[field]
-    //     let params = new URLSearchParams(query).toString();
-    //     location.href = "/paquetes?" + params
-    // } else {
-    //     location.href = "/paquetes"
-    // }
 }
+
 const form = reactive({ ...formDef })
+
+onMounted(() => {
+    importScripts().fetchPaquetesfilter()
+    const startDate = getDate(3);
+    const endDate = getDate(10);
+    date.value = [startDate, endDate];
+})
+
 function resetForm() {
     form.search = '';
     form.adultos = 2;
@@ -210,29 +117,28 @@ function resetForm() {
     form.fecha_salida = '';
     filtrar(true)
 }
-// For demo purposes assign range from the current date
-onMounted(() => {
-    const startDate = new Date();
-    const endDate = new Date(new Date().setDate(startDate.getDate() + 7));
-    date.value = [startDate, endDate];
-})
 
-const format = ([start, end]) => {
-    const sday = start.getDate();
-    const smonth = start.getMonth() + 1;
-    const syear = start.getFullYear();
-
-    const eday = end ? end.getDate() : '-';
-    const emonth = end ? end.getMonth() + 1 : '-';
-    const eyear = end ? end.getFullYear() : '-';
-
-    return `${sday}/${smonth}/${syear} - ${eday}/${emonth}/${eyear}`;
+function getDate(days) {
+    const today = new Date();
+    return new Date(today.setDate(today.getDate() + days));
 }
+
+const formatForDatePicker = ([start, end]) => {
+    return formatDate(start, '/') + ' - ' + formatDate(end, '/');
+}
+
+const formatDate = (date, symbol) => {
+    return `${date.getDate()}${symbol}${date.getMonth() + 1}${symbol}${date.getFullYear()}`;
+}
+
 const dateClicked = ([date, end]) => {
     let Difference_In_Time = end.getTime() - date.getTime();
     let Difference_In_Days = Math.round(Difference_In_Time / (1000 * 3600 * 24));
     form.dias = Difference_In_Days
     form.fecha_salida = `${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getDate()}`
+    let routeStart = `${date.getDate()}-${(date.getMonth() + 1).toString().padStart(2, '0')}-${date.getFullYear()}`
+    let routeEnd = `${end.getDate()}-${(end.getMonth() + 1).toString().padStart(2, '0')}-${end.getFullYear()}`
+    form.fecha_rango = routeStart + '_' + routeEnd
 }
 </script>
 

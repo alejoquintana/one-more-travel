@@ -3,19 +3,29 @@ import OmgButton from '@/components/OmgButton.vue';
 import { useHelpersStore as helpers } from '@/store/helpers'
 import { useInfoStore as info } from '@/store/info'
 import Icon from '@/components/AIcon.vue'
-
+defineProps({
+    footer: {
+        default: false
+    },
+})
 const contacts = [
     {
-        obj: `<a href="mailto:${info().mail}" style="color:#FFF;text-decoration:none;">
+        obj: `<a href="mailto:${info().mail}" style="text-decoration:none;">
+                ${info().mail}
+            </a>`,
+        obj_footer: `<a href="mailto:${info().mail}" style="text-decoration:none;">
                 ${info().mail}
             </a>`,
         icon: 'envelope'
     },
     {
-        obj: `<a href="tel:${info().phone}" style="color:#FFF;text-decoration:none;">
-                ${info().phone}
+        obj: `<a href="tel:${info().phone}" style="text-decoration:none;">
+            ${info().phone}
             </a>`,
-        icon: 'phone-volume'
+        obj_footer: `<a href="https://wa.me/541124917552" target="_blank" style="text-decoration:none;">
+            ${info().phone}
+            </a>`,
+        icon: 'phone-volume',
     }
 ]
 </script>
@@ -24,18 +34,22 @@ const contacts = [
     <header class="header">
         <nav class="nav-bar">
             <router-link to="/">
-                <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers().getImagePath('logo-white.png')"
+                <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers().getImagePath('logo-purple.png')"
                     alt="Logo OMG Travel">
             </router-link>
             <div class="d-flex gap-4" v-if="$mq.lg">
-                <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">
-                    <span class="px-4" v-html="obj"></span>
+                <OmgButton v-for="({ obj, obj_footer, icon }, i) in contacts" :key="i" :icon="icon">
+                    <span class="px-4" v-html="(footer ? obj_footer : obj)"></span>
                 </OmgButton>
             </div>
             <div class="d-flex gap-5" v-if="$mq.lg">
-                <span v-for="social in info().socials" :key="social.icon">
+                <!-- <a v-for="social in info().socials" :key="social.icon">
                     <Icon :icon="social.icon" color="white"></Icon>
-                </span>
+                </a> -->
+                <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" v-for="social in info().socials"
+                    :key="social.icon" class="bg-primary rounded-circle p-2">
+                    <Icon :icon="social.icon" color="white"></Icon>
+                </a>
             </div>
         </nav>
     </header>
@@ -45,7 +59,7 @@ const contacts = [
 .header {
     display: flex;
     justify-content: center;
-    background-color: $primary;
+    background-color: #fff;
 }
 
 .logo {

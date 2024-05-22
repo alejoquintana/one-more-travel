@@ -3,28 +3,28 @@ import {defineStore} from 'pinia'
 
 export const useInfoStore = defineStore('info', {
     state: () => ({
-        mail:'OMGtravel@omg.com',
+        mail: 'ventas@omgtravel.com.ar',
         sociales:[],
-        phone: '+54 11 444 5555',
+        phone: '+54 11 2491 7552',
         socials: [
             {
                 icon: "snapchat",
-                url: "",
+                url: "/",
                 name: "snapchat"
             },
             {
                 icon: "twitter",
-                url: "",
+                url: "/",
                 name: "twitter"
             },
             {
                 icon: "square-facebook",
-                url: "",
+                url: "/",
                 name: "facebook"
             },
             {
                 icon: "instagram",
-                url: "",
+                url: "/",
                 name: "instagram"
             },
         ]
