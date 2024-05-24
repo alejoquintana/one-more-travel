@@ -23,18 +23,24 @@ background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 75%);">
                     <div class="d-flex justify-content-between align-items-center gap-3 mt-2">
                         <div v-if="pack.noches" class="fw-bold">{{ pack.noches }} noches</div>
                         <div class="d-flex gap-1" v-if="pack.estrellas != 0">
-                        <i class="fa fa-star fa-sm" v-for="stars, i in parseInt(pack.estrellas) " :key="i"></i>
+                            <i class="fa fa-star fa-sm" v-for="stars, i in parseInt(pack.estrellas) " :key="i"></i>
                         </div>
                     </div>
                     <div v-if="pack.descripcion_breve"
                         class="col-12 mt-2 row g-0 justify-content-between align-items-center">
                         <p class="mb-0 ffs-1" v-html="pack.descripcion_breve"></p>
                     </div>
-                    <div class="relative bg-white d-flex justify-content-center mt-2 py-2 rounded-pill">
-                        <p class="price mb-0 fs-lg fw-bold text-primary text-center fs-3">
-                            {{ helpers.formatPrice(pack.precio_final, pack.currency) }}
+                    <div
+                        class="relative bg-white d-flex justify-content-center align-items-center mt-2 py-2 rounded-pill">
+                        <p v-if="pack.precio_final && pack.currency" class="price text-center mb-0"
+                            style="line-height: 1.7rem;">
+                            <small class="m-auto">Desde</small><br>
+                            <span class="fs-lg fw-bold text-primary fs-3">
+                                {{ helpers.formatPrice(pack.precio_final, pack.currency) }}
+                            </span>
                         </p>
-                        <p class="seeDetail mb-0 py-2 fw-bold text-center w-100 text-primary">
+                        <p class=" mb-0 py-2 fw-bold text-center w-100 text-primary"
+                            :class="{'seeDetail': pack.precio_final && pack.currency }">
                             VER DETALLE
                         </p>
                     </div>

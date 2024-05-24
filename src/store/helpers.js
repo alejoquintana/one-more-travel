@@ -4,6 +4,7 @@ let api =
     import.meta.env.PROD ? '' : 'https://omgtravel.aereos.app';
 export const useHelpersStore = defineStore('helpers', {
     state: () => ({
+        sportclub:false
     }),
     actions: {
         formatPrice(price, currency = '') {

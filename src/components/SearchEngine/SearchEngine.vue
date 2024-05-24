@@ -24,6 +24,7 @@ import Aereos from "@/components/SearchEngine/SearchAereos.vue";
 import Hoteles from "@/components/SearchEngine/SearchHoteles.vue";
 import Paquetes from "@/components/SearchEngine/SearchPaquetes.vue";
 import Buques from "@/components/SearchEngine/SearchBuques.vue";
+
 import { onMounted, ref } from "vue";
 const props = defineProps({
     tab: {

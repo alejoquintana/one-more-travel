@@ -28,6 +28,9 @@ const contacts = [
         icon: 'phone-volume',
     }
 ]
+
+// import { useHelpersStore as helpers } from '@/store/helpers.js'
+
 </script>
 
 <template>

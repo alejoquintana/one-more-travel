@@ -1,6 +1,9 @@
 import {
     defineStore
 } from 'pinia'
+import {
+    useHelpersStore as helpers
+} from './helpers.js'
 const URL = "https://omgtravel.aereos.app";
 
 export const usePaquetesStore = defineStore('paquetes', {
@@ -29,7 +32,8 @@ export const usePaquetesStore = defineStore('paquetes', {
     },
     actions: {
         async fetchPaquetes() {
-            fetch(URL + "/api/paquetes-home.php")
+            let sportclub = helpers().sportclub ? '-sportclub' : ''
+            fetch(URL + "/api/paquetes"+sportclub+"-home.php")
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -51,7 +55,8 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquetesOferta(limit = 3) {
-            fetch(URL + "/api/paquetes-home.php?tipo=oferta&limit="+limit)
+            let sportclub = helpers().sportclub ? '-sportclub' : ''
+            fetch(URL + "/api/paquetes"+sportclub+"-home.php?tipo=oferta&limit="+limit)
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -62,8 +67,21 @@ export const usePaquetesStore = defineStore('paquetes', {
                 })
                 .catch(error => console.error(error));
         },
+        async fetchPaquetesSportClub() {
+            fetch(URL + "/api/paquetes-sportclub-home.php?limit=25")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(json => {
+                    console.log("json", json);
+                    this.ofertas = json.paquetes
+                })
+                .catch(error => console.error(error));
+        },
         async fetchPaquetesParametros(params) {
-            fetch(URL + "/api/paquetes-home.php?" + params)
+            let sportclub = helpers().sportclub ? '-sportclub' : ''
+            fetch(URL + "/api/paquetes"+sportclub+"-home.php?" + params)
             .then(response => {
                 return response.json()
             })
@@ -75,7 +93,8 @@ export const usePaquetesStore = defineStore('paquetes', {
             .catch(error => console.error(error));
         },
         async fetchPaquetesHome() {
-            fetch(URL + "/api/paquetes-home.php?tipo=home")
+            let sportclub = helpers().sportclub ? '-sportclub' : ''
+            fetch(URL + "/api/paquetes"+sportclub+"-home.php?tipo=home")
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -89,7 +108,8 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquete(codigo) {
-            fetch(URL + "/api/paquetes-home.php?codigo=" + codigo)
+            let sportclub = helpers().sportclub ? '-sportclub' : ''
+            fetch(URL + "/api/paquetes"+sportclub+"-home.php?codigo=" + codigo)
                 .then(response => {
                     return response.json()
                 })

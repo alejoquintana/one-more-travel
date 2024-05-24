@@ -34,12 +34,6 @@
                         </div>
                         <div class="d-flex">
                             <div class="min-w-16 text-center me-2">
-                                <i class="fa fa-calendar"></i>
-                            </div>
-                            {{ formatDate(pack.fecha_salida) }}
-                        </div>
-                        <div class="d-flex">
-                            <div class="min-w-16 text-center me-2">
                                 <i class="fa fa-moon"></i>
                             </div>
                             {{ pack.noches }} noches

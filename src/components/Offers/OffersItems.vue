@@ -7,13 +7,14 @@ paquetes().fetchPaquetesOferta(3)
 
 <template>
     <div class="row gy-4">
-        <div class="col-lg-3 col-12">
-            <div class="h-100 scale-hover box-primary-border bg-primary def-shadow br-radius row align-content-center relative p-3 g-0 gy-2" style="min-height: 350px;">
+        <div class="col-lg-3 col-12" v-if="!helpers().sportclub">
+            <div class="h-100 scale-hover box-primary-border bg-primary def-shadow br-radius row align-content-center relative p-3 g-0 g"
+                style="min-height: 350px;">
                 <img class="w-100" :src="helpers().getImagePath('cyber-monday.png')" alt="Imagen de cyber-monday" />
             </div>
         </div>
         <PaqueteCard class="col-lg-3 col-12" v-for="offer in paquetes().ofertas" :key="offer.id" :paquete="offer" />
-        <div class="col-12">
+        <div class="col-12" v-if="!helpers().sportclub">
             <router-link to="/paquetes">
                 <div
                     class="scale-hover-05 text-center fw-bold fs-lg box-primary-border bg-primary def-shadow br-radius p-3 gy-2">

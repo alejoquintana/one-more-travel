@@ -1,5 +1,5 @@
 <template>
-    <div class="filters my-4">
+    <div class="filters my-4" v-if="!helpers().sportclub">
         <SearchEngine :tab="'paquetes'" />
     </div>
 
@@ -47,6 +47,68 @@
                     <div class="pt-3" v-html="paquete.descripcion"></div>
                 </v-col>
             </v-row>
+            <v-row v-if="paquete.fechas && paquete.fechas.length" no-gutters
+                class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
+                <v-col cols="12" class=" border-bottom border-white mb-3">
+                    <h4 class="ucfirst">
+                        Fechas de salida
+                    </h4>
+                </v-col>
+                <v-col cols="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2">
+                    <h5 for="alojamiento" class="fs-4 border-bottom border-white mb-1">
+                        {{mes(fecha.fecha)}}
+                    </h5>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span>Tarifa:</span>
+                        <span>
+                            {{ helpers().formatPrice(fecha.tarifa, fecha.currency) }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span>Imp:</span>
+                        <span>
+                            {{ helpers().formatPrice(fecha.impuestos, fecha.currency) }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between fs-5">
+                        <span>Final:</span>
+                        <span>
+                            {{ helpers().formatPrice(fecha.precio_final, fecha.currency) }}
+                        </span>
+                    </div>
+                </v-col>
+            </v-row>
+            <v-row v-if="paquete.alojamientos && paquete.alojamientos.length" no-gutters
+                class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
+                <v-col cols="12" class=" border-bottom border-white mb-3">
+                    <h4 class="ucfirst">
+                        Alojamientos
+                    </h4>
+                </v-col>
+                <v-col cols="4" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
+                    <h5 for="alojamiento" class="fs-4 border-bottom border-white mb-1">
+                        {{alojamiento.alojamiento}}
+                    </h5>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span>Tarifa:</span>
+                        <span>
+                            {{ helpers().formatPrice(alojamiento.tarifa, alojamiento.currency) }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span>Imp:</span>
+                        <span>
+                            {{ helpers().formatPrice(alojamiento.impuestos, alojamiento.currency) }}
+                        </span>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-between fs-5">
+                        <span>Final:</span>
+                        <span>
+                            {{ helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}
+                        </span>
+                    </div>
+                </v-col>
+            </v-row>
             <div v-if="paquete.links && paquete.links.length"
                 class="br-radius border border-2 bg-primary my-4 my-lg-0 p-4">
                 <h4>Enlaces a recursos adicionales</h4>
@@ -81,14 +143,35 @@
                         <hr class="my-2">
                         <div>
                             <v-row>
+                                <!-- <v-col cols="12">
+                                    <v-row>
+                                        <v-col cols="12">
+                                            salidas
+                                        </v-col>
+                                        <v-col cols="6" v-for="fecha in paquete.fechas" :key="fecha.id">
+                                            <p class="mb-0">{{ mes(fecha.fecha) }}: {{helpers().formatPrice(fecha.precio_final, fecha.currency) }}</p>
+                                            
+                                            <p>Tarifa: {{helpers().formatPrice(fecha.tarifa, fecha.currency) }}</p>
+                                            <p>Impuestos: {{helpers().formatPrice(fecha.impuestos, fecha.currency) }}</p>
+                                            <p>Final: {{helpers().formatPrice(fecha.precio_final, fecha.currency) }}</p>
+                                        
+                                        </v-col>
+                                    </v-row>
+                                    <v-row>
+                                        <v-col cols="12">
+                                            alojamientos
+                                        </v-col>
+                                        <v-col cols="6" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
+                                            <p class="mb-0">{{ alojamiento.alojamiento }}: {{helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}</p>
+                                            
+                                            <p>Tarifa: {{helpers().formatPrice(alojamiento.tarifa, alojamiento.currency) }}</p>
+                                            <p>Impuestos: {{helpers().formatPrice(alojamiento.impuestos, alojamiento.currency) }}</p>
+                                            <p>Final: {{helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}</p>
+                                            
+                                        </v-col>
+                                    </v-row>
+                                </v-col> -->
                                 <v-col cols="6">
-                                    <div v-if="paquete.fecha_salida && formatDate(paquete.fecha_salida)"
-                                        class="d-flex align-items-center">
-                                        <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
-                                            <i class="fa fa-calendar"></i>
-                                        </div>
-                                        {{ meses(paquete.fechas) }}.
-                                    </div>
                                     <div v-if="paquete.duracion && paquete.noches" class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
                                             <i class="fa fa-moon"></i>
@@ -111,11 +194,11 @@
                                         menore/s`: '' }}{{ paquete.infantes > 0 ? `, ${paquete.infantes} infante/s` : ''
                                         }}
                                     </div>
-                                    <div class="d-flex align-items-center">
+                                    <div v-if="paquete.alojamiento" class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
                                             <i class="fa fa-hotel"></i>
                                         </div>
-                                        <span v-if="paquete.alojamiento"> {{ paquete.alojamiento }}</span>
+                                        <span> {{ paquete.alojamiento }}</span>
                                     </div>
                                     <div v-if="paquete.regimen_incluido" class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
@@ -135,7 +218,7 @@
                             </v-row>
 
                         </div>
-                        <hr class="my-2">
+                        <!-- <hr class="my-2">
                         <div>
                             <div>
                                 <h4 class="">Precio final</h4>
@@ -148,14 +231,17 @@
                                     <span>{{ helpers().formatPrice(paquete.impuestos, paquete.currency) }}</span>
                                 </div>
                                 <div class="d-flex justify-content-end fs-xl">
-                                    <span class="fw-bold">{{ helpers().formatPrice(paquete.precio_final, paquete.currency)
+                                    <span class="fw-bold">{{ helpers().formatPrice(paquete.precio_final,
+                                        paquete.currency)
                                         }}</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="mt-4">
-                        <button class="btn btn-white bg-white text-primary w-100 px-4 scale-hover-05" @click="goToReserva">IR
+                    <div class="mt-4"
+                        v-if="paquete.fechas && paquete.fechas && paquete.alojamientos && paquete.alojamientos">
+                        <button class="btn btn-white bg-white text-primary w-100 px-4 scale-hover-05"
+                            @click="goToReserva">IR
                             A RESERVAR</button>
                     </div>
                 </div>
@@ -241,17 +327,20 @@ function formatDate(value) {
     return `${val[2]}/${val[1]}/${val[0]}`
 }
 
+const allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 function meses(arr) {
-    let allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio','Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     let meses = []
     arr.forEach(function (el) {
         let mes = el.split('-')
-        mes = parseInt(mes[1])
-        if (!meses.includes(allMeses[(mes - 1)])) {
-            meses.push(allMeses[(mes-1)])
+        mes = parseInt(el)
+        if (!meses.includes(allMeses[(mes)])) {
+            meses.push(allMeses[(mes)])
         }
     })
     return meses.join(', ')
+}
+function mes(number) {
+    return allMeses[number]
 }
 </script>
 

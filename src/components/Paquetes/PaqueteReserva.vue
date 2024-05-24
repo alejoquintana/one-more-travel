@@ -36,10 +36,9 @@ function meses(arr) {
     let allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     let meses = []
     arr.forEach(function (el) {
-        let mes = el.split('-')
-        mes = parseInt(mes[1])
-        if (!meses.includes(allMeses[(mes - 1)])) {
-            meses.push(allMeses[(mes - 1)])
+        let mes = parseInt(el)
+        if (!meses.includes(allMeses[(mes)])) {
+            meses.push(allMeses[(mes)])
         }
     })
     return meses.join(', ')
@@ -83,7 +82,7 @@ onMounted(function () {
                             <i class="fa fa-moon"></i>
                         </div>
                         <div class="i-info">
-                            {{ paquete.noches }}.
+                            {{ paquete.noches }} noches.
                         </div>
                     </div>
                     <div class="item-icons" v-if="paquete.destinos">
@@ -106,14 +105,14 @@ onMounted(function () {
                         </div>
                     </div>
 
-                    <div class="item-icons" v-if="paquete.alojamiento">
+                    <!-- <div class="item-icons" v-if="paquete.alojamiento">
                         <div class="i-icon">
                             <i class="fa fa-hotel"></i>
                         </div>
                         <div class="i-info">
                             {{ paquete.alojamiento }}.
                         </div>
-                    </div>
+                    </div> -->
                     <div class="item-icons" v-if="paquete.regimen_incluido">
                         <div class="i-icon">
                             <i class="fa fa-utensils"></i>
@@ -128,16 +127,16 @@ onMounted(function () {
                 <hr class="my-3">
                 <div class="x-4">
                     <h4 class="">Precio final</h4>
-                    <div class="d-flex justify-content-between">
-                        <span>Tarifa</span>
-                        <span>{{ helpers().formatPrice(paquete.tarifa, paquete.currency) }}</span>
+                    <div class="d-flex justify-content-between d-none" id="fecha_front">
+                        <span id="fecha_title"></span>
+                        <span id="fecha_price"></span>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <span>Impuestos</span>
-                        <span>{{ helpers().formatPrice(paquete.impuestos, paquete.currency) }}</span>
+                    <div class="d-flex justify-content-between d-none" id="alojamiento_front">
+                        <span id="alojamiento_title"></span>
+                        <span id="alojamiento_price"></span>
                     </div>
                     <div class="d-flex justify-content-end fs-xl">
-                        <span class="fw-bold">{{ helpers().formatPrice(paquete.precio_final, paquete.currency) }}</span>
+                        <span class="fw-bold" id="total_front" data-price="0" data-currency=""></span>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="filters my-4">
+    <div class="filters my-4" v-if="!helpers().sportclub">
         <!-- <filters-form-window></filters-form-window> -->
         <SearchEngine :tab="'paquetes'" />
     </div>
@@ -10,8 +10,8 @@
         <h2 class="fw-bold text-primary mb-0 border-bottom border-secondary border-2"><small>Paquetes a</small> {{
             destino.titulo }}</h2>
         <div class="row">
-            <PaqueteCard class="col-12 col-md-4 p-2" v-for="paquete, i in destino.paquetes" :paquete="paquete"
-                :key="i" :i="0" />
+            <PaqueteCard class="col-12 col-md-4 p-2" v-for="paquete, i in destino.paquetes" :paquete="paquete" :key="i"
+                :i="0" />
         </div>
     </div>
     <div class="my-4">
