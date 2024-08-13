@@ -2,9 +2,9 @@
 import {defineStore} from 'pinia'
 export const useHelpersStore = defineStore('helpers', {
     state: () => ({
-        // show_on:'omg'
+        show_on:'one-more'
         // show_on: 'sportclub'
-        show_on:'femer'
+        // show_on:'femer'
     }),
     actions: {
         formatPrice(price, currency = '') {
@@ -16,7 +16,7 @@ export const useHelpersStore = defineStore('helpers', {
         },
         getImagePath(image, folder = '') {
             let api =
-                import.meta.env.PROD && this.show_on == 'omg' ? '' : 'https://omgtravel.aereos.app';
+                import.meta.env.PROD && this.show_on == 'one-more' ? '' : 'https://onemoretravel.aereos.app';
             let base = api+"/imgs/"
             if (folder) base = base + folder + '/'
             let res = base + image

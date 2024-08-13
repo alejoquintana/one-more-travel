@@ -9,7 +9,7 @@
 <br>
 <br>
         Responsabilidad:
-        OMG TRAVEL S.A. CUIT N° 30-715753481-2 con domicilio legal en Cerrito 1070, Piso 7° Of. “116” reviste la calidad
+        ONE MORE TRAVEL S.A. CUIT N° 30-715753481-2 con domicilio legal en Cerrito 1070, Piso 7° Of. “116” reviste la calidad
         de Empresa de Viajes y Turismo, declara expresamente que actúa en su carácter de intermediario en la reserva o
         contratación de los distintos servicios vinculados e incluídos en el respectivo tour o los detallados en la
         solicitud de servicios: hoteles, restaurantes, medios de transporte, etc., es decir, los prestadores de los

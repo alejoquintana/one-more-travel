@@ -6,7 +6,7 @@ import { useHelpersStore as helpers } from '@/store/helpers'
 
 <template>
     <div>
-        <HomeViewDefault v-if="helpers().show_on == 'omg'" />
+        <HomeViewDefault v-if="helpers().show_on == 'one-more'" />
         <HomeViewPaquetesOnly v-else />
     </div>
 </template>

@@ -7,7 +7,7 @@ import PaqueteReserva from '@/components/Paquetes/PaqueteReserva.vue'
 <template>
     <NavBar />
     <main class="max-width">
-        <h1 style="display: none;">OMG! Travel - Agencia de viajes</h1>
+        <h1 style="display: none;">ONE MORE Travel - Agencia de viajes</h1>
         <PaqueteReserva />
     </main>
     <footer class="mt-5">

@@ -5,14 +5,14 @@
             <v-row class="max-width px-3 px-lg-0 pb-3">
                 <v-col cols="12" md="4">
                     <span class="fs-md">
-                        2022-{{ new Date().getFullYear() }} © OMG Travel. All Rights Reserved.
+                        2022-{{ new Date().getFullYear() }} © ONE MORE Travel. All Rights Reserved.
                     </span>
                 </v-col>
                 <v-col cols="6" md="4" class="text-center">
                     <span class="cursor-pointer fs-md" @click="openModal">Términos y condiciones de uso</span>
                 </v-col>
                 <v-col cols="6" md="4" class="d-flex justify-content-end">
-                    <img src="https://omgtravel.aereos.app/imgs/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
+                    <img src="https://onemoretravel.aereos.app/imgs/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
                         style="max-height: 27px;">
                 </v-col>
             </v-row>
@@ -33,7 +33,7 @@
                     <br>
                     Responsabilidad:
                     <br>
-                    <strong>OMG TRAVEL S.A. CUIT N° 30-715753481-2 con domicilio legal en Cerrito 1070, Piso 7° Of.
+                    <strong>ONE MORE TRAVEL S.A. CUIT N° 30-715753481-2 con domicilio legal en Cerrito 1070, Piso 7° Of.
                         “116”</strong>
                     reviste la calidad de Empresa de Viajes y Turismo, declara expresamente que actúa en su carácter de
                     intermediario en la reserva o contratación de los distintos servicios vinculados e incluídos en el

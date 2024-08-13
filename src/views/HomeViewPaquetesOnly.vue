@@ -15,12 +15,12 @@ const helpers = useHelpersStore()
     <main>
         <div class="main-content max-width">
             <HomeSlider v-if="helpers.show_on == 'sportclub'" position="bottom" image="tropical-beach.jpg"
-                :first="`Descubrí los beneficios exclusivos para socios <img src='imgs/${helpers.show_on}-logo.png' style='max-height:38px'> con OMG Travel`"
+                :first="`Descubrí los beneficios exclusivos para socios <img src='imgs/${helpers.show_on}-logo.png' style='max-height:38px'> con ONE MORE Travel`"
                 :show_first="true">
                 <div></div>
             </HomeSlider>
             <HomeSlider v-if="helpers.show_on == 'femer'" position="bottom" image="tropical-beach.jpg"
-                :first="`Descubrí los beneficios exclusivos para socios FEMER con OMG Travel`" :show_first="true">
+                :first="`Descubrí los beneficios exclusivos para socios FEMER con ONE MORE Travel`" :show_first="true">
                 <div></div>
             </HomeSlider>
             <OffersItems />
@@ -28,9 +28,7 @@ const helpers = useHelpersStore()
                 :show_third="true" :url="' tel:' + info().phone.replace(/\s/g, '' )" />
             <v-row class="justify-content-between align-items-center mt-1">
                 <v-col cols="5" md="3">
-                    <v-img v-if="helpers.show_on == 'femer'" src="imgs/femer-logo.png"
-                    style="max-height:80px"
-                    ></v-img>
+                    <v-img v-if="helpers.show_on == 'femer'" src="imgs/femer-logo.png" style="max-height:80px"></v-img>
                 </v-col>
                 <v-col cols="5" md="3">
                     <v-img :src="helpers.getImagePath('logo-purple.png')"></v-img>
@@ -39,7 +37,8 @@ const helpers = useHelpersStore()
             <div class="row gap-lg-0 gap-3">
 
                 <div class="col-md-12">
-                    <p class="bg-primary br-radius text-white p-4 ffs-1">OMG TRAVEL. Todos los precios están sujetos a
+                    <p class="bg-primary br-radius text-white p-4 ffs-1">ONE MORE TRAVEL. Todos los precios están
+                        sujetos a
                         disponibilidad de lugares en el momento de solicitar la reserva y pueden ser alterados sin
                         previo aviso. Todos los derechos reservados. LEGAJO ** NUMEROS**. Dirección General de Defensa y
                         Protección al Consumidor, para consultas y/o denuncias ingrese aquí. Defensa de las y los

@@ -5,7 +5,7 @@ import {
     usePaquetesStore
 } from './paquetes'
 
-const URL = "https://omgtravel.aereos.app";
+const URL = "https://onemoretravel.aereos.app";
 
 export const useImportScriptsStore = defineStore('importScripts', {
     state: () => ({
@@ -20,7 +20,7 @@ export const useImportScriptsStore = defineStore('importScripts', {
         async fetchFlightEngine() {
             if (!this.FlightEngine) {
                 let recaptchaScript = document.createElement('script')
-                recaptchaScript.setAttribute('src', URL+'/aereos.omg.app.min.js?v=' + Date.now())
+                recaptchaScript.setAttribute('src', URL+'/aereos.onemore.app.min.js?v=' + Date.now())
                 document.body.appendChild(recaptchaScript)
             }
             let vm = this
@@ -33,7 +33,7 @@ export const useImportScriptsStore = defineStore('importScripts', {
             console.log("obj", obj);
             if (!this.Reserva) {
                 let recaptchaScript = document.createElement('script')
-                recaptchaScript.setAttribute('src', URL+'/reserva.omg.app.js?v=' + Date.now()+'&paquete='+obj.paquete)
+                recaptchaScript.setAttribute('src', URL+'/reserva.onemore.app.js?v=' + Date.now()+'&paquete='+obj.paquete)
                 document.body.appendChild(recaptchaScript)
             }
             let vm = this
@@ -45,7 +45,7 @@ export const useImportScriptsStore = defineStore('importScripts', {
         async fetchPaquetesfilter() {
             if (!this.Paquetesfilter) {
                 let recaptchaScript = document.createElement('script')
-                recaptchaScript.setAttribute('src', URL+'/paquetes.filters.omg.app.js?v=' + Date.now())
+                recaptchaScript.setAttribute('src', URL+'/paquetes.filters.onemore.app.js?v=' + Date.now())
                 document.body.appendChild(recaptchaScript)
             }
             let vm = this

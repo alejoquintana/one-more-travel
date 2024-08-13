@@ -4,7 +4,7 @@ import {
 import {
     useHelpersStore as helpers
 } from './helpers.js'
-const URL = "https://omgtravel.aereos.app";
+const URL = "https://onemoretravel.aereos.app";
 
 export const usePaquetesStore = defineStore('paquetes', {
     state: () => ({

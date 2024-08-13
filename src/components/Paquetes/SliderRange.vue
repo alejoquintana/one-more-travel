@@ -42,10 +42,10 @@ export default {
 
 <style  scoped>
 .slider {
-  --slider-connect-bg: #01FFC1;
-  --slider-tooltip-bg: #01FFC1;
-  --slider-handle-ring-color: #01FFC1;
-  --slider-tooltip-color: #6666ff;
+  --slider-connect-bg: #000000;
+  --slider-tooltip-bg: #000000;
+  --slider-handle-ring-color: #000000;
+  --slider-tooltip-color: #ffb235;
 
   --slider-tooltip-font-size: 0.875rem;
 --slider-tooltip-line-height: 1.25rem;

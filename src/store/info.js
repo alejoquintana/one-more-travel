@@ -3,7 +3,7 @@ import {defineStore} from 'pinia'
 
 export const useInfoStore = defineStore('info', {
     state: () => ({
-        mail: 'ventas@omgtravel.com.ar',
+        mail: 'ventas@onemoretravel.com.ar',
         sociales:[],
         phone: '+54 11 2491 7552',
         socials: [
@@ -19,12 +19,12 @@ export const useInfoStore = defineStore('info', {
             // },
             {
                 icon: "square-facebook",
-                url: "https://www.facebook.com/omgtravel.ar/",
+                url: "https://www.facebook.com/onemoretravel.ar/",
                 name: "facebook"
             },
             {
                 icon: "instagram",
-                url: "https://www.instagram.com/omgtravel.ar/",
+                url: "https://www.instagram.com/onemoretravel.ar/",
                 name: "instagram"
             },
         ]

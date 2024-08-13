@@ -38,12 +38,12 @@ const contacts = [
     <header class="header" :class="footer ? '' : 'fixed'">
         <nav class="nav-bar">
             <h1 v-if="footer" class="h6 text-primary">
-                <strong class="h3">OMG!</strong> <span class="h3">Travel</span> <br> Agencia de Viajes y Paquetes
+                <strong class="h3">ONE MORE</strong> <span class="h3">Travel</span> <br> Agencia de Viajes y Paquetes
                 Turísticos
             </h1>
             <router-link to="/" v-else>
                 <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers.getImagePath('logo-purple.png')"
-                    alt="Logo OMG Travel">
+                    alt="Logo ONE MORE Travel">
             </router-link>
             <!-- <div v-else style="min-width: 100px;"></div> -->
             <div class="d-flex gap-4" v-if="$mq.lg">

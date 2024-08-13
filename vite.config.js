@@ -36,9 +36,4 @@ export default defineConfig({
                 import.meta.url))
         }
     },
-    build: {
-        // outDir:"dist/omg"
-        // outDir:"dist/sportclub"
-        outDir:"dist/femer"
-    }
 })
