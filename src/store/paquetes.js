@@ -32,8 +32,7 @@ export const usePaquetesStore = defineStore('paquetes', {
     },
     actions: {
         async fetchPaquetes() {
-            let sportclub = helpers().sportclub ? '-sportclub' : ''
-            fetch(URL + "/api/paquetes"+sportclub+"-home.php")
+            fetch(URL + "/api/paquetes-home.php?show_on=" + helpers().show_on)
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -55,8 +54,7 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquetesOferta(limit = 3) {
-            let sportclub = helpers().sportclub ? '-sportclub' : ''
-            fetch(URL + "/api/paquetes"+sportclub+"-home.php?tipo=oferta&limit="+limit)
+            fetch(URL + "/api/paquetes-home.php?tipo=oferta&limit=" + limit + "&show_on=" + helpers().show_on)
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -68,7 +66,7 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquetesSportClub() {
-            fetch(URL + "/api/paquetes-sportclub-home.php?limit=25")
+            fetch(URL + "/api/paquetes-home.php?limit=25&show_on=" + helpers().show_on)
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -80,8 +78,8 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquetesParametros(params) {
-            let sportclub = helpers().sportclub ? '-sportclub' : ''
-            fetch(URL + "/api/paquetes"+sportclub+"-home.php?" + params)
+            console.log("params",params);
+            fetch(URL + "/api/paquetes-home.php?" + params + "&show_on=" + helpers().show_on)
             .then(response => {
                 return response.json()
             })
@@ -93,8 +91,7 @@ export const usePaquetesStore = defineStore('paquetes', {
             .catch(error => console.error(error));
         },
         async fetchPaquetesHome() {
-            let sportclub = helpers().sportclub ? '-sportclub' : ''
-            fetch(URL + "/api/paquetes"+sportclub+"-home.php?tipo=home")
+            fetch(URL + "/api/paquetes-home.php?tipo=home" + "&show_on=" + helpers().show_on)
                 .then(response => {
                     // console.log("response",response);
                     return response.json()
@@ -108,8 +105,7 @@ export const usePaquetesStore = defineStore('paquetes', {
                 .catch(error => console.error(error));
         },
         async fetchPaquete(codigo) {
-            let sportclub = helpers().sportclub ? '-sportclub' : ''
-            fetch(URL + "/api/paquetes"+sportclub+"-home.php?codigo=" + codigo)
+            fetch(URL + "/api/paquetes-home.php?codigo=" + codigo + "&show_on=" + helpers().show_on)
                 .then(response => {
                     return response.json()
                 })

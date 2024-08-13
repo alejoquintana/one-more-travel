@@ -39,19 +39,24 @@ function anchor() {
         window.open(p.url, "_blank")
     }
 }
+
+
+import { useHelpersStore } from '@/store/helpers'
+const helpers = useHelpersStore()
 </script>
 
 <template>
-    <div class="rect def-shadow" :class="{'cursor-pointer': url && url != ''}" @click="anchor()">
-        <img class="img-slider w-100" :class="'pos-' + position" :src="'/imgs/' + image" alt="" />
-        <div class="addons w-100 px-lg-5 ps-3 ps-lg-3" :class="{ 'flex-column gap-3 align-items-start': $mq.sm }">
-            <div v-if="show_first" class="name-slider bg-white px-lg-5 px-2 py-2 text-primary br-radius fs-5">
+    <div class="rect def-shadow" :class="{ 'cursor-pointer': url && url != '' }" @click="anchor()">
+        <img class="img-slider" :class="'pos-' + position"
+            :src="helpers.getImagePath(image)" alt="" />
+        <div class="addons w-100 px-lg-5 px-3 ps-3 ps-lg-3" :class="{ 'flex-column gap-3 align-items-start': $mq.sm }">
+            <h2 v-if="show_first" class="name-slider bg-white px-lg-5 px-2 py-2 text-primary br-radius fs-5">
                 <span v-if="!first" class="text-capitalize">{{ city }}, <strong>{{ country }}</strong></span>
                 <span v-else v-html="first"></span>
-            </div>
+            </h2>
             <div v-if="show_second || show_third"
-                class="more-slider bg-white px-lg-3 px-3 py-1 tpext-uppercase br-radius d-flex align-items-center fs-5">
-                <p class="mb-0">
+                class="more-slider bg-white px-lg-3 px-3 py-2 tpext-uppercase br-radius d-flex align-items-center fs-5">
+                <h3 class="mb-0" style="font-size: inherit;">
                     <strong v-if="show_second" class="text-primary">
                         <span v-if="!second"> CONOCE MAS DESTINOS </span>
                         <span v-else>{{ second }}</span>
@@ -61,7 +66,7 @@ function anchor() {
                         <span v-if="!third"> {{ location }}, {{ city }}, {{ country }} </span>
                         <span v-else>{{ third }}</span>
                     </span>
-                </p>
+                </h3>
             </div>
         </div>
     </div>
@@ -99,6 +104,14 @@ function anchor() {
 .img-slider {
     position: absolute;
     transition: 1s;
+}
+
+@media (min-width: 500px) {
+    .img-slider {width: 100%}
+}
+
+@media (max-width: 499px) {
+    .img-slider {height: 100%}
 }
 
 .pos-bottom {

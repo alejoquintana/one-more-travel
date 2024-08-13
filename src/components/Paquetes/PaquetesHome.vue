@@ -1,5 +1,5 @@
 <template>
-    <div class="filters my-4" v-if="!helpers().sportclub">
+    <div class="filters my-4" v-if="!helpers().show_on == 'sportclub'">
         <!-- <filters-form-window></filters-form-window> -->
         <SearchEngine :tab="'paquetes'" />
     </div>
@@ -27,6 +27,7 @@
 import SearchEngine from '@/components/SearchEngine/SearchEngine.vue'
 import PaqueteCard from './PaqueteCard.vue'
 import { usePaquetesStore as paquetes } from '@/store/paquetes'
+import { useHelpersStore as helpers } from '@/store/helpers'
 paquetes().fetchPaquetesHome()
 </script>
 

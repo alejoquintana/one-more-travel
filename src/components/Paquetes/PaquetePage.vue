@@ -1,5 +1,5 @@
 <template>
-    <div class="filters my-4" v-if="!helpers().sportclub">
+    <div class="filters my-4" v-if="!helpers().show_on == 'sportclub'">
         <SearchEngine :tab="'paquetes'" />
     </div>
 
@@ -54,9 +54,9 @@
                         Fechas de salida
                     </h4>
                 </v-col>
-                <v-col cols="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2">
-                    <h5 for="alojamiento" class="fs-4 border-bottom border-white mb-1">
-                        {{mes(fecha.fecha)}}
+                <v-col cols="12" md="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2">
+                    <h5 for="fechas" class="fs-4 border-bottom border-white mb-1">
+                        {{ mes(fecha.fecha) }}
                     </h5>
                     <div class="d-flex align-items-center justify-content-between">
                         <span>Tarifa:</span>
@@ -85,9 +85,9 @@
                         Alojamientos
                     </h4>
                 </v-col>
-                <v-col cols="4" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
+                <v-col cols="12" md="4" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
                     <h5 for="alojamiento" class="fs-4 border-bottom border-white mb-1">
-                        {{alojamiento.alojamiento}}
+                        {{ alojamiento.alojamiento }}
                     </h5>
                     <div class="d-flex align-items-center justify-content-between">
                         <span>Tarifa:</span>
@@ -131,7 +131,7 @@
             </div>
         </v-col>
         <v-col cols="12" md="5">
-            <div style="position: sticky; top: 20px">
+            <div style="position: sticky; top: 100px" id="sticky-info">
                 <div class="p-4 bg-primary bs-white br-radius info-default d-flex flex-column justify-content-between">
                     <div>
                         <div v-if="paquete.estrellas && paquete.estrellas != 0" class="d-flex gap-2 mt-2">
@@ -143,34 +143,6 @@
                         <hr class="my-2">
                         <div>
                             <v-row>
-                                <!-- <v-col cols="12">
-                                    <v-row>
-                                        <v-col cols="12">
-                                            salidas
-                                        </v-col>
-                                        <v-col cols="6" v-for="fecha in paquete.fechas" :key="fecha.id">
-                                            <p class="mb-0">{{ mes(fecha.fecha) }}: {{helpers().formatPrice(fecha.precio_final, fecha.currency) }}</p>
-                                            
-                                            <p>Tarifa: {{helpers().formatPrice(fecha.tarifa, fecha.currency) }}</p>
-                                            <p>Impuestos: {{helpers().formatPrice(fecha.impuestos, fecha.currency) }}</p>
-                                            <p>Final: {{helpers().formatPrice(fecha.precio_final, fecha.currency) }}</p>
-                                        
-                                        </v-col>
-                                    </v-row>
-                                    <v-row>
-                                        <v-col cols="12">
-                                            alojamientos
-                                        </v-col>
-                                        <v-col cols="6" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
-                                            <p class="mb-0">{{ alojamiento.alojamiento }}: {{helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}</p>
-                                            
-                                            <p>Tarifa: {{helpers().formatPrice(alojamiento.tarifa, alojamiento.currency) }}</p>
-                                            <p>Impuestos: {{helpers().formatPrice(alojamiento.impuestos, alojamiento.currency) }}</p>
-                                            <p>Final: {{helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}</p>
-                                            
-                                        </v-col>
-                                    </v-row>
-                                </v-col> -->
                                 <v-col cols="6">
                                     <div v-if="paquete.duracion && paquete.noches" class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
@@ -190,9 +162,10 @@
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
                                             <i class="fa fa-user"></i>
                                         </div>
-                                        {{ paquete.adultos }} adulto/s{{ paquete.menores > 0 ? `, ${paquete.menores}
+                                        {{ paquete.minimo }} pasajeros
+                                        <!-- {{ paquete.adultos }} adulto/s{{ paquete.menores > 0 ? `, ${paquete.menores}
                                         menore/s`: '' }}{{ paquete.infantes > 0 ? `, ${paquete.infantes} infante/s` : ''
-                                        }}
+                                        }} -->
                                     </div>
                                     <div v-if="paquete.alojamiento" class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
@@ -216,34 +189,18 @@
                                     </div>
                                 </v-col>
                             </v-row>
-
                         </div>
-                        <!-- <hr class="my-2">
-                        <div>
-                            <div>
-                                <h4 class="">Precio final</h4>
-                                <div class="d-flex justify-content-between">
-                                    <span>Tarifa</span>
-                                    <span>{{ helpers().formatPrice(paquete.tarifa, paquete.currency) }}</span>
-                                </div>
-                                <div class="d-flex justify-content-between">
-                                    <span>Impuestos</span>
-                                    <span>{{ helpers().formatPrice(paquete.impuestos, paquete.currency) }}</span>
-                                </div>
-                                <div class="d-flex justify-content-end fs-xl">
-                                    <span class="fw-bold">{{ helpers().formatPrice(paquete.precio_final,
-                                        paquete.currency)
-                                        }}</span>
-                                </div>
-                            </div>
-                        </div> -->
                     </div>
                     <div class="mt-4"
                         v-if="paquete.fechas && paquete.fechas && paquete.alojamientos && paquete.alojamientos">
                         <button class="btn btn-white bg-white text-primary w-100 px-4 scale-hover-05"
-                            @click="goToReserva">IR
-                            A RESERVAR</button>
+                            @click="goToReserva">IR A RESERVAR</button>
                     </div>
+                </div>
+                <div class="go-down-btn" v-if="$mq.sm">
+                    <v-btn color="primary" v-if="showStickyInfo" icon size="x-large" @click="scrollToSticky()">
+                        <i class="fa fa-chevron-down fa-2x"></i>
+                    </v-btn>
                 </div>
 
                 <div v-if="paquete.etiquetas && paquete.etiquetas.length" class="br-radius my-4 mt-4">
@@ -280,7 +237,7 @@
 </template>
 
 <script setup>
-import { ref, computed, reactive } from 'vue'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
 import { storeToRefs } from 'pinia'
 
 import ModalContainer from '@/components/ModalContainer.vue'
@@ -313,34 +270,37 @@ paquetes().fetchPaquete(route.params.paquete)
 function goToReserva() {
     router.push(paquete.value.codigo + '/reservar')
 }
-function selectMedia(media) {
-    selectedMedia.value = media
-    showModal.value = true
-}
 function closeModal() {
     if (showModal.value) {
         showModal.value = false
     }
 }
-function formatDate(value) {
-    let val = value.split('-')
-    return `${val[2]}/${val[1]}/${val[0]}`
-}
 
 const allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-function meses(arr) {
-    let meses = []
-    arr.forEach(function (el) {
-        let mes = el.split('-')
-        mes = parseInt(el)
-        if (!meses.includes(allMeses[(mes)])) {
-            meses.push(allMeses[(mes)])
-        }
-    })
-    return meses.join(', ')
-}
+
 function mes(number) {
     return allMeses[number]
+}
+
+
+function scrollToSticky() {
+    document.getElementById("sticky-info").scrollIntoView();
+}
+
+onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+})
+
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll());
+})
+const showStickyInfo = ref(true)
+function handleScroll(event) {
+    showStickyInfo.value = window.pageYOffset < ((document.body.scrollHeight * 64) / 100)
+    console.log("event", event);
+    console.log("window.pageYOffset", window.pageYOffset);
+    console.log("window.pageYOffset", window.pageYOffset, document.body.scrollHeight);
+    // Any code to be executed when the window is scrolled
 }
 </script>
 
@@ -362,6 +322,12 @@ function mes(number) {
 // .bg-gradient-right:hover:after{
 //     opacity: 1;
 // }
+
+.go-down-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+}
 
 .img-box {
     display: flex;

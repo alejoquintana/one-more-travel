@@ -17,7 +17,7 @@ import { useInfoStore as info } from '@/store/info'
     <NavBar />
     <main>
         <div class="main-content max-width">
-            <SearchEngine v-if="!helpers().sportclub" />
+            <SearchEngine v-if="helpers().show_on == 'omg'" />
 
             <HomeSlider position="bottom" image="tropical-beach.jpg" first="Sardegna, Italia" :show_first="true"
                 second="CONOCE MAS DESTINOS" :show_second="true" third="PORTOFLAVIA, SARDEGNA, ITALIA"
@@ -50,13 +50,6 @@ import { useInfoStore as info } from '@/store/info'
 header {
     line-height: 1.5;
     max-height: 100vh;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px;
 }
 
 nav {

@@ -7,6 +7,7 @@ import PaqueteReserva from '@/components/Paquetes/PaqueteReserva.vue'
 <template>
     <NavBar />
     <main class="max-width">
+        <h1 style="display: none;">OMG! Travel - Agencia de viajes</h1>
         <PaqueteReserva />
     </main>
     <footer class="mt-5">
@@ -18,13 +19,6 @@ import PaqueteReserva from '@/components/Paquetes/PaqueteReserva.vue'
 header {
     line-height: 1.5;
     max-height: 100vh;
-}
-
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px;
 }
 
 nav {

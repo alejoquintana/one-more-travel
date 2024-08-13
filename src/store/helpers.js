@@ -1,10 +1,10 @@
 //import {ref,computed} from 'vue'
 import {defineStore} from 'pinia'
-let api =
-    import.meta.env.PROD ? '' : 'https://omgtravel.aereos.app';
 export const useHelpersStore = defineStore('helpers', {
     state: () => ({
-        sportclub:false
+        // show_on:'omg'
+        // show_on: 'sportclub'
+        show_on:'femer'
     }),
     actions: {
         formatPrice(price, currency = '') {
@@ -15,6 +15,8 @@ export const useHelpersStore = defineStore('helpers', {
             return res
         },
         getImagePath(image, folder = '') {
+            let api =
+                import.meta.env.PROD && this.show_on == 'omg' ? '' : 'https://omgtravel.aereos.app';
             let base = api+"/imgs/"
             if (folder) base = base + folder + '/'
             let res = base + image

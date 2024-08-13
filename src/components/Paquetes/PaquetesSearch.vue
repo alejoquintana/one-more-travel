@@ -1,5 +1,5 @@
 <template>
-    <div class="filters my-4" v-if="!helpers().sportclub">
+    <div class="filters my-4" v-if="!helpers().show_on == 'sportclub'">
         <!-- <filters-form-window></filters-form-window> -->
         <SearchEngine :tab="'paquetes'" />
     </div>

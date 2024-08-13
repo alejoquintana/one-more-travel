@@ -33,7 +33,7 @@ const router = createRouter({
             // regimen_incluido=media_pension
             // estrellas=4
             //http://localhost:5173/paquetes/000/22-03-2024_24-03-2024/1-0-0/123-1900000/aereo/all_inclusive
-            path: '/paquetes/:destino/:fecha_rango/:paxs/:precio_range/:transporte/:regimen',
+            path: '/paquetes/:destino/:fecha_rango/:precio_range/:transporte/:regimen',
             name: 'paquetesFilters',
             component: PaquetesFiltersView
         },

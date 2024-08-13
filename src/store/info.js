@@ -7,24 +7,24 @@ export const useInfoStore = defineStore('info', {
         sociales:[],
         phone: '+54 11 2491 7552',
         socials: [
-            {
-                icon: "snapchat",
-                url: "/",
-                name: "snapchat"
-            },
-            {
-                icon: "twitter",
-                url: "/",
-                name: "twitter"
-            },
+            // {
+            //     icon: "snapchat",
+            //     url: "/",
+            //     name: "snapchat"
+            // },
+            // {
+            //     icon: "twitter",
+            //     url: "/",
+            //     name: "twitter"
+            // },
             {
                 icon: "square-facebook",
-                url: "/",
+                url: "https://www.facebook.com/omgtravel.ar/",
                 name: "facebook"
             },
             {
                 icon: "instagram",
-                url: "/",
+                url: "https://www.instagram.com/omgtravel.ar/",
                 name: "instagram"
             },
         ]

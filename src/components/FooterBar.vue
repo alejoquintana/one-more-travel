@@ -1,14 +1,24 @@
 <template>
     <div class="mt-5">
-        <NavBar :footer="true"/>
-        <div class="max-width py-4 d-flex justify-content-between align-items-center">
-            <span class="fs-md">
-                2022-{{ new Date().getFullYear() }} © OMG Travel. All Rights Reserved.
-            </span>
-            <span class="cursor-pointer fs-md" @click="openModal">Términos y condiciones de uso</span>
-            <img src="https://omgtravel.aereos.app/imgs/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
-                style="max-height: 30px;">
+        <NavBar :footer="true" />
+        <div class="d-flex justify-content-center">
+            <v-row class="max-width px-3 px-lg-0 pb-3">
+                <v-col cols="12" md="4">
+                    <span class="fs-md">
+                        2022-{{ new Date().getFullYear() }} © OMG Travel. All Rights Reserved.
+                    </span>
+                </v-col>
+                <v-col cols="6" md="4" class="text-center">
+                    <span class="cursor-pointer fs-md" @click="openModal">Términos y condiciones de uso</span>
+                </v-col>
+                <v-col cols="6" md="4" class="d-flex justify-content-end">
+                    <img src="https://omgtravel.aereos.app/imgs/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
+                        style="max-height: 27px;">
+                </v-col>
+            </v-row>
         </div>
+        <!-- <div class="max-width py-4 d-flex justify-content-between align-items-center">
+        </div> -->
         <Transition name="fade">
             <modal-container v-if="showModal" @closeModal="closeModal">
                 <div class="text-white m-4 p-4 fs-md">

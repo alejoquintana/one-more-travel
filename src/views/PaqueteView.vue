@@ -20,13 +20,6 @@ header {
     max-height: 100vh;
 }
 
-.main-content {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 30px;
-}
-
 nav {
     width: 100%;
     font-size: 12px;

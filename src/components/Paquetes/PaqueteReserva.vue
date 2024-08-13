@@ -32,11 +32,11 @@ function formatDate(value) {
     return `${val[2]}/${val[1]}/${val[0]}`
 }
 
+const allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
 function meses(arr) {
-    let allMeses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
     let meses = []
     arr.forEach(function (el) {
-        let mes = parseInt(el)
+        let mes = parseInt(el.fecha)
         if (!meses.includes(allMeses[(mes)])) {
             meses.push(allMeses[(mes)])
         }
@@ -62,7 +62,7 @@ onMounted(function () {
         </div>
         <div class="col-12 col-md-4 mt-4">
             <div class="p-4 bg-primary bs-white br-radius info-default d-flex flex-column justify-content-between"
-                style="position: sticky;top: 20px;">
+                style="position: sticky;top: 100px;">
                 <div v-if="paquete.estrellas && paquete.estrellas != 0" class="d-flex gap-2">
                     <i v-for="i in parseInt(paquete.estrellas)" class="fa-solid fa-star " :key="i"></i>
                 </div>
@@ -99,9 +99,10 @@ onMounted(function () {
                             <i class="fa fa-users"></i>
                         </div>
                         <div class="i-info">
-                            {{ paquete.adultos }} adulto/s
-                            <span v-if="paquete.menores > 0">, {{ paquete.menores }} menore/s</span>
-                            <span v-if="paquete.infantes > 0">, {{ paquete.infantes }} infante/s</span>.
+                            {{ paquete.minimo }} pasajeros
+                            <!-- {{ paquete.adultos }} adulto/s -->
+                            <!-- <span v-if="paquete.menores > 0">, {{ paquete.menores }} menore/s</span>
+                            <span v-if="paquete.infantes > 0">, {{ paquete.infantes }} infante/s</span>. -->
                         </div>
                     </div>
 
@@ -131,12 +132,17 @@ onMounted(function () {
                         <span id="fecha_title"></span>
                         <span id="fecha_price"></span>
                     </div>
-                    <div class="d-flex justify-content-between d-none" id="alojamiento_front">
-                        <span id="alojamiento_title"></span>
-                        <span id="alojamiento_price"></span>
+                    <div class="d-flex justify-content-between d-none" id="alojamiento_base_front">
+                        <span id="alojamiento_base_title"></span>
+                        <span id="alojamiento_base_price"></span>
                     </div>
-                    <div class="d-flex justify-content-end fs-xl">
-                        <span class="fw-bold" id="total_front" data-price="0" data-currency=""></span>
+                    <div class="d-flex justify-content-between d-none" id="alojamiento_front">
+                        <span class="fw-bold fs-lg" id="alojamiento_title"></span>
+                        <span class="fw-bold fs-lg" id="alojamiento_price"></span>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-end">
+                        <span class="fw-bold fs-xl" id="total_front" data-price="0" data-currency=""></span>
                     </div>
                 </div>
             </div>
