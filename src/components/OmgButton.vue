@@ -1,9 +1,9 @@
 <template>
     <div class="btn-contact d-flex align-items-center text-primary">
-        <div class="d-inline btn-icon-contact bg-primary rounded-circle">
+        <div class="d-inline btn-icon-contact bg-primary br-radius">
             <Icon :icon="icon" color="white" :size="size"></Icon>
         </div>
-            <slot />
+        <slot />
     </div>
 </template>
 

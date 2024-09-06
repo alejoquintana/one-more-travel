@@ -8,7 +8,7 @@ paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 3 : null)
 <template>
     <div class="row gy-4">
         <div class="col-lg-3 col-12" v-if="helpers().show_on == 'one-more'">
-            <div class="h-100 scale-hover box-primary-border bg-primary def-shadow br-radius row align-content-center relative p-3 g-0 g"
+            <div class="h-100 scale-hover bg-primary def-shadow br-radius row align-content-center relative p-3 g-0 g"
                 style="min-height: 350px;">
                 <img class="w-100" :src="helpers().getImagePath('cyber-monday.png')" alt="Imagen de cyber-monday" />
             </div>
@@ -17,7 +17,7 @@ paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 3 : null)
         <div class="col-12" v-if="helpers().show_on == 'one-more'">
             <router-link to="/paquetes">
                 <div
-                    class="scale-hover-05 text-center fw-bold fs-lg box-primary-border bg-primary def-shadow br-radius p-3 gy-2">
+                    class="verTodos scale-hover-05 text-end fw-bold fs-lg def-shadow br-radius px-5 py-3 gy-2">
                     VER TODOS LOS PAQUETES
                 </div>
             </router-link>
@@ -27,6 +27,14 @@ paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 3 : null)
 
 
 <style lang="scss" scoped>
+
+.verTodos{
+    background-color: #FFF;
+    color: $primary;
+    border: 2px solid $primary;
+    text-decoration: none !important;
+}
+
 .abso-icon {
     position: absolute;
     top: 5px;

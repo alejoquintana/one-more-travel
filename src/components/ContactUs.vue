@@ -1,7 +1,9 @@
 <template>
     <div class="bg-container h-100 d-flex flex-column gap-2 br-radius p-4 gx-1 g-0">
-        <p class="text-white fs-lg col-12 mb-0  ">Contactanos</p>
-        <p class="text-white fs-xs col-12 mb-2">te damos una mano</p>
+        <div>
+            <p class="text-white fs-xl col-12 mb-0">Contactanos</p>
+            <p class="text-white col-12 mb-2">Te podemos ayudar</p>
+        </div>
         <input class="w-100 px-2 py-1 br-sm-radius form-control" type="text" id="nombre" name="nombre" placeholder="Nombre" v-model="data.nombre">
         <div class="d-flex gap-2">
             <input class="w-100 px-2 py-1 br-sm-radius form-control" type="text" id="email" name="email" placeholder="Email" v-model="data.email">

@@ -9,7 +9,7 @@
                 </div>
             </div>
         </div>
-        <div class="search-window bg-primary  def-shadow">
+        <div class="search-window bg-primary def-shadow">
             <Aereos v-if="selectedTab == 'aereos'" />
             <Hoteles v-if="selectedTab == 'hoteles'" />
             <Paquetes v-if="selectedTab == 'paquetes'" />
@@ -49,6 +49,7 @@ const tabs = [
     }
 }
 .tab{
+    cursor: pointer;
     transition: all $transitions-time;
     border-radius: $radius $radius 0 0;
     padding: 0.5rem 1.2rem;

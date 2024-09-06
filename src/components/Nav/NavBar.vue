@@ -35,7 +35,7 @@ const contacts = [
 </script>
 
 <template>
-    <header class="header" :class="footer ? '' : 'fixed'">
+    <header class="header" :class="footer ? 'footer' : 'fixed'">
         <nav class="nav-bar">
             <h1 v-if="footer" class="h6 text-primary">
                 <strong class="h3">ONE MORE</strong> <span class="h3">Travel</span> <br> Agencia de Viajes y Paquetes
@@ -55,9 +55,9 @@ const contacts = [
                 <!-- <a v-for="social in info().socials" :key="social.icon">
                     <Icon :icon="social.icon" color="white"></Icon>
                 </a> -->
-                <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" v-for="social in info().socials"
-                    :key="social.icon" class="bg-primary rounded-circle p-2">
-                    <Icon :icon="social.icon" color="white" :size="$mq.lg ? '' : 'sm'"></Icon>
+                <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" style="aspect-ratio: 1;" v-for="social in info().socials"
+                    :key="social.icon" class="bg-primary br-radius p-2">
+                    <Icon :icon="social.icon" color="white" :size="$mq.lg ? 'md' : 'sm'"></Icon>
                 </a>
             </div>
         </nav>
@@ -68,6 +68,8 @@ const contacts = [
 .header {
     display: flex;
     justify-content: center;
+}
+.header:not(.footer) {
     background-color: #fff;
 }
 

@@ -1,8 +1,8 @@
 <template>
-    <div class="mt-5">
+    <div class="mt-5" style="background-color: #EEE;">
         <NavBar :footer="true" />
         <div class="d-flex justify-content-center">
-            <v-row class="max-width px-3 px-lg-0 pb-3">
+            <v-row no-gutters class="max-width px-3 px-lg-0 pb-3">
                 <v-col cols="12" md="4">
                     <span class="fs-md">
                         2022-{{ new Date().getFullYear() }} © ONE MORE Travel. All Rights Reserved.

@@ -7,10 +7,13 @@
         <h1 class="fw-bold text-primary mb-0 border-bottom border-secondary border-4">Paquetes a {{
             paquetes().titleFilter }}</h1>
         <!-- <hr class="m-0"> -->
-        <div class="row">
+        <div v-if="paquetes().paquetes && paquetes().paquetes.length >= 1" class="row">
             <PaqueteCard class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :paquete="paquete"
                 :key="i" />
         </div>
+        <h3 v-else class="text-center text-primary py-5">
+            No hay resultados...
+        </h3>
     </div>
 </template>
 

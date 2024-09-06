@@ -1,46 +1,18 @@
 <template>
     <div class="box-primary-border">
-        <strong class="fw-bold">AGENCIA DE VIAJES</strong>
+        <h3 class="mb-0 fw-bold">Quienes Somos</h3>
         <br>
-        <br>
-        <p class="fs-sm fw-light">
-            ¿ESTÁS LISTO PARA EMBARCARTE EN UNA NUEVA AVENTURA? <strong class="fw-bold">ONE MORE TRAVEL</strong>, TU
-            AGENCIA DE VIAJES DE CONFIANZA, TE OFRECE TODO LO
-            QUE NECESITAS PARA QUE TU PRÓXIMO VIAJE SEA INOLVIDABLE. OLVÍDATE DE LOS PROBLEMAS DE PLANIFICACIÓN, CON
-            NUESTROS
-            VUELOS BARATOS, HOTELES, ACTIVIDADES Y TRASLADOS, PODRÁS ARMAR UN PAQUETE A MEDIDA Y ENCONTRAR TODAS LAS
-            SOLUCIONES
-            PARA TU VIAJE EN UN SOLO LUGAR. AL ELEGIR <strong class="fw-bold">ONE MORE TRAVEL</strong>, ESTARÁS DANDO EL
-            PRIMER PASO PARA VIVIR UNA EXPERIENCIA DE
-            VIAJE INTEGRAL Y PERSONALIZADA, AJUSTADA A TUS NECESIDADES Y PRESUPUESTO.
-            ¿POR QUÉ ELEGIR A DESPEGAR COMO TU AGENCIA DE VIAJES?
-            <br>
-            <br>
-            EN <strong class="fw-bold">ONE MORE TRAVEL</strong>, COMPRENDEMOS QUE CADA VIAJE ES ÚNICO Y ES POR ESO QUE
-            NOS ESFORZAMOS POR OFRECER OPCIONES QUE SE
-            AJUSTEN A TU ESTILO DE VIDA Y TUS NECESIDADES. MÁS QUE UNA SIMPLE AGENCIA DE VIAJES, <strong
-                class="fw-bold">ONE MORE TRAVEL</strong> SE DESTACA POR SU
-            COMPROMISO CON LA SATISFACCIÓN DEL CLIENTE, OFRECIENDO UNA AMPLIA GAMA DE PRODUCTOS Y SERVICIOS, Y
-            ASEGURÁNDOSE DE
-            QUE CADA DETALLE ESTÉ CUIDADO PARA QUE PUEDAS CONCENTRARTE EN DISFRUTAR DEL VIAJE. DESDE VUELOS ECONÓMICOS
-            HASTA
-            HOTELES DE LUJO, TRASLADOS EFICIENTES Y ACTIVIDADES EMOCIONANTES, TENEMOS TODO LO QUE NECESITAS PARA TU
-            PRÓXIMA
-            ESCAPADA.
-            COMPRÁ TU VIAJE AL MEJOR PRECIO
-            <br>
-            <br>
-            CON <strong class="fw-bold">ONE MORE TRAVEL</strong>, HACER TUS SUEÑOS DE VIAJE REALIDAD NO TIENE POR QUÉ
-            COSTAR UNA FORTUNA. NUESTRA PLATAFORMA INTUITIVA
-            Y FÁCIL DE USAR TE PERMITE COMPARAR PRECIOS, LEER OPINIONES DE OTROS VIAJEROS Y RESERVAR CON SOLO UNOS POCOS
-            CLICS.
-            ADEMÁS, OFRECEMOS CONSTANTEMENTE CUPONES, PROMOCIONES Y DESCUENTOS ESPECIALES PARA QUE PUEDAS APROVECHAR AL
-            MÁXIMO
-            TU PRESUPUESTO DE VIAJE. VIAJAR ES MÁS QUE LLEGAR A UN DESTINO, ES UNA EXPERIENCIA QUE COMIENZA DESDE EL
-            MOMENTO EN
-            QUE EMPEZÁS A PLANIFICAR. <strong class="fw-bold">ONE MORE TRAVEL</strong>, TU AGENCIA DE VIAJES, ESTÁ ACÁ
-            PARA ASEGURARSE DE QUE CADA PASO DE TU VIAJE
-            SEA TAN EMOCIONANTE COMO EL DESTINO FINAL.
+        <p class="fs-lg fw-light">
+            En <b class="fw-bold">One More Travel</b>, somos <b class="fw-bold">apasionados del viaje</b> y la
+            <b class="fw-bold">exploración</b>. Nuestra misión es brindarte <b class="fw-bold">experiencias únicas</b> y
+            <b class="fw-bold">personalizadas</b> que te permitan descubrir <b class="fw-bold">nuevos destinos</b> y crear
+            <b class="fw-bold">recuerdos inolvidables</b>. Con <b class="fw-bold">años de experiencia</b> en el sector turístico,
+            nuestro equipo de <b class="fw-bold">expertos</b> se dedica a diseñar <b class="fw-bold">itinerarios cuidadosamente
+                seleccionados</b> para satisfacer tus <b class="fw-bold">necesidades</b> y <b class="fw-bold">preferencias</b>.
+            Nos enfocamos en ofrecerte un <b class="fw-bold">servicio excepcional</b>, <b class="fw-bold">asesoramiento
+                personalizado</b> y una <b class="fw-bold">atención al detalle</b> que te hará sentir como en casa. Únete
+            a nosotros en este viaje y descubre el mundo de una manera <b class="fw-bold">diferente</b>.
+
         </p>
     </div>
 </template>

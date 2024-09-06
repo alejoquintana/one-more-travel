@@ -24,10 +24,17 @@ export const useImportScriptsStore = defineStore('importScripts', {
                 document.body.appendChild(recaptchaScript)
             }
             let vm = this
+
             setTimeout(async function () {
-                await callInitEngine()
+                let interval_ = setInterval(async () => {
+                    if (typeof callInitEngine == 'function') {
+                        await callInitEngine()
+                        clearInterval(interval_);
+                    }
+                },500)
+                // interval_()
                 vm.FlightEngine = true
-            }, 1000)
+            }, 1500)
         },
         async fetchReserva(obj = null) {
             console.log("obj", obj);
@@ -38,7 +45,13 @@ export const useImportScriptsStore = defineStore('importScripts', {
             }
             let vm = this
             setTimeout(async function () {
-                await callInitReserva()
+                let interval_ = setInterval(async () => {
+                    if (typeof callInitReserva == 'function') {
+                        await callInitReserva()
+                        clearInterval(interval_);
+                    }
+                },500)
+                // interval_()
                 vm.Reserva = true
             }, 1000)
         },
@@ -50,7 +63,14 @@ export const useImportScriptsStore = defineStore('importScripts', {
             }
             let vm = this
             setTimeout(async function () {
-                await callInitPaquetesfilter()
+                let interval_ = setInterval(async () => {
+                    if (typeof callInitPaquetesfilter == 'function') {
+                        await callInitPaquetesfilter()
+                        clearInterval(interval_);
+                    }
+                }, 500)
+                // interval_()
+                // await callInitPaquetesfilter()
                 vm.Paquetesfilter = true
             }, 1000)
         },

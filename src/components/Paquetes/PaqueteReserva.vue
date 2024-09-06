@@ -61,7 +61,7 @@ onMounted(function () {
             </div>
         </div>
         <div class="col-12 col-md-4 mt-4">
-            <div class="p-4 bg-primary bs-white br-radius info-default d-flex flex-column justify-content-between"
+            <div class="p-4 aside bs-white br-radius info-default d-flex flex-column justify-content-between"
                 style="position: sticky;top: 100px;">
                 <div v-if="paquete.estrellas && paquete.estrellas != 0" class="d-flex gap-2">
                     <i v-for="i in parseInt(paquete.estrellas)" class="fa-solid fa-star " :key="i"></i>
@@ -151,6 +151,10 @@ onMounted(function () {
 </template>
 
 <style lang="scss" scoped>
+.aside{
+    border: 4px solid $primary;
+}
+
 .list-icons {
     .item-icons {
         display:flex;

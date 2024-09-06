@@ -6,12 +6,17 @@
     // padding-top: 2rem;
     // padding-bottom: 4rem;
     font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
     // background: #F4F4F4;
     // background: linear-gradient(110deg, rgba(255, 255, 255, 1) 49%, rgba(1, 255, 193, 1) 49%);
 }
 
 #app main {
-    padding-top: 100px;
+    padding-top: 120px;
+    flex-grow: 1;
+    width: 100vw;
 }
 
 .max-width {
@@ -43,7 +48,8 @@ a,
 
 @media (hover: hover) {
     a:hover {
-        background-color: hsla(160, 100%, 37%, 0.2);
+        transform: scale(1.05);
+        // background-color: hsla(160, 100%, 37%, 0.2);
     }
 }
 
