@@ -12,7 +12,7 @@
         </div>
         <textarea class="w-100 px-2 py-1 flex-grow-1 br-sm-radius" id="mensaje" name="mensaje"
             placeholder="Mensaje..." v-model="data.mensaje"></textarea>
-        <button class="btn btn-primary text-white px-4" @click="saveData">ENVIAR</button>
+        <button class="btn btn-dark px-4" @click="saveData">ENVIAR</button>
     </div>
 </template>
 
@@ -49,7 +49,7 @@ function saveData() {
 
 <style scoped lang="scss">
 .bg-container {
-    background-color: rgba($primary, 0.8);
+    background-color: $primary;
 }
 
 input::placeholder,
