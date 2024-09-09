@@ -12,7 +12,7 @@
                     <span class="cursor-pointer fs-md" @click="openModal">Términos y condiciones de uso</span>
                 </v-col>
                 <v-col cols="6" md="4" class="d-flex justify-content-end">
-                    <img src="https://onemoretravel.aereos.app/imgs/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
+                    <img src="https://onemoretravel.aereos.app/images/cuatrolados-logo-black.png" alt="Logo de Cuatro Lados"
                         style="max-height: 27px;">
                 </v-col>
             </v-row>

@@ -18,11 +18,11 @@ export const useImportScriptsStore = defineStore('importScripts', {
     },
     actions: {
         async fetchFlightEngine() {
-            if (!this.FlightEngine) {
+            // if (!this.FlightEngine) {
                 let recaptchaScript = document.createElement('script')
-                recaptchaScript.setAttribute('src', URL+'/aereos.onemore.app.min.js?v=' + Date.now())
+                recaptchaScript.setAttribute('src', 'https://agencias.aereos.app/aereos.app.min.js?v=' + Date.now())
                 document.body.appendChild(recaptchaScript)
-            }
+            // }
             let vm = this
 
             setTimeout(async function () {

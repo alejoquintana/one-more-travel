@@ -42,7 +42,7 @@ const contacts = [
                 Turísticos
             </h1>
             <router-link to="/" v-else>
-                <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers.getImagePath('logo-purple.png')"
+                <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers.getImagePath('logo-one-more.png')"
                     alt="Logo ONE MORE Travel">
             </router-link>
             <!-- <div v-else style="min-width: 100px;"></div> -->

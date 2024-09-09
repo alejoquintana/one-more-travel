@@ -15,7 +15,7 @@ const helpers = useHelpersStore()
     <main>
         <div class="main-content max-width">
             <HomeSlider v-if="helpers.show_on == 'sportclub'" position="bottom" image="tropical-beach.jpg"
-                :first="`Descubrí los beneficios exclusivos para socios <img src='imgs/${helpers.show_on}-logo.png' style='max-height:38px'> con ONE MORE Travel`"
+                :first="`Descubrí los beneficios exclusivos para socios <img src='images/${helpers.show_on}-logo.png' style='max-height:38px'> con ONE MORE Travel`"
                 :show_first="true">
                 <div></div>
             </HomeSlider>
@@ -28,10 +28,10 @@ const helpers = useHelpersStore()
                 :show_third="true" :url="' tel:' + info().phone.replace(/\s/g, '' )" />
             <v-row class="justify-content-between align-items-center mt-1">
                 <v-col cols="5" md="3">
-                    <v-img v-if="helpers.show_on == 'femer'" src="imgs/femer-logo.png" style="max-height:80px"></v-img>
+                    <v-img v-if="helpers.show_on == 'femer'" src="images/femer-logo.png" style="max-height:80px"></v-img>
                 </v-col>
                 <v-col cols="5" md="3">
-                    <v-img :src="helpers.getImagePath('logo-purple.png')"></v-img>
+                    <v-img :src="helpers.getImagePath('logo-one-more.png')"></v-img>
                 </v-col>
             </v-row>
             <div class="row gap-lg-0 gap-3">
