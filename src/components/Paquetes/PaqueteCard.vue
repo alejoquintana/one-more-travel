@@ -1,49 +1,41 @@
 <template>
     <div>
-        <div v-if="true" class="pCard scale-hover  def-shadow br-radius p-0">
-            <div class="flex-grow-1" :style="{
+        <div class="pCard scale-hover-05 br-radius p-0" @click="goToPack(pack.codigo)">
+            <div class="flex-grow-1 image-box br-lg-radius overflow-hidden" :style="{
                 'background-image': 'url(' + helpers.getImagePath(pack.imagenes[0].url, 'paquetes') + ')',
-                'background-size': 'cover'
             }">
-                <div class="p-3 d-flex flex-column justify-content-between h-100"
-                    style="background: rgb(0,0,0);background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 75%);">
-
-                    <div class="d-flex justify-content-between align-items-center gap-3 mt-2 text-shadow">
-                        <div class="d-flex gap-1" v-if="pack.estrellas != 0">
-                            <i class="fa fa-star fa-sm text-primary" v-for="stars, i in parseInt(pack.estrellas) "
+                <div class="d-flex flex-column justify-content-between h-100">
+                    <div class="d-flex justify-content-between align-items-stretch mt-3 px-2">
+                        <div v-if="pack.noches" class="ffs-1 bg-black px-2 py-1 rounded">{{ pack.noches }} noches</div>
+                        <div class="d-flex bg-white align-items-center px-2 rounded" v-if="pack.estrellas != 0">
+                            <i class="fa-solid fa-star fa-sm text-primary" v-for="stars, i in parseInt(pack.estrellas) "
                                 :key="i"></i>
                         </div>
-                        <div v-if="pack.noches" class="fw-bold">{{ pack.noches }} noches</div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <span class="text-primary fs-xxl text-shadow-e ucfirst fw-bold text-center"
-                            style="max-width:100%;width: max-content;">
-                            {{ pack.nombre }}
-                        </span>
-                    </div>
-                    <div v-if="pack.descripcion_breve"
-                        class="col-12 mt-2 row g-0 justify-content-between align-items-center text-shadow">
-                        <p class="mb-0 ffs-1" v-html="pack.descripcion_breve"></p>
+                    <div v-if="pack.descripcion_breve" class="p-2" style="background: rgba(0,0,0,.5);min-height: 90px;">
+                        <p class="mb-0 ffs-05" v-html="pack.descripcion_breve"></p>
                     </div>
                 </div>
-
             </div>
-            <div class="relative bg-white d-flex justify-content-center align-items-center py-2 br-radius">
-                <p v-if="pack.precio_final && pack.currency" class="price text-center mb-0"
-                    style="line-height: 1.7rem;">
-                    <small class="m-auto">Desde</small><br>
-                    <span class="fs-lg fw-bold text-primary fs-3">
+            <div class="">
+                <div class="pTitle">
+                    <p class=" text-black fs-lg fw-bolder ucfirst mt-2 mb-0">
+                        {{ pack.nombre }}
+                    </p>
+                </div>
+                <p v-if="pack.precio_final && pack.currency" class="price mb-0" style="line-height: 1.7rem;">
+                    <span class="fs-lg fw-bold text-primary">
                         {{ helpers.formatPrice(pack.precio_final, pack.currency) }}
                     </span>
                 </p>
-                <p class=" mb-0 py-2 fw-bold text-center w-100 text-primary"
+                <!-- <p class=" mb-0 py-2 fw-bold text-center w-100 text-primary"
                     :class="{ 'seeDetail': pack.precio_final && pack.currency }">
                     VER DETALLE
-                </p>
+                </p> -->
             </div>
         </div>
 
-        <div v-else class="pCard scale-hover  def-shadow br-radius p-0" @click="goToPack(pack.codigo)">
+        <div v-if="false" class="pCard scale-hover  def-shadow br-radius p-0">
             <div v-if="pack.oferta != 0"
                 class="absolute top-0 right-0 px-2 py-3 bg-primary text-white fw-bold br-radius"
                 style="line-height: 16px;margin: -12px; z-index: 9999;">
@@ -124,6 +116,22 @@ function formatDate(value) {
     overflow: hidden;
     background-size: cover;
 
+    .image-box {
+        min-height: 280px;
+        max-height: 280px;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .pTitle {
+        transition: 500ms;
+        p {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
+    }
 }
 
 .icons-list {
@@ -155,6 +163,15 @@ function formatDate(value) {
 
     .discount-icon {
         transform: scale(1.2);
+    }
+
+    .pTitle {
+        p {
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+        }
     }
 }
 

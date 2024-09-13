@@ -18,6 +18,8 @@
     cursor:pointer;
 }
 
+.fs-4xl{font-size: $fs-4xl;}
+.fs-3xl{font-size: $fs-3xl;}
 .fs-xxl{font-size: $fs-xxl;}
 .fs-xl{font-size: $fs-xl;}
 .fs-lg{font-size: $fs-lg;}
@@ -201,7 +203,8 @@ img {
     //font-weight: bold;
     color: rgb(8, 91, 173) !important;
 }
-.ffs-1{font-size: 0.80rem;}
+.ffs-05{font-size: 0.7rem;}
+.ffs-1{font-size: 0.8rem;}
 .ffs-2{font-size: 1.29rem;}
 .ffs-3{font-size: 2.09rem;}
 .ffs-4{font-size: 3.38rem;}

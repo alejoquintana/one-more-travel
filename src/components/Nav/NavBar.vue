@@ -9,26 +9,26 @@ defineProps({
         default: false
     },
 })
-const contacts = [
-    {
-        obj: `<a href="mailto:${info().mail}" style="text-decoration:none;">
-                ${info().mail}
-            </a>`,
-        // obj_footer: `<a href="mailto:${info().mail}" style="text-decoration:none;">
-        //         ${info().mail}
-        //     </a>`,
-        icon: 'envelope'
-    },
-    {
-        // obj: `<a href="tel:${info().phone}" style="text-decoration:none;">
-        //     ${info().phone}
-        //     </a>`,
-        obj: `<a href="https://wa.me/541124917552" target="_blank" style="text-decoration:none;">
-            ${info().phone}
-            </a>`,
-        icon: 'phone-volume',
-    }
-]
+// const contacts = [
+//     {
+//         obj: `<a href="mailto:${info().mail}" style="text-decoration:none;">
+//                 ${info().mail}
+//             </a>`,
+//         // obj_footer: `<a href="mailto:${info().mail}" style="text-decoration:none;">
+//         //         ${info().mail}
+//         //     </a>`,
+//         icon: 'envelope'
+//     },
+//     {
+//         // obj: `<a href="tel:${info().phone}" style="text-decoration:none;">
+//         //     ${info().phone}
+//         //     </a>`,
+//         obj: `<a href="https://wa.me/541124917552" target="_blank" style="text-decoration:none;">
+//             ${info().phone}
+//             </a>`,
+//         icon: 'phone-volume',
+//     }
+// ]
 
 // import { useHelpersStore as helpers } from '@/store/helpers.js'
 
@@ -47,17 +47,17 @@ const contacts = [
             </router-link>
             <!-- <div v-else style="min-width: 100px;"></div> -->
             <div class="d-flex gap-4" v-if="$mq.lg">
-                <OmgButton v-for="({ obj, icon }, i) in contacts" :key="i" :icon="icon">
-                    <span class="px-4" v-html="obj"></span>
+                <OmgButton v-for="({ obj, icon }, i) in info().contacts" :key="i" :icon="icon">
+                    <span class="text-black" v-html="obj"></span>
                 </OmgButton>
             </div>
-            <div class="d-flex gap-5">
+            <div class="d-flex gap-3">
                 <!-- <a v-for="social in info().socials" :key="social.icon">
                     <Icon :icon="social.icon" color="white"></Icon>
                 </a> -->
-                <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" style="aspect-ratio: 1;" v-for="social in info().socials"
-                    :key="social.icon" class="bg-primary br-radius p-2">
-                    <Icon :icon="social.icon" color="white" :size="$mq.lg ? 'md' : 'sm'"></Icon>
+                <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" style="aspect-ratio: 1;"
+                    v-for="social in info().socials" :key="social.icon" class="social-icon bg-primary rounded p-2">
+                    <Icon :icon="social.icon" color="white" :size="$mq.lg ? 'lg' : 'sm'"></Icon>
                 </a>
             </div>
         </nav>
@@ -71,6 +71,10 @@ const contacts = [
 }
 .header:not(.footer) {
     background-color: #fff;
+}
+
+.social-icon{
+    aspect-ratio: 1;
 }
 
 .fixed {

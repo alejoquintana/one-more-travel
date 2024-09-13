@@ -20,7 +20,7 @@ export const useImportScriptsStore = defineStore('importScripts', {
         async fetchFlightEngine() {
             // if (!this.FlightEngine) {
                 let recaptchaScript = document.createElement('script')
-                recaptchaScript.setAttribute('src', 'https://agencias.aereos.app/aereos.app.min.js?v=' + Date.now())
+                recaptchaScript.setAttribute('src', 'https://onemoretravel.aereos.app/aereos.onemore.app.min.js?v=' + Date.now())
                 document.body.appendChild(recaptchaScript)
             // }
             let vm = this

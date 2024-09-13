@@ -113,7 +113,6 @@ import { onMounted } from 'vue';
 import { useImportScriptsStore as importScripts } from '@/store/importScripts'
 
 onMounted(function () {
-    console.log("123",123);
     importScripts().fetchFlightEngine()
 })
 </script>

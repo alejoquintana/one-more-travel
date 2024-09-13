@@ -3,7 +3,8 @@ import NavBar from '@/components/Nav/NavBar.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import OffersItems from '@/components/Offers/OffersItems.vue';
 import HomeSlider from '@/components/Slider/HomeSlider.vue'
-// import BannerComponent from '@/components/Banners/BannerComponent.vue'
+import BannerComponent from '@/components/Banners/BannerComponent.vue'
+import BannerComponent2 from '@/components/Banners/BannerComponent2.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import BigDescription from '@/components/BigDescription.vue'
 import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
@@ -19,18 +20,25 @@ import { useInfoStore as info } from '@/store/info'
         <div class="main-content max-width">
             <SearchEngine v-if="helpers().show_on == 'one-more'" />
 
-            <HomeSlider position="bottom" image="tropical-beach.jpg" first="Sardegna, Italia" :show_first="true"
+            <!-- <HomeSlider position="bottom" image="tropical-beach.jpg" first="Sardegna, Italia" :show_first="true"
                 second="CONOCE MAS DESTINOS" :show_second="true" third="PORTOFLAVIA, SARDEGNA, ITALIA"
                 :show_third="true">
                 <div></div>
-            </HomeSlider>
+            </HomeSlider> -->
 
 
             <!-- <HomeSlider /> -->
-            <OffersItems />
+            <OffersItems class="mt-4" />
             <!-- <HomeSlider second="CONOCÉ MAS BENEFICIOS" :show_second="true" third="CONTACTATE CON UN ASESOR"
                 :show_third="true" :url="'tel:' + info().phone.replace(/\s/g, '')" /> -->
-            <BannerComponent banner="banner-mercado-pago.png" />
+            <v-row>
+                <v-col cols="6">
+                    <BannerComponent banner="banner-mercado-pago.png" />
+                </v-col>
+                <v-col cols="6">
+                    <BannerComponent2 banner="banner-mercado-pago.png" />
+                </v-col>
+            </v-row>
             <div class="row gap-lg-0 gap-3">
                 <div class="col-md-4">
                     <ContactUs />

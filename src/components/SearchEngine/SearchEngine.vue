@@ -1,19 +1,25 @@
 <template>
-    <div class="">
-        <div class="d-flex ps-lg-5 ps-4 text-primary">
-            <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected':''"
-                v-for="{name,icon},i in tabs" :key="i" @click="selectedTab= name">
-                <Icon :icon="icon" :color="selectedTab == name ? 'white':'primary'" size="lg" />
-                <div v-if="$mq.lg" class="tab-name text-center text-capitalize fs-lg fw-bold">
-                    {{ name }}
+    <div class="relative searchengine-container">
+        <div class="absolute w-100 img-box br-lg-radius py-4 px-5">
+            <p class="fs-4xl fw-extra-bolder mb-0">Bienvenido</p>
+            <p class="">Conocé nuestra mejores ofertas</p>
+        </div>
+        <div class="relative w-100 px-5">
+            <div class="d-flex ps-lg-5 ps-4 text-primary w-100">
+                <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected' : ''"
+                    v-for="{ name, icon }, i in tabs" :key="i" @click="selectedTab = name">
+                    <Icon :icon="icon" :color="selectedTab == name ? 'white' : 'primary'" size="lg" />
+                    <div v-if="$mq.lg" class="tab-name text-center text-capitalize fs-lg fw-bold">
+                        {{ name }}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="search-window bg-primary def-shadow">
-            <Aereos v-if="selectedTab == 'aereos'" />
-            <Hoteles v-if="selectedTab == 'hoteles'" />
-            <Paquetes v-if="selectedTab == 'paquetes'" />
-            <Buques v-if="selectedTab == 'buques'" />
+            <div class="search-window bg-primary def-shadow">
+                <Aereos v-if="selectedTab == 'aereos'" />
+                <Hoteles v-if="selectedTab == 'hoteles'" />
+                <Paquetes v-if="selectedTab == 'paquetes'" />
+                <Buques v-if="selectedTab == 'buques'" />
+            </div>
         </div>
     </div>
 </template>
@@ -35,20 +41,39 @@ const props = defineProps({
 
 const selectedTab = ref(props.tab)
 const tabs = [
-    { name: 'aereos', icon:"plane"},
+    { name: 'aereos', icon: "plane" },
     // {name:'hoteles',icon:"train-subway"},
-    {name:'paquetes',icon:"suitcase"},
+    { name: 'paquetes', icon: "suitcase" },
     // {name:'buques',icon:"ship"},
 ]
 </script>
 
 <style lang="scss" scoped>
+.searchengine-container {
+    // min-height: 500px;
+    padding-top: 90px;
+    .img-box {
+        min-height: 300px;
+        background-image: url(https://onemoretravel.aereos.app/images/tropical-beach.jpg);
+        background-size: cover;
+        background-position: center center;
+        z-index: 1;
+    }
+    .absolute{
+        top: -50px;
+    }
+    .relative{
+        z-index: 10;
+    }
+}
+
 @media (min-width: $min-width) {
-    .tab{
+    .tab {
         padding: 0.5rem 1.8rem !important;
     }
 }
-.tab{
+
+.tab {
     cursor: pointer;
     transition: all $transitions-time;
     border-radius: $radius $radius 0 0;
@@ -57,28 +82,33 @@ const tabs = [
     border-left: 2px solid $primary;
     border-right: 2px solid $primary;
     margin-right: 8px;
+    background-color: #FFF;
 }
-.tab.selected{
+
+.tab.selected {
     background-color: $primary;
     color: #fff;
     fill: #fff;
 }
 
-.tab-name{
+.tab-name {
     //padding: 0rem 1rem;
     opacity: 0;
-    width:0;
+    width: 0;
     //display: none;
     transition: all $transitions-time;
 }
-.tab:hover, .tab.selected{
-    .tab-name{
+
+.tab:hover,
+.tab.selected {
+    .tab-name {
         //display: block;
         opacity: 1;
         width: 100px
     }
 }
-.search-window{
+
+.search-window {
     //background: rgb(255,255,255);
     color: #fff;
     border-radius: $radius;
