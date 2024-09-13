@@ -5,10 +5,10 @@
             <div class="d-flex justify-content-between" :class="{ 'flex-column px-4': $mq.sm}">
                 <div :class="{ 'py-4': $mq.sm}">
                     <p class="fs-xl fw-bolder mb-4">ONE MORE TRAVEL</p>
-                    <p class="text-muted fw-bold mb-0">
+                    <p class="text-grey fw-bold mb-0">
                         Agencia de Viajes y Paquetes Turísticos
                     </p>
-                    <span class="text-muted cursor-pointer fs-md" @click="openModal">Términos y condiciones de
+                    <span class="text-grey cursor-pointer fs-md" @click="openModal">Términos y condiciones de
                         uso</span>
                 </div>
                 <div :class="{ 'py-4': $mq.sm}">
@@ -30,11 +30,10 @@
                 </div>
             </div>
         </div>
-        <div class="max-width">
+        <div class="max-width border-top border-muted pt-3 pb-2">
             <v-row no-gutters class="max-width px-3 px-lg-0 pb-3 justify-content-between">
-                <v-col cols="12" md="4"
-                    :class="$mq.lg ? '' : 'd-flex justify-content-center'">
-                    <span class="fs-md text-muted">
+                <v-col cols="12" md="4" :class="$mq.lg ? '' : 'd-flex justify-content-center'">
+                    <span class="fs-md text-grey">
                         2022-{{ new Date().getFullYear() }} © ONE MORE Travel. All Rights Reserved.
                     </span>
                 </v-col>

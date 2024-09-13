@@ -47,18 +47,19 @@
                     <div class="pt-3" v-html="paquete.descripcion"></div>
                 </v-col>
             </v-row>
-            <v-row v-if="paquete.fechas && paquete.fechas.length" no-gutters
-                class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
+            <v-row v-if="paquete.fechas && paquete.fechas.length && paquete.alojamientos && paquete.alojamientos.length"
+                no-gutters class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
                 <v-col cols="12" class=" border-bottom border-white mb-3">
                     <h4 class="ucfirst">
                         Fechas de salida
                     </h4>
                 </v-col>
-                <v-col cols="12" md="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2">
-                    <h5 for="fechas" class="fs-4 border-bottom border-white mb-1">
+                <v-col cols="12" md="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2 d-flex align-items-center">
+                    <i class="fa-solid fa-circle text-white fs-xs px-3"></i>
+                    <h5 for="fechas" class="fs-4 text-center mb-1">
                         {{ mes(fecha.fecha) }}
                     </h5>
-                    <div class="d-flex align-items-center justify-content-between">
+                    <!-- <div class="d-flex align-items-center justify-content-between">
                         <span>Tarifa:</span>
                         <span>
                             {{ helpers().formatPrice(fecha.tarifa, fecha.currency) }}
@@ -75,21 +76,24 @@
                         <span>
                             {{ helpers().formatPrice(fecha.precio_final, fecha.currency) }}
                         </span>
-                    </div>
+                    </div> -->
                 </v-col>
-            </v-row>
-            <v-row v-if="paquete.alojamientos && paquete.alojamientos.length" no-gutters
-                class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
-                <v-col cols="12" class=" border-bottom border-white mb-3">
+                <!-- </v-row>
+            <v-row v-if="" no-gutters -->
+                <!-- class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around"> -->
+                <v-col cols="12" class=" border-bottom border-white mb-3 mt-4">
                     <h4 class="ucfirst">
                         Alojamientos
                     </h4>
                 </v-col>
-                <v-col cols="12" md="4" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id">
-                    <h5 for="alojamiento" class="fs-4 border-bottom border-white mb-1">
+                <v-col cols="12" v-for="alojamiento in paquete.alojamientos" :key="alojamiento.id"
+                    class="d-flex align-items-center">
+
+                    <i class="fa-solid fa-circle text-white fs-xs px-3"></i>
+                    <h5 for="alojamiento" class="fs-4 mb-1">
                         {{ alojamiento.alojamiento }}
                     </h5>
-                    <div class="d-flex align-items-center justify-content-between">
+                    <!-- <div class="d-flex align-items-center justify-content-between">
                         <span>Tarifa:</span>
                         <span>
                             {{ helpers().formatPrice(alojamiento.tarifa, alojamiento.currency) }}
@@ -106,7 +110,7 @@
                         <span>
                             {{ helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}
                         </span>
-                    </div>
+                    </div> -->
                 </v-col>
             </v-row>
             <div v-if="paquete.links && paquete.links.length"
