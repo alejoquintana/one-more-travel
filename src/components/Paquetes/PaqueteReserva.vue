@@ -45,7 +45,7 @@ function meses(arr) {
 }
 
 onMounted(function () {
-    console.log("paquete.value", route.params.paquete);
+    // console.log("paquete.value", route.params.paquete);
     importScripts().fetchReserva({
         paquete: route.params.paquete
     })
@@ -128,19 +128,6 @@ onMounted(function () {
                 <hr class="my-3">
                 <div class="x-4">
                     <h4 class="">Precio final</h4>
-                    <div class="d-flex justify-content-between d-none" id="fecha_front">
-                        <span id="fecha_title"></span>
-                        <span id="fecha_price"></span>
-                    </div>
-                    <div class="d-flex justify-content-between d-none" id="alojamiento_base_front">
-                        <span id="alojamiento_base_title"></span>
-                        <span id="alojamiento_base_price"></span>
-                    </div>
-                    <div class="d-flex justify-content-between d-none" id="alojamiento_front">
-                        <span class="fw-bold fs-lg" id="alojamiento_title"></span>
-                        <span class="fw-bold fs-lg" id="alojamiento_price"></span>
-                    </div>
-                    <hr>
                     <div class="d-flex justify-content-end">
                         <span class="fw-bold fs-xl" id="total_front" data-price="0" data-currency=""></span>
                     </div>

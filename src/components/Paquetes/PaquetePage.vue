@@ -59,28 +59,7 @@
                     <h5 for="fechas" class="fs-4 text-center mb-1">
                         {{ mes(fecha.fecha) }}
                     </h5>
-                    <!-- <div class="d-flex align-items-center justify-content-between">
-                        <span>Tarifa:</span>
-                        <span>
-                            {{ helpers().formatPrice(fecha.tarifa, fecha.currency) }}
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span>Imp:</span>
-                        <span>
-                            {{ helpers().formatPrice(fecha.impuestos, fecha.currency) }}
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between fs-5">
-                        <span>Final:</span>
-                        <span>
-                            {{ helpers().formatPrice(fecha.precio_final, fecha.currency) }}
-                        </span>
-                    </div> -->
                 </v-col>
-                <!-- </v-row>
-            <v-row v-if="" no-gutters -->
-                <!-- class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around"> -->
                 <v-col cols="12" class=" border-bottom border-white mb-3 mt-4">
                     <h4 class="ucfirst">
                         Alojamientos
@@ -91,26 +70,8 @@
 
                     <i class="fa-solid fa-circle text-white fs-xs px-3"></i>
                     <h5 for="alojamiento" class="fs-4 mb-1">
-                        {{ alojamiento.alojamiento }}
+                        {{ alojamiento.nombre }}
                     </h5>
-                    <!-- <div class="d-flex align-items-center justify-content-between">
-                        <span>Tarifa:</span>
-                        <span>
-                            {{ helpers().formatPrice(alojamiento.tarifa, alojamiento.currency) }}
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <span>Imp:</span>
-                        <span>
-                            {{ helpers().formatPrice(alojamiento.impuestos, alojamiento.currency) }}
-                        </span>
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between fs-5">
-                        <span>Final:</span>
-                        <span>
-                            {{ helpers().formatPrice(alojamiento.precio_final, alojamiento.currency) }}
-                        </span>
-                    </div> -->
                 </v-col>
             </v-row>
             <div v-if="paquete.links && paquete.links.length"

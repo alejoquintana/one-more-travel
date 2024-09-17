@@ -37,7 +37,7 @@ export const useImportScriptsStore = defineStore('importScripts', {
             }, 1500)
         },
         async fetchReserva(obj = null) {
-            console.log("obj", obj);
+            // console.log("obj", obj);
             if (!this.Reserva) {
                 let recaptchaScript = document.createElement('script')
                 recaptchaScript.setAttribute('src', URL+'/reserva.onemore.app.js?v=' + Date.now()+'&paquete='+obj.paquete)
