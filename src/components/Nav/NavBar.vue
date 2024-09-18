@@ -83,7 +83,7 @@ defineProps({
 .fixed {
     position: fixed;
     top: 0;
-    z-index: 9999999999;
+    z-index: 85;
 }
 @media (min-width: 576px) {
     .fixed {

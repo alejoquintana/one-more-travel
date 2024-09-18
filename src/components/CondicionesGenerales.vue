@@ -1,173 +1,142 @@
 <template>
     <div class="text-white m-4 p-4 fs-md">
-        <h2>
-            CONDICIONES GENERALES
-        </h2>
-        <br>
-        NUESTRA EMPRESA OPERA BAJO LAS CONDICIONES GENERALES DEL MINISTERIO DE TURISMO Y DEPORTES. LOS
-        SERVICIOS TURÍSTICOS DETALLADOS EN LA CORRESPONDIENTE SOLICITUD DE RESERVA FORMAN PARTE INTEGRAL DE
-        LAS CONDICIONES GENERALES DEL CONTRATO DE SERVICIOS TURÍSTICOS.
-        <br>
-        <br>
-        Responsabilidad:
-        <br>
-        <strong>ONE MORE TRAVEL S.A. CUIT N° 30-715753481-2 con domicilio legal en Cerrito 1070, Piso 7° Of.
-            “116”</strong>
-        reviste la calidad de Empresa de Viajes y Turismo, declara expresamente que actúa en su carácter de
-        intermediario en la reserva o contratación de los distintos servicios vinculados e incluídos en el
-        respectivo tour o los detallados en la solicitud de servicios: hoteles, restaurantes, medios de
-        transporte, etc., es decir, los prestadores de los servicios, - según lo establece la Ley 18829
-        reguladora de las actividades turísticas -, por lo cual en ningún caso actúa por cuenta propia. La
-        empresa declina, por esta razón, a toda responsabilidad por deficiencia en la presentación de
-        cualquiera de estos servicios como así también por los daños y perjuicios que pudieran sufrir los
-        pasajeros en las personas o en sus bienes cualquiera fuera de la causa que los origine, alteración
-        de horarios, postergaciones, cancelaciones, o modificaciones de los equipos utilizados por las
-        empresas transportadoras o sobreventa de las mismas, deterioro, pérdida o extravío de equipaje,
-        etc., ya que esta responsabilidad es exclusiva de los prestadores de los servicios; todo esto
-        siempre que nuestra Empresa haya actuado con la previsión diligencias debidas en la reserva o
-        contratación de los referidos servicios. La empresa tampoco se responsabiliza por los hechos que se
-        produzcan por caso fortuito y/o fuerza mayor, fenómenos climáticos o hechos de la naturaleza, antes
-        o durante el desarrollo del tour, que impidan, demoren o de cualquier modo obstaculicen la ejecución
-        total o parcial de las prestaciones organizadas y/o reservadas por la Empresa, de conformidad con lo
-        dispuesto por el Código Civil, ni por las pérdidas o gastos que todas las situaciones arriba
-        detalladas pudieran provocar.
-        <br>
-        <br>
-        Solicitudes de reservas y pagos:
-        <br>
-        1. Las solicitudes de reserva de servicios turísticos requieren efectuarse con el pago de un importe
-        no menor al 10% del precio total del tour o reserva de servicios turísticos.
-        2. Todos los importes pagados antes de la confirmación definitiva de los servicios son percibidos en
-        concepto de reserva y no implican confirmación de los mismos ni de su precio.
-        3. Con la confirmación definitiva de los servicios y de su precio final, el o los solicitantes
-        deberán abonar dentro de las 24 hs. el saldo final resultante. La empresa emitirá los
-        correspondientes pasajes y/o ordenes de servicios y su facturación.
-        4. Todos los pagos efectuados por medios electrónicos quedan sujetos a la verificación de su
-        efectiva acreditación.
-        5. Las operaciones a crédito, deberán satisfacer los requisitos exigidos a las mismas, en su defecto
-        el solicitante deberá cumplimentar el pago final con otro medio de pago y dentro de los plazos
-        establecidos.
-        6. Los precios de los servicios quedan sujetos a modificaciones sin previo aviso cuando se produzcan
-        modificaciones en los costos o en los tipos de cambio.
-        <br>
-        <br>
-        Servicios incluídos:
-        <br>
-        1. Alojamiento en los hoteles indicados en el tour o reservación de servicios y/o de similares
-        características, ocupando habitaciones standard, singles, dobles, triples, etc. según tarifa y
-        servicios elegidos. Pueden también incluirse servicios con tarifas diferenciadas ocupando otros
-        tipos de habitaciones: superiores, lujo, suite, exteriores, interiores, etc. según los hoteles
-        seleccionados.
-        2. La cantidad prevista de días de alojamiento, -noches de hotel-, teniendo en cuenta que el día de
-        alojamiento hotelero se computa desde las quince horas del día de ingreso y finaliza a las doce
-        horas del día siguiente, independientemente de la hora de llegada, de salida y de la utilización
-        completa o fracciones del mismo.
-        3. Régimen o cantidad de comidas, según se indique en cada caso y bajo el sistema de menú fijo,
-        buffet o a la carta. Desayunos tipo continental.
-        4. Transportación en los medios indicados para cada tramo, avión, bus, tren, barco, etc. Las tarifas
-        serán ajustadas de acuerdo a las clases, tipos y modalidades de reservación de las diferentes
-        empresas transportadoras.
-        5. Visitas y excursiones incluyendo o no tickets de ingreso a museos, parques, etc. según se indique
-        en cada caso.
-        6. Traslados desde y hasta terminales y hoteles, - cuando se indique y siempre que el arribo al
-        destino se produzca en el vuelo indicado en el billete de viaje.
-        7. Duración del tour o reservación de servicios, considerando el primer día, el día de partida y
-        como último día, el día de salida del destino final, independientemente del horario de inicio del
-        primer día o el de llegada en el último.
-        8. Tasas de embarque cuando se encuentren incluidas en el billete de transporte, IVA y otros
-        impuestos que estuviesen detallados.
-        9. Todos aquellos servicios que estuvieran expresamente indicados en los respectivos programas
-        conforme a su nombre y/o código.
-        <br>
-        <br>
-        Servicios y otros rubros no incluídos:
-        <br>
-        1. Extras, bebidas, lavado de ropa, propinas, tasas de embarque cuando no se encuentren incluidas en
-        el billete de transporte y otras tasas o impuestos, actuales y/o futuros, ni ningún otro servicio
-        que no se encuentre expresamente indicado.
-        2. Estadías, comidas y/o gastos adicionales o perjuicios producidos por cancelaciones, demoras en
-        las salidas o llegadas de los medios de transporte, o por razones imprevistas ajenas a nuestra
-        empresa.
-        3. El traslado de llegada a un determinado destino - no estará incluído ni será efectuado cuando el
-        arribo por cualquier causa o motivo se produzca en un vuelo diferente al indicado en el billete de
-        viaje.
-        4. Comidas en ruta, excepto aquellas que estuvieran expresamente incluídas en los programas de
-        viaje.
-        5. Los gastos e intereses en operaciones a crédito.
-        6. Gastos de gestión de reservas.
-        7. El 5% de la percepción según resolución RG3819 de AFIP.
-        <br>
-        <br>
-        Documentación:
-        <br>
-        Para viajes al exterior del país, los solicitantes deberán consultar debidamente. Es responsabilidad
-        de la Empresa informar fehacientemente y con anticipación suficiente sobre los requisitos que exigen
-        las autoridades migratorias, aduaneras y sanitarias de los destinos que incluye el tour y de nuestro
-        país. Es responsabilidad exclusiva de los pasajeros contar al momento de ser requerida por las
-        autoridades correspondientes con la documentación personal, como así también por su estado,
-        vigencia, visas, vacunas y otros requerimientos exigibles por el o los países de destino. La Empresa
-        en ningún caso se responsabilizará por las pérdidas y/o perjuicios que estas situaciones les fueran
-        a ocasionar, inclusive en los casos en que autoridades nacionales por alguna razón les impidieron la
-        salida del país. Tampoco será responsable la empresa ante el supuesto que la autoridad extranjera
-        impidiera la entrada al el o los países de destino.
-        <br>
-        <br>
-        Alteraciones o modificaciones:
-        <br>
-        1. La empresa se reserva el derecho, por razones técnicas u operativas de postergar una determinada
-        salida o de alterar total o parcialmente el ordenamiento diario y/o de los servicios que componen el
-        correspondiente tour, antes o durante la ejecución de los mismos.
-        2. Los hoteles indicados tienen carácter informativo, reservándose la empresa el derecho de
-        reemplazarlos siempre que se asigne otro(s) de similares o mejores características. Respecto de
-        estas variaciones el pasajero no tendrá derecho a indemnización alguna.
-        3. Las alteraciones y/o modificaciones serán informadas antes de la partida y en caso de que se
-        asignen servicios diferentes, el interesado podrá optar antes de la partida por la cancelación sin
-        cargo, o bien por la aceptación y consecuente ajuste del precio. Una vez iniciados los servicios, el
-        pasajero no tendrá derecho a reclamación alguna por tales conceptos. Tampoco tendrá derecho a
-        devoluciones o reclamos por aquellos servicios de los que renuncie voluntariamente, inclusive por
-        razones personales de cualquier índole, enfermedad, fallecimiento, etc. corriendo en estos casos,
-        los gastos de regreso por su exclusiva cuenta.
-        4. La empresa podrá anular cualquier tour cuando se configure alguna de las circunstancias previstas
-        en el art. 24 del Decreto N º2182/72, en cuyo caso el solicitante sólo tendrá derecho al reembolso
-        de los importes abonados.
-        <br>
-        <br>
-        Cancelaciones de los solicitantes:
-        <br>
-        1. Cuando se trate de desistimientos que afecten a servicios contratados en firme por la empresa, el
-        reembolso de los mismos estará sujeto a las condiciones contractuales bajo las cuales presten sus
-        servicios los prestadores respectivos. En todos los casos de reintegros , si los hubiere, la empresa
-        retendrá el valor de los gastos incurridos, (gastos directos e indirectos de toda gestión) ,que se
-        establecen en un mínimo equivalente al 12% del valor total del precio de los servicios, en concepto
-        de gastos de gestión, más un 10% del total de los servicios contratados y/o reservados con terceros.
-        2. Para cancelaciones que afecten servicios incluyendo transporte no regular o charter, rige lo
-        estipulado en el punto anterior. Sin perjuicio de ello, en estos casos sólo se reintegrará la
-        proporción del precio correspondiente a los servicios terrestres (hotelería , pensión , excursiones)
-        que determine el organizador según la modalidad con que operen los prestadores de los servicios.
-        Para que esta cláusula sea válida deberá determinarse en el documento entregado al pasajero el tipo
-        de transporte a ser utilizado.
-        3. En caso de desistimiento de operaciones a crédito, además no tendrán reembolso los importes
-        abonados en concepto de gastos de gestión del crédito e impuestos.
-        <br>
-        <br>
-        Derecho de conducta y permanencia:
-        <br>
-        La empresa se reserva el derecho de hacer que abandone el tour en cualquier punto del mismo, a aquel
-        pasajero que por cualquier motivo (conducta, modo de obrar, estado de salud, etc), constituya una
-        molestia para los integrantes del viaje, o pueda malograr el éxito de la excursión o el normal
-        desarrollo de la misma
-        <br>
-        <br>
-        En caso de estar en desacuerdo con alguna de las Condiciones Generales precedentes, el solicitante
-        podrá desistir sin cargo alguno dentro de las 24 hs. posteriores a la presentación de la presente
-        solicitud de reserva de servicios turísticos o de la aceptación on-line de las mismas - para
-        reservas efectuadas a través de nuestra página web. Superado éste plazo la presente será considerada
-        en firme, implicando la aceptación a estas Condiciones Generales, a las particulares de cada tour o
-        reservación de servicios y a las propias de las empresas prestadoras de los servicios
-        intervinientes.
+        <h2>Condiciones Generales de Contratación</h2>
+        <br><br> NUESTRA EMPRESA OPERA BAJO LAS CONDICIONES GENERALES DE LA SIGUIENTE RESOLUCION N° 256/00 DE LA
+        SECRETARIA DE
+        ESTADO DE TURISMO.
+        <br><br> BUENOS AIRES, 30 JUN 2000
+        <br><br> VISTO la Ley N° 18.829, su Decreto reglamentario N° 2182 de fecha 19 de abril de 1972, y las
+        disposiciones de la
+        Convención Internacional relativa al Contrato de Viaje ratificada por la Ley 19.918, y
+        <br><br> CONSIDERANDO:
+        Que la normativa mencionada regula, entre otros aspectos, la relación de los agentes de viajes con los usuarios.
+        Que es conveniente contribuir a una información más amplia y uniforme sobre los derechos y obligaciones que
+        vinculan a las partes en el contrato de viaje.
+        Que la elaboración de un modelo uniforme sobre las condiciones generales del contrato turístico tiende a evitar
+        o limitar controversias o conflictos interpretativos.
+        Que las facultades para el dictado del acto emergen de las normas citadas y disposiciones expresadas de la Ley
+        N° 14.574 t.o. 1987, de su Decreto reglamentario N° 9468/61 y del Decreto N° 1407/96.
+        <br><br> Por ello, EL SECRETARIO DE TURISMO DE LA PRESIDENCIA DE LA NACION RESUELVE:
+        <br><br> ARTICULO 1°.- Aprobar el modelo de condiciones generales de contratación de servicios turísticos que se
+        agrega
+        como ANEXO I a la presente. El modelo aprobado podrá ser adaptado por la secretaria de turismo para casos
+        particulares a pedido de las agencias de viaje cuando las modalidades operativas así lo justifiquen.
+        <br><br> ARTICULO 2°.- La entrega al pasajero de las condiciones generales de la contratación impresas debe
+        efectuarse en
+        el primer documento de viaje que emita la agencia.
+        <br><br> ARTICULO 3°.- Las condiciones generales de la contratación, conjuntamente con el detalle de los
+        servicios a
+        prestar, los billetes del transporte, las órdenes de servicios, las facturas emitidas y todo otro documento que
+        contenga especificaciones sobre el viaje, conformarán el contrato de viaje.
+        <br><br> ARTICULO 4°.- Las condiciones generales de la contratación deberán ser firmadas por un empleado
+        autorizado de la
+        agencia. La firma podrá ser suplida por un sello que contenga la denominación comercial y el número de legajo de
+        la agencia de viajes.
+        <br><br> ARTICULO 5°.- En el caso de venta exclusiva por medios electrónicos o sistemas de reservas, deberá
+        preverse el
+        conocimiento y aceptación fehaciente por parte de los pasajeros de las condiciones generales de contratación
+        aprobadas en el artículo 1° de la presente, con anterioridad a la reserva.
+        <br><br> ARTICULO 6°.- La sola venta de billetes de pasajes de transporte regular y el alquiler de aeronaves o
+        automotores quedan excluidos del régimen y no requieren entrega y suscripción de las condiciones generales.
+        <br><br> ARTICULO 7°.- Toda infracción a las disposiciones de la presente será sancionada conforme las
+        determinaciones
+        del artículo 10 de la Ley N° 18.829.
+        <br><br> ARTICULO 8°.- Las disposiciones de la presente entrarán en vigencia a partir del 1° de septiembre de
+        2000.
+        <br><br> ARTICULO 9°.- Regístrese, comuníquese, publíquese, dése a la Dirección Nacional del Registro Oficial y
+        archívese. Firmado: Ing. Hernán Lombardi. Secretario de Turismo. Presidencia de la Nación.
+        <br><br> ANEXO I
+        <br><br> CONDICIONES GENERALES DEL CONTRATO DE SERVICIOS TURISTICOS
+        <br><br> a. SOLICITUDES Y PAGOS:
+        1) El precio y/o reservación de los servicios que componen el tour quedan sujetos a modificaciones sin previo
+        aviso cuando se produzca una alteración en los servicios, modificaciones en los costos o en los tipos de cambio
+        previstos, por causas no imputables a las partes.
+        <br><br> 2) Todos los importes pagados antes de la confirmación definitiva de los servicios son percibidos en
+        concepto de
+        reserva. La confirmación definitiva de los servicios y precios respectivos se producirá con la emisión de
+        pasajes y/u órdenes de servicios y la facturación correspondiente.
+        <br><br> 3) Las operaciones a crédito deberán satisfacer los requisitos propios fijados para las mismas. En su
+        defecto el
+        interesado deberá cumplimentar el pago de los saldos en los plazos y condiciones establecidos en la
+        contratación.
+        <br><br> b. LOS PRECIOS INCLUYEN: alojamiento en los hoteles mencionados en los itinerarios u otros de igual o
+        mayor
+        categoría, ocupando habitaciones simples, dobles, triples, etc. Según tarifa elegida, con baño privado e
+        impuestos. Régimen de comidas según se indique en cada oportunidad. Visitas y excursiones que se mencionen.
+        Traslados hasta y desde aeropuertos, terminales y hoteles, cuando se indique. La cantidad prevista de días de
+        alojamiento teniendo en cuenta que el día de alojamiento hotelero se computa desde las quince horas y finaliza a
+        las doce horas del día siguiente, independientemente de la hora de llegada y de salida y de la utilización
+        completa o fraccionada del mismo. La duración del tour será indicada en cada caso tomando como primer día, el de
+        salida y como último incluido el día de salida del destino, independientemente del horario de salida o de
+        llegada en el primer día o en el último.
+        <br><br> c. SERVICIOS O RUBROS NO INCLUIDOS: 1) Extras, bebidas, lavado de ropa, propinas, tasas de embarque,
+        tasas sobre
+        servicios, IVA y otros impuestos actuales y/o futuros, ni ningún servicio que no se encuentre expresamente
+        indicado en la orden de servicio emitida por el agente de viajes. 2) Estadas, comidas y/o gastos adicionales o
+        perjuicios producidos por cancelaciones, demoras en las salidas o llegadas de los medios de transporte, o por
+        razones imprevistas ajenas a la empresa. 3) Alimentación en ruta, excepto aquellas que estuviesen expresamente
+        incluidas en los programas. 4) Los gastos e intereses en las operaciones a crédito.
+        <br><br> d. LIMITACIONES AL DERECHO DE PERMANENCIA: La empresa se reserva el derecho de hacer que abandone el
+        tour en
+        cualquier punto del mismo todo pasajero cuya conducta, modo de obrar, estado de salud u otras razones graves a
+        juicio de la empresa provoque peligro o cause molestias a los restantes viajeros o pueda malograr el éxito de la
+        excursión o el normal desarrollo de la misma.
+        <br><br> e. DOCUMENTACION: Para los viajes al exterior es necesario atender la legislación vigente en cada caso.
+        Es
+        responsabilidad inexcusable de la agencia informar fehacientemente y con anticipación suficiente sobre los
+        requisitos que exigen las autoridades migratorias, aduaneras y sanitarias de los destinos que incluye el tour,
+        siendo responsabilidad exclusiva del pasajero contar con la documentación personal que exijan las autoridades
+        mencionadas anteriormente.
+        <br><br> f. CANCELACIONES: 1) En caso de desistimiento de operaciones a crédito no tendrán reembolso los
+        importes
+        abonados en concepto de informe, gastos administrativos, sellados e intereses. 2) Cuando se trate de
+        desistimiento que afecte a servicios contratados en firme por la agencia, el reembolso de los mismos estará
+        sujeto a las condiciones contractuales bajo las cuales presten sus servicios las empresas respectivas. En todos
+        los casos de reintegros, la agencia podrá retener el precio de los gastos incurridos más la comisión del diez
+        por ciento de los servicios contratados con terceros.
+        <br><br> g. TRANSPORTE NO REGULAR O CHARTER: rige lo estipulado en el punto anterior. Sin perjuicio de ello, en
+        estos
+        casos sólo se reintegrará la proporción del precio correspondiente a los servicios terrestres (hotelería,
+        pensión, excursiones) que determine el organizador según la modalidad con que operen los prestadores de los
+        servicios. Para que ésta cláusula sea válida deberá determinarse en el primer documento entregado al pasajero la
+        calidad del transporte.
+        <br><br> h. CESION Y TRANSFERENCIA: el derecho que confiere al cliente el contrato de servicios turísticos,
+        podrá ser
+        cedido o transferido a otras personas hasta 30 días antes de la fecha de salida, siempre que no se opongan a
+        ello las prescripciones del transportista, del hotelero o prestador de los servicios. En los supuestos que los
+        pasajeros sean de distintas edades (mayores-menores), se ajustará el precio según tarifarios. En todos los casos
+        de cesión o transferencia, la empresa podrá percibir el sobreprecio del 10% del monto convenido.
+        <br><br> i. RESPONSABILIDAD: 1) La empresa declara expresamente que actúa en el carácter de intermediaria en la
+        reserva o
+        contratación de los distintos servicios vinculados e incluidos en el respectivo tour o reservación de servicios:
+        hoteles, restaurantes, medios de transportes u otros prestadores. No obstante ello las responsabilidades de la
+        empresa, sea que intervenga como organizadora o intermediaria de viaje será determinada conforme las
+        disposiciones contenidas en la Convención Internacional Relativa al Contrato de Viaje aprobada por la Ley N°
+        19.918. 2) La empresa no se responsabiliza por los hechos que se produzcan por caso fortuito o fuerza mayor,
+        fenómenos climáticos o hechos de la naturaleza que acontezcan antes o durante el desarrollo del tour que
+        impidan, demoren o de cualquier modo obstaculicen la ejecución total o parcial de las prestaciones comprometidas
+        por la empresa, de conformidad con lo dispuesto por el Código Civil.
+        <br><br> j. ALTERACIONES O MODIFICACIONES: 1) La empresa se reserva el derecho, por razones técnicas u
+        operativas, de
+        alterar total o parcialmente el ordenamiento diario y/o de servicios que componen el tour, antes o durante la
+        ejecución del mismo. 2) Salvo condición expresa en contrario, los hoteles estipulados podrán ser cambiados por
+        otro de igual o mayor categoría dentro del mismo núcleo urbano sin cargo alguno para el pasajero. Respecto de
+        estas variaciones el pasajero no tendrá derecho a indemnización alguna. 3) La empresa podrá anular cualquier
+        tour cuando se configure alguna de las circunstancias previstas en el art.24 del Decreto N° 2182/72. 4) Una vez
+        comenzado el viaje, la suspensión, modificación o interrupción de los servicios por parte del pasajero por
+        razones personales de cualquier índole, no dará lugar a reclamo alguno, reembolso o devolución alguna.
+        <br><br> k. CLAUSULA DE ARBITRAJE: Toda cuestión que surja con motivo de la celebración, cumplimiento,
+        incumplimiento,
+        prórroga o rescisión del presente contrato, podrá ser sometida por las partes a la resolución del Tribunal
+        Arbitral de la Asociación Argentina de Agencias de Viajes y Turismo y/o de los Tribunales Arbitrales que
+        funcionen en sus Regionales. En caso de sometimiento de dicha jurisdicción, los contratantes se sujetan y dan
+        por aceptadas todas las condiciones establecidas por la Reglamentación del Tribunal Arbitral.
+        <br><br> l. NORMAS DE APLICACIÓN: El presente contrato y en su caso la prestación de los servicios, se regirá
+        exclusivamente por estas condiciones generales, por la Ley N° 18.829 y su reglamentación y por la Convención de
+        Bruselas aprobada por la Ley 19.918. Las presentes condiciones generales junto con la restante documentación que
+        se entregue a los pasajeros conformarán el Contrato de Viaje que establece la citada Convención.
+        <br><br> Firmado Ing. HERNAN LOMBARDI. Secretario de Turismo. Presidencia de la Nación.
     </div>
 </template>
-
 <script setup></script>
-
 <style lang="scss" scoped></style>

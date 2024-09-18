@@ -15,15 +15,10 @@ export const useInfoStore = defineStore('info', {
         phone: '+54 11 2491 7552',
         socials: [
             // {
-                //     icon: "snapchat",
-                //     url: "/",
-                //     name: "snapchat"
-                // },
-                // {
-                    //     icon: "twitter",
-                    //     url: "/",
-                    //     name: "twitter"
-                    // },
+            //     icon: "snapchat",
+            //     url: "/",
+            //     name: "snapchat"
+            // },
             {
                 icon: "square-facebook",
                 url: "https://www.facebook.com/onemoretravel.ar/",
@@ -33,6 +28,11 @@ export const useInfoStore = defineStore('info', {
                 icon: "instagram",
                 url: "https://www.instagram.com/onemoretravel.ar/",
                 name: "instagram"
+            },
+            {
+                icon: "whatsapp",
+                url: "https://wa.me/541124917552",
+                name: "whatsapp"
             },
         ],
         contacts: [{
@@ -56,7 +56,7 @@ export const useInfoStore = defineStore('info', {
         slider: null,
     }),
     actions: {
-        fetchSociales() { },
+        fetchSociales() {},
         async fetchBanners() {
             fetch(URL + "/api/banners-home.php")
                 .then(response => {
@@ -75,7 +75,7 @@ export const useInfoStore = defineStore('info', {
                     return response.json()
                 })
                 .then(data => {
-                    console.log("data",data);
+                    console.log("data", data);
                     this.slider = data
                 })
                 .catch(error => console.error(error));
