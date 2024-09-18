@@ -56,8 +56,8 @@ defineProps({
                     <Icon :icon="social.icon" color="white"></Icon>
                 </a> -->
                 <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" style="aspect-ratio: 1;"
-                    v-for="social in info().socials" :key="social.icon" class="social-icon bg-primary rounded p-2">
-                    <Icon :icon="social.icon" color="white" :size="$mq.lg ? 'lg' : 'sm'"></Icon>
+                    v-for="social in info().socials" :key="social.icon" class="social-icon rounded p-2">
+                    <Icon :icon="social.icon" color="primary" hover="white" :size="$mq.lg ? 'lg' : 'sm'"></Icon>
                 </a>
             </div>
         </nav>
@@ -75,6 +75,9 @@ defineProps({
 
 .social-icon{
     aspect-ratio: 1;
+}
+.social-icon:hover{
+    background-color: $primary;
 }
 
 .fixed {

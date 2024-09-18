@@ -2,6 +2,11 @@
 import {
     defineStore
 } from 'pinia'
+import {
+    useHelpersStore as helpers
+} from './helpers.js'
+const URL = "https://onemoretravel.aereos.app";
+
 
 export const useInfoStore = defineStore('info', {
     state: () => ({
@@ -10,15 +15,15 @@ export const useInfoStore = defineStore('info', {
         phone: '+54 11 2491 7552',
         socials: [
             // {
-            //     icon: "snapchat",
-            //     url: "/",
-            //     name: "snapchat"
-            // },
-            // {
-            //     icon: "twitter",
-            //     url: "/",
-            //     name: "twitter"
-            // },
+                //     icon: "snapchat",
+                //     url: "/",
+                //     name: "snapchat"
+                // },
+                // {
+                    //     icon: "twitter",
+                    //     url: "/",
+                    //     name: "twitter"
+                    // },
             {
                 icon: "square-facebook",
                 url: "https://www.facebook.com/onemoretravel.ar/",
@@ -32,7 +37,7 @@ export const useInfoStore = defineStore('info', {
         ],
         contacts: [{
             obj: `<a href="mailto:ventas@onemoretravel.com.ar" style="text-decoration:none;">
-                ventas@onemoretravel.com.ar
+            ventas@onemoretravel.com.ar
             </a>`,
             // obj_footer: `<a href="mailto:${info().mail}" style="text-decoration:none;">
             //         ${info().mail}
@@ -46,9 +51,34 @@ export const useInfoStore = defineStore('info', {
             +54 11 2491 7552
             </a>`,
             icon: 'phone-volume',
-        }]
+        }],
+        banners: [],
+        slider: null,
     }),
     actions: {
-        fetchSociales() {}
+        fetchSociales() { },
+        async fetchBanners() {
+            fetch(URL + "/api/banners-home.php")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(data => {
+                    this.banners = data
+                })
+                .catch(error => console.error(error));
+        },
+        async fetchSlider() {
+            fetch(URL + "/api/slider-home.php")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(data => {
+                    console.log("data",data);
+                    this.slider = data
+                })
+                .catch(error => console.error(error));
+        },
     },
 })

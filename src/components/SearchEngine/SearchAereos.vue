@@ -1,6 +1,6 @@
 <template>
     <div class="formAereos" data-tipoMotor="aereos"></div>
-    <!-- <v-row class="py-4 skeletonAereos">
+    <v-row class="py-4 skeletonAereos">
         <v-col cols="10">
             <v-row>
                 <v-col cols="4">
@@ -33,7 +33,7 @@
         <v-col cols="2">
             <div class="skeleton h-100"></div>
         </v-col>
-    </v-row> -->
+    </v-row>
 
     <!-- <div class="d-flex flex-column gap-3">
         <h1 :class="$mq.lg ? 'fs-xl' : 'fs-lg'"><strong>Vuela vuela!</strong> Pero primero, busca pasajes acá!</h1>

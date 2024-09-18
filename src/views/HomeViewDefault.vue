@@ -3,8 +3,7 @@ import NavBar from '@/components/Nav/NavBar.vue'
 import FooterBar from '@/components/FooterBar.vue'
 import OffersItems from '@/components/Offers/OffersItems.vue';
 import HomeSlider from '@/components/Slider/HomeSlider.vue'
-import BannerComponent from '@/components/Banners/BannerComponent.vue'
-import BannerComponent2 from '@/components/Banners/BannerComponent2.vue'
+import BannersHome from '@/components/Banners/BannersHome.vue'
 import ContactUs from '@/components/ContactUs.vue'
 import BigDescription from '@/components/BigDescription.vue'
 import SearchEngine from '@/components/SearchEngine/SearchEngine.vue';
@@ -29,16 +28,10 @@ import { useInfoStore as info } from '@/store/info'
 
             <!-- <HomeSlider /> -->
             <OffersItems class="mt-4" />
+            <BannersHome class="mt-4" />
             <!-- <HomeSlider second="CONOCÉ MAS BENEFICIOS" :show_second="true" third="CONTACTATE CON UN ASESOR"
                 :show_third="true" :url="'tel:' + info().phone.replace(/\s/g, '')" /> -->
-            <v-row>
-                <v-col cols="6">
-                    <BannerComponent banner="banner-mercado-pago.png" />
-                </v-col>
-                <v-col cols="6">
-                    <BannerComponent2 banner="banner-mercado-pago.png" />
-                </v-col>
-            </v-row>
+
             <div class="row gap-lg-0 gap-3">
                 <div class="col-md-4">
                     <ContactUs />

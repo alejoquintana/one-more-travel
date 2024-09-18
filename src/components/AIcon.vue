@@ -1,5 +1,5 @@
 <template>
-    <span class="a-icon" :class="`${color} ${size}`" :style="'font-size:'+intSize+'px'" v-html="icons[icon]"></span>
+    <span class="a-icon" :class="`${color} hover-${hover} ${size}`" :style="'font-size:'+intSize+'px'" v-html="icons[icon]"></span>
 </template>
 
 <script setup>
@@ -9,6 +9,9 @@ defineProps({
     },
     color: {
         default: "white"
+    },
+    hover: {
+        default: ""
     },
     size: {
         default: "md"
@@ -47,6 +50,7 @@ const icons = {
 .md{font-size: 1.2rem;}
 .sm{font-size: 1rem;}
 .xs{font-size: 0.8rem;}
+
 .white{
     fill: #fff;
 }
@@ -54,6 +58,15 @@ const icons = {
     fill: $primary;
 }
 .secondary{
+    fill: $secondary;
+}
+.a-icon.hover-white:hover{
+    fill: #fff;
+}
+.a-icon.hover-primary:hover{
+    fill: $primary;
+}
+.a-icon.hover-secondary:hover{
     fill: $secondary;
 }
 </style>

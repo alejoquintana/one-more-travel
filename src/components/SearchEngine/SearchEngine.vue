@@ -1,10 +1,11 @@
 <template>
     <div class="relative searchengine-container">
-        <div class="absolute w-100 img-box br-lg-radius py-4 px-5">
-            <p class="fs-4xl fw-extra-bolder mb-0">Bienvenido</p>
-            <p class="">Conocé nuestra mejores ofertas</p>
+        <div class="absolute w-100 img-box br-lg-radius py-4 px-5" 
+        :style="`background-image: url(${helpers().getImagePath(info().slider && info().slider.url && info().slider.url != '' ? info().slider.url : 'tropical-beach.jpg','sliders')});`">
+            <!-- <p class="fs-4xl fw-extra-bolder mb-0">Bienvenido</p>
+            <p class="">Conocé nuestra mejores ofertas</p> -->
         </div>
-        <div class="relative w-100 px-5">
+        <div class="relative w-100 px-2 px-lg-5">
             <div class="d-flex ps-lg-5 ps-4 text-primary w-100">
                 <div class="d-flex align-items-center tab" :class="selectedTab == name ? 'selected' : ''"
                     v-for="{ name, icon }, i in tabs" :key="i" @click="selectedTab = name">
@@ -31,6 +32,10 @@ import Hoteles from "@/components/SearchEngine/SearchHoteles.vue";
 import Paquetes from "@/components/SearchEngine/SearchPaquetes.vue";
 import Buques from "@/components/SearchEngine/SearchBuques.vue";
 
+import { useHelpersStore as helpers } from '@/store/helpers'
+import { useInfoStore as info } from '@/store/info'
+info().fetchSlider()
+
 import { onMounted, ref } from "vue";
 const props = defineProps({
     tab: {
@@ -52,17 +57,19 @@ const tabs = [
 .searchengine-container {
     // min-height: 500px;
     padding-top: 90px;
+
     .img-box {
         min-height: 300px;
-        background-image: url(https://onemoretravel.aereos.app/images/tropical-beach.jpg);
         background-size: cover;
         background-position: center center;
         z-index: 1;
     }
-    .absolute{
+
+    .absolute {
         top: -50px;
     }
-    .relative{
+
+    .relative {
         z-index: 10;
     }
 }

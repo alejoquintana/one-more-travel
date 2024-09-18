@@ -2,7 +2,7 @@
     <div class="box-primary-border">
         <h3 class="mb-0 fw-bold">Quienes Somos</h3>
         <br>
-        <p class="fs-lg fw-light">
+        <p class="fs- fw-light">
             En <b class="fw-bold">One More Travel</b>, somos <b class="fw-bold">apasionados del viaje</b> y la
             <b class="fw-bold">exploración</b>. Nuestra misión es brindarte <b class="fw-bold">experiencias únicas</b> y
             <b class="fw-bold">personalizadas</b> que te permitan descubrir <b class="fw-bold">nuevos destinos</b> y crear
