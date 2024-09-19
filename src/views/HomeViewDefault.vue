@@ -33,11 +33,11 @@ import { useInfoStore as info } from '@/store/info'
                 :show_third="true" :url="'tel:' + info().phone.replace(/\s/g, '')" /> -->
 
             <div class="row gap-lg-0 gap-3">
+                <div class="col-md-8 order-md-last">
+                    <BigDescription />
+                </div>
                 <div class="col-md-4">
                     <ContactUs />
-                </div>
-                <div class="col-md-8">
-                    <BigDescription />
                 </div>
             </div>
         </div>

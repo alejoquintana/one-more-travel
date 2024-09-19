@@ -57,7 +57,7 @@ defineProps({
                 </a> -->
                 <a :href="social.url" :target="social.url != '/' ? '_blank' : '_self'" style="aspect-ratio: 1;"
                     v-for="social in info().socials" :key="social.icon" class="social-icon rounded p-2">
-                    <Icon :icon="social.icon" color="primary" hover="white" :size="$mq.lg ? 'lg' : 'sm'"></Icon>
+                    <Icon :icon="social.icon" color="primary" hover="white" size="lg"></Icon>
                 </a>
             </div>
         </nav>
@@ -90,11 +90,20 @@ defineProps({
         left: 50%;
         transform: translatex(-50%);
     }
+    .logo {
+        max-height: 60px;
+    }
+}
+@media (max-width: 575px) {
+    .logo {
+        max-height: 120px;
+    }
+    .fixed {
+        left: 50%;
+        transform: translatex(-50%);
+    }
 }
 
-.logo {
-    max-height: 60px;
-}
 
 .nav-bar {
     padding: 15px;

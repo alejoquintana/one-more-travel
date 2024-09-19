@@ -56,7 +56,7 @@ const tabs = [
 <style lang="scss" scoped>
 .searchengine-container {
     // min-height: 500px;
-    padding-top: 90px;
+    padding-top: 100px;
 
     .img-box {
         min-height: 300px;
@@ -66,7 +66,7 @@ const tabs = [
     }
 
     .absolute {
-        top: -50px;
+        top: -40px;
     }
 
     .relative {
