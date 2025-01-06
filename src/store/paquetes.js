@@ -10,13 +10,21 @@ export const usePaquetesStore = defineStore('paquetes', {
     state: () => ({
         paquete: {},
         paquetes: [],
+        paquetesFiltered: [],
         paquetesByDestinos: [],
         ofertas: [],
+        destacados: [],
         filters: {
             precio_min: 0,
             precio_max: 0,
         },
         paises: [],
+        regimenes: {
+            all_inclusive:'All inclusive',
+            solo_alojamiento:'Sólo alojamiento',
+            media_pension:'Media pensión',
+            desayuno:'Desayuno',
+        },
     }),
     getters: {
         getPaquete(state) {
@@ -65,6 +73,18 @@ export const usePaquetesStore = defineStore('paquetes', {
                 })
                 .catch(error => console.error(error));
         },
+        async fetchPaquetesDestacado(limit = 2) {
+            fetch(URL + "/api/paquetes-home.php?tipo=destacado&limit=" + limit + "&show_on=" + helpers().show_on)
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(json => {
+                    //console.log("json", json);
+                    this.destacados = json.paquetes
+                })
+                .catch(error => console.error(error));
+        },
         async fetchPaquetesSportClub() {
             fetch(URL + "/api/paquetes-home.php?limit=25&show_on=" + helpers().show_on)
                 .then(response => {
@@ -85,7 +105,7 @@ export const usePaquetesStore = defineStore('paquetes', {
             })
             .then(json => {
                 console.log("response json", json);
-                this.paquetes = json.paquetes
+                this.paquetesFiltered = json.paquetes
                 this.filters = json.filters
             })
             .catch(error => console.error(error));

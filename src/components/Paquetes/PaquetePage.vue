@@ -6,13 +6,13 @@
     <v-row v-if="paquete && paquete.codigo">
         <v-col cols="12" md="7">
             <div class="relative">
-                <div class="absolute m-3 p-2 top-0 left-0 text-white bg-primary rounded-circle" style="z-index:99">
+                <div class="absolute m-3 p-2 top-0 left-0 text-white bg-primary rounded-circle" style="z-index:80">
                     <i v-if="paquete.transporte == 'aereos'" class="fa-solid fa-plane fa-2x"></i>
                     <i v-if="paquete.transporte == 'barco'" class="fa-solid fa-ship fa-2x"></i>
                     <i v-if="paquete.transporte == 'bus'" class="fa-solid fa-bus fa-2x"></i>
                 </div>
                 <div class="absolute m-3 top-0 right-0 text-white fw-bold d-flex flex-column align-items-end gap-2"
-                    style="z-index:99">
+                    style="z-index:80">
                     <span v-if="paquete.oferta != 0" class="text-end bg-primary rounded-pill p-2 px-3">
                         OFERTA
                     </span>
@@ -25,12 +25,12 @@
                 </div>
                 <div @click="prevImage()" v-if="paquete.imagenes && paquete.imagenes.length"
                     class="absolute top-0 left-0 text-white h-100 br-radius bg-gradient-left d-flex align-items-center"
-                    style="z-index:98">
+                    style="z-index:80">
                     <i class="fa fa-chevron-left px-4 fs-2"></i>
                 </div>
                 <div @click="nextImage()" v-if="paquete.imagenes && paquete.imagenes.length"
                     class="absolute top-0 right-0 text-white h-100 br-radius bg-gradient-right d-flex align-items-center"
-                    style="z-index:98">
+                    style="z-index:80">
                     <i class="fa fa-chevron-right px-4 fs-2"></i>
                 </div>
                 <div v-if="paquete.imagenes && paquete.imagenes.length" class="br-radius img-box img-portada-box">
@@ -40,24 +40,24 @@
                     <img :src="helpers().getImagePath('no-photo-available.png')" alt="">
                 </div>
             </div>
-            <v-row no-gutters v-if="paquete.descripcion"
-                class="p-4 align-items-center justify-content-center bborder bborder-primary bbr-white br-radius">
+            <v-row no-gutters v-if="paquete.descripcion" class="my-3 px-4 py-2 border border-primary br-radius">
                 <v-col cols="12" lg="12" class="ppx-4">
-                    <h4>Descripción</h4>
-                    <div class="pt-3" v-html="paquete.descripcion"></div>
+                    <!-- <h4>Descripción</h4> -->
+                    <div class="py-2" v-html="paquete.descripcion"></div>
                 </v-col>
             </v-row>
             <v-row v-if="paquete.fechas && paquete.fechas.length && paquete.alojamientos && paquete.alojamientos.length"
-                no-gutters class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-around">
+                no-gutters class="br-radius border border-2 bg-primary my-4 my-lg-2 p-4 justify-content-">
                 <v-col cols="12" class=" border-bottom border-white mb-3">
                     <h4 class="ucfirst">
                         Fechas de salida
                     </h4>
                 </v-col>
-                <v-col cols="12" md="4" v-for="fecha in paquete.fechas" :key="fecha.id" class="p-2 d-flex align-items-center">
+                <v-col cols="12" md="4" v-for="fecha in paquete.fechas" :key="fecha.id"
+                    class="p-2 d-flex align-items-center">
                     <i class="fa-solid fa-circle text-white fs-xs px-3"></i>
-                    <h5 for="fechas" class="fs-4 text-center mb-1">
-                        {{ mes(fecha.fecha) }}
+                    <h5 for="fechas" class="fs-4 text- mb-1">
+                        {{ fecha.fecha }}
                     </h5>
                 </v-col>
                 <v-col cols="12" class=" border-bottom border-white mb-3 mt-4">
@@ -138,24 +138,29 @@
                                         </div>
                                         <span> {{ paquete.alojamiento }}</span>
                                     </div>
-                                    <div v-if="paquete.regimen_incluido" class="d-flex align-items-center">
+                                    <div v-if="paquete.regimen_incluido && paquete.regimen_incluido != ''"
+                                        class="d-flex align-items-center">
                                         <div style="min-width: 20px;" class="me-2 d-flex justify-content-center">
                                             <i class="fa fa-utensils"></i>
                                         </div>
-
-                                        <span>
-                                            <span v-if="paquete.regimen_incluido == 'all_inclusive'">All
-                                                inclusive</span>
-                                            <span v-if="paquete.regimen_incluido == 'media_pension'">Media
-                                                pensión</span>
-                                            <span v-if="paquete.regimen_incluido == 'solo_alojamiento'">Sólo
-                                                alojamiento</span>
-                                        </span>
+                                        <span>{{ regimenes[paquete.regimen_incluido] }}</span>
                                     </div>
                                 </v-col>
                             </v-row>
                         </div>
                     </div>
+                    <!-- <hr class="my-2"> -->
+
+                    <div v-if="paquete.precio_final && paquete.currency"
+                        class="d-flex justify-content-between align-items-center mt-5 my-2">
+                        <span class="fs-lg">Precio desde</span>
+                        <p class="price mb-0  text-" style="line-height: 1.7rem;">
+                            <span class="fs-xl fw-bold">
+                                {{ helpers().formatPrice(paquete.precio_final * (paquete.minimo ?? 1), paquete.currency) }}
+                            </span>
+                        </p>
+                    </div>
+                    <!-- <hr class="mt-2 mb-1"> -->
                     <div class="mt-4"
                         v-if="paquete.fechas && paquete.fechas && paquete.alojamientos && paquete.alojamientos">
                         <button class="btn btn-white bg-white text-primary w-100 px-4 scale-hover-05"
@@ -214,7 +219,7 @@ import { usePaquetesStore as paquetes } from '@/store/paquetes'
 import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
 const router = useRouter()
-let { paquete } = storeToRefs(paquetes());
+let { paquete,regimenes } = storeToRefs(paquetes());
 
 const selectedMedia = reactive({})
 
@@ -262,9 +267,9 @@ onUnmounted(() => {
 const showStickyInfo = ref(true)
 function handleScroll(event) {
     showStickyInfo.value = window.pageYOffset < ((document.body.scrollHeight * 64) / 100)
-    console.log("event", event);
-    console.log("window.pageYOffset", window.pageYOffset);
-    console.log("window.pageYOffset", window.pageYOffset, document.body.scrollHeight);
+    // console.log("event", event);
+    // console.log("window.pageYOffset", window.pageYOffset);
+    // console.log("window.pageYOffset", window.pageYOffset, document.body.scrollHeight);
     // Any code to be executed when the window is scrolled
 }
 </script>

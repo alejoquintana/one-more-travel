@@ -12,7 +12,7 @@ export const useInfoStore = defineStore('info', {
     state: () => ({
         mail: 'ventas@onemoretravel.com.ar',
         sociales: [],
-        phone: '+54 11 2491 7552',
+        phone: '+54 11 6589 5993',
         socials: [
             // {
             //     icon: "snapchat",
@@ -26,12 +26,12 @@ export const useInfoStore = defineStore('info', {
             },
             {
                 icon: "instagram",
-                url: "https://www.instagram.com/onemoretravel.ar/",
+                url: "https://www.instagram.com/onemoretravel_/",
                 name: "instagram"
             },
             {
                 icon: "whatsapp",
-                url: "https://wa.me/541124917552",
+                url: "https://wa.me/541165895993",
                 name: "whatsapp"
             },
         ],
@@ -47,13 +47,14 @@ export const useInfoStore = defineStore('info', {
             // obj: `<a href="tel:${info().phone}" style="text-decoration:none;">
             //     ${info().phone}
             //     </a>`,
-            obj: `<a href="https://wa.me/541124917552" target="_blank" style="text-decoration:none;">
-            +54 11 2491 7552
+            obj: `<a href="tel:+541165895993" target="_blank" style="text-decoration:none;">
+            +54 11 6589 5993
             </a>`,
             icon: 'phone-volume',
         }],
         banners: [],
-        slider: null,
+        slider: null,        
+        popup: null,      
     }),
     actions: {
         fetchSociales() {},
@@ -77,6 +78,18 @@ export const useInfoStore = defineStore('info', {
                 .then(data => {
                     console.log("data", data);
                     this.slider = data
+                })
+                .catch(error => console.error(error));
+        },
+        async fetchPopup() {
+            fetch(URL + "/api/popup-home.php")
+                .then(response => {
+                    // console.log("response",response);
+                    return response.json()
+                })
+                .then(data => {
+                    console.log("data", data);
+                    this.popup = data
                 })
                 .catch(error => console.error(error));
         },

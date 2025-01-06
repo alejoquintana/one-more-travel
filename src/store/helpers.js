@@ -15,6 +15,10 @@ export const useHelpersStore = defineStore('helpers', {
             return res
         },
         getImagePath(image, folder = '') {
+
+            if (image.startsWith('http')) {
+                return image
+            }
             let api =
                 import.meta.env.PROD && this.show_on == 'one-more' ? '' : 'https://onemoretravel.aereos.app';
             let base = api+"/images/"

@@ -25,7 +25,7 @@
                 </div>
                 <p v-if="pack.precio_final && pack.currency" class="price mb-0" style="line-height: 1.7rem;">
                     <span class="fs-lg fw-bold text-primary">
-                        {{ helpers.formatPrice(pack.precio_final, pack.currency) }}
+                        {{ helpers.formatPrice(pack.precio_final , pack.currency) }}
                     </span>
                 </p>
                 <!-- <p class=" mb-0 py-2 fw-bold text-center w-100 text-primary"
@@ -72,7 +72,7 @@ const router = useRouter()
 
 const props = defineProps(['paquete', 'i'])
 const pack = props.paquete
-function goToPack(codigo) { router.push('paquetes/' + codigo) }
+function goToPack(codigo) { router.push('/paquetes/' + codigo) }
 
 function paxs() {
     let res = '';
@@ -108,7 +108,7 @@ function formatDate(value) {
     color: #FFF;
     cursor: pointer;
     height: 100%;
-    min-height: 350px;
+    min-height: 345px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -152,11 +152,10 @@ function formatDate(value) {
     opacity: 0;
 }
 
+.price {
+    margin-top: -10px;
+}
 .pCard:hover {
-    .price {
-        opacity: 0;
-    }
-
     .seeDetail {
         opacity: 1;
     }

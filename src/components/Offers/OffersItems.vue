@@ -2,7 +2,8 @@
 import { useHelpersStore as helpers } from '@/store/helpers'
 import { usePaquetesStore as paquetes } from '@/store/paquetes'
 import PaqueteCard from '@/components/Paquetes/PaqueteCard.vue'
-paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 6 : null)
+paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 4 : null)
+paquetes().fetchPaquetesDestacado(helpers().show_on == 'one-more' ? 2 : null)
 </script>
 
 <template>
@@ -13,7 +14,8 @@ paquetes().fetchPaquetesOferta(helpers().show_on == 'one-more' ? 6 : null)
                 <img class="w-100" :src="helpers().getImagePath('cyber-monday.png')" alt="Imagen de cyber-monday" />
             </div>
         </div> -->
-        <PaqueteCard class="col-12" :class="(i <= 1 ? 'col-lg-6' :'col-lg-3')" v-for="offer,i in paquetes().ofertas" :key="offer.id" :paquete="offer" />
+        <PaqueteCard class="col-12 col-lg-6" v-for="destacado,i in paquetes().destacados" :key="destacado.id" :paquete="destacado" />
+        <PaqueteCard class="col-12 col-lg-3" v-for="offer,i in paquetes().ofertas" :key="offer.id" :paquete="offer" />
         <div class="col-12" v-if="helpers().show_on == 'one-more'">
             <router-link to="/paquetes">
                 <div class="verTodos scale-hover-05 text-center fw-bold fs-lg br-radius px-5 py-3">

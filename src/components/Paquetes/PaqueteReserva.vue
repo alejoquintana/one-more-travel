@@ -8,7 +8,7 @@ import { usePaquetesStore as paquetes } from '@/store/paquetes'
 import { useImportScriptsStore as importScripts } from '@/store/importScripts'
 import { useRoute } from 'vue-router'
 const route = useRoute()
-let { paquete, paises } = storeToRefs(paquetes());
+let { paquete, paises, regimenes } = storeToRefs(paquetes());
 
 const selectedMedia = reactive({})
 
@@ -43,6 +43,14 @@ function meses(arr) {
     })
     return meses.join(', ')
 }
+function fechas_explode(arr) {
+    let res = ''
+    arr.forEach(function (el) {
+        res = res + el.fecha + ', '
+    })
+    res = res.substring(0, res.length - 2);
+    return res
+}
 
 onMounted(function () {
     // console.log("paquete.value", route.params.paquete);
@@ -74,7 +82,7 @@ onMounted(function () {
                             <i class="fa fa-calendar"></i>
                         </div>
                         <div class="i-info">
-                            {{ meses(paquete.fechas) }}.
+                            {{ fechas_explode(paquete.fechas) }}.
                         </div>
                     </div>
                     <div class="item-icons" v-if="paquete.duracion && paquete.noches">
@@ -114,19 +122,17 @@ onMounted(function () {
                             {{ paquete.alojamiento }}.
                         </div>
                     </div> -->
-                    <div class="item-icons" v-if="paquete.regimen_incluido">
+                    <div class="item-icons" v-if="paquete.regimen_incluido && paquete.regimen_incluido != ''">
                         <div class="i-icon">
                             <i class="fa fa-utensils"></i>
                         </div>
                         <div class="i-info">
-                            <span v-if="paquete.regimen_incluido == 'all_inclusive'">All inclusive</span>
-                            <span v-if="paquete.regimen_incluido == 'media_pension'">Media pensión</span>
-                            <span v-if="paquete.regimen_incluido == 'solo_alojamiento'">Sólo alojamiento</span>
+                            <span>{{ regimenes[paquete.regimen_incluido] }}</span>
                         </div>
                     </div>
                 </div>
                 <hr class="my-3">
-                <div class="x-4">
+                <div class="x-4 d-none" id="precio_final">
                     <h4 class="">Precio final</h4>
                     <div class="d-flex justify-content-end">
                         <span class="fw-bold fs-xl" id="total_front" data-price="0" data-currency=""></span>

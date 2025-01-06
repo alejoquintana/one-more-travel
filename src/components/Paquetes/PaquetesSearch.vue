@@ -1,19 +1,33 @@
 <template>
-    <div class="filters my-4" v-if="!helpers().show_on == 'sportclub'">
+    <div class="filters my-4" v-if="!helpers().show_on != 'femer'">
         <!-- <filters-form-window></filters-form-window> -->
         <SearchEngine :tab="'paquetes'" />
     </div>
     <div>
-        <h1 class="fw-bold text-primary mb-0 border-bottom border-secondary border-4">Paquetes a {{
-            paquetes().titleFilter }}</h1>
+        <h1 class="fw-bold text-primary mb-0 border-bottom border-secondary border-4">Resultados</h1>
         <!-- <hr class="m-0"> -->
-        <div v-if="paquetes().paquetes && paquetes().paquetes.length >= 1" class="row">
+        <!-- <div v-if="paquetes().paquetes && paquetes().paquetes.length >= 1" class="row">
             <PaqueteCard class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetes" :paquete="paquete"
                 :key="i" />
         </div>
         <h3 v-else class="text-center text-primary py-5">
-            No hay resultados...
-        </h3>
+            No hay se encontraron paquetes...
+        </h3> -->
+
+        <div class="row" v-if="paquetes().paquetesFiltered.length > 0">
+            <PaqueteCard class="col-12 col-md-3 p-2" v-for="paquete, i in paquetes().paquetesFiltered"
+                :paquete="paquete" :key="i" />
+        </div>
+        <div class="row" v-else>
+            <h3 class="text-center fw-bold text-primary py-5 my-5">
+                No se encontraron paquetes
+            </h3>
+            <h3 class="text-primary mb-4 border-bottom border-secondary border-4">
+                Quizás te interese....
+            </h3>
+            <PaqueteCard class="col-12 col-md-4 p-3" v-for="paquete, i in paquetes().ofertas" :paquete="paquete"
+                :key="i" />
+        </div>
     </div>
 </template>
 
@@ -31,6 +45,8 @@ import { usePaquetesStore as paquetes } from '@/store/paquetes'
 let params = new URLSearchParams(route.params).toString();
 console.log("params",params);
 paquetes().fetchPaquetesParametros(params)
+paquetes().fetchPaquetesOferta()
+
 </script>
 
 <style lang="scss" scoped>

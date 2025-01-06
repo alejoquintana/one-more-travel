@@ -10,10 +10,6 @@
                     <img v-else :src="helpers.getImagePath('no-photo-available.png')" alt="">
                 </div>
             </div>
-            <!-- <div v-if="pack.oferta != 0" class="absolute m-2 top-0 right-0">
-                <img class="abso-icon discount-icon" style="max-width: 75px;"
-                    :src="helpers.getImagePath('10-discount.png')" :alt="'Imagen de ' + pack.destinos" />
-            </div> -->
             <div v-if="false" class="pt-0 p-3 flex-grow-1 d-flex flex-column justify-content-between">
                 <div>
                     <div class="d-flex justify-content-between gap-3 mt-2">
@@ -25,41 +21,12 @@
                     <p class="fs-4 mb-0 mt-1 ucfirst ellipsis w-100 fw-bold border-bottom border-secondary">
                         {{ pack.nombre }}
                     </p>
-                    <!-- <div class="mb-0 fs-md">
-                        <div class="d-flex" v-if="pack.estrellas != 0">
-                            <div class="min-w-16 text-center me-2">
-                                <i class="fa fa-star"></i>
-                            </div>
-                            {{ pack.estrellas }} estrellas
-                        </div>
-                        <div class="d-flex">
-                            <div class="min-w-16 text-center me-2">
-                                <i class="fa fa-moon"></i>
-                            </div>
-                            {{ pack.noches }} noches
-                        </div>
-                        <div class="d-flex" v-if="pack.regimen_incluido">
-                            <div class="min-w-16 text-center me-2">
-                                <i class="fa fa-utensils"></i>
-                            </div>
-                            <span v-if="pack.regimen_incluido == 'all_inclusive'">All inclusive</span>
-                            <span v-if="pack.regimen_incluido == 'media_pension'">Media pensión</span>
-                            <span v-if="pack.regimen_incluido == 'solo_alojamiento'">Sólo alojamiento</span>
-                        </div>
-                    </div> -->
                     <div v-if="pack.descripcion_breve"
                         class="col-12 mt-2 row g-0 justify-content-between align-items-center">
                         <p class="mb-0 ffs-1" v-html="pack.descripcion_breve"></p>
                     </div>
-                    <!-- <div
-                        class="absolute m-2 p-2 top-0 left-0 text-white bg-primary border border-secondary border-2 rounded-circle">
-                        <i v-if="pack.transporte == 'aereos'" class="fa-solid fa-plane fa-xl"></i>
-                        <i v-if="pack.transporte == 'barco'" class="fa-solid fa-ship fa-xl"></i>
-                        <i v-if="pack.transporte == 'bus'" class="fa-solid fa-bus fa-xl"></i>
-                    </div> -->
                 </div>
                 <div class="">
-                    <!-- <p v-if="pack.cupo" class="text-center mt-2 mb-0">Disponibilidad: {{ pack.cupo }}</p> -->
                     <div class="relative d-flex justify-content-center mt-2">
                         <p class="price mb-0 fs-lg fw-bold text-secondary text-center fs-3">
                             {{ helpers.formatPrice(pack.precio_final, pack.currency) }}
