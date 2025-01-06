@@ -31,7 +31,7 @@ defineProps({
                 </OmgButton>
             </div> -->
             <router-link to="/">
-                <img class="logo" :class="$mq.sm ? 'w-50' : ''" :src="helpers.getImagePath('logo-one-more.png')"
+                <img class="logo rounded-4" :class="$mq.sm ? 'w-50' : ''" :src="helpers.getImagePath('logo_omt.gif')"
                     alt="Logo ONE MORE Travel">
             </router-link>
             <div class="d-flex gap-3">
@@ -81,13 +81,13 @@ defineProps({
     }
 
     .logo {
-        max-height: 60px;
+        max-height: 160px;
     }
 }
 
 @media (max-width: 575px) {
     .logo {
-        max-height: 120px;
+        max-height: 180px;
     }
 
     .fixed {
