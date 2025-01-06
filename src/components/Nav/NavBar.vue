@@ -81,7 +81,7 @@ defineProps({
     }
 
     .logo {
-        max-height: 160px;
+        max-height: 150px;
     }
 }
 
